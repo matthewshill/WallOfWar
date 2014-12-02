@@ -1,0 +1,28 @@
+//
+//  WallOfWar.pch
+//  WallOfWar
+//
+//  Created by Matthew S. Hill on 11/30/14.
+//  Copyright (c) 2014 Matthew S. Hill. All rights reserved.
+//
+
+#ifndef WallOfWar_WallOfWar_pch
+#define WallOfWar_WallOfWar_pch
+#define double stdWidth = 0.4625
+#define double stdHeight = 0.26
+#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+#define CGRect typeTrayFrame = CGRectMake(SCREEN_WIDTH * 0.026, SCREEN_HEIGHT * 0.015, SCREEN_WIDTH * stdWidth, SCREEN_HEIGHT * stdHeight)
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
+
+//
+//  RealRaag.pch
+//  RealRaag
+//
+//  Created by Matthew S. Hill on 7/24/14.
+//  Copyright (c) 2014 Matthew S. Hill. All rights reserved.
+//
