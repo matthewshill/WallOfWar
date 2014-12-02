@@ -16,12 +16,22 @@
 int currIndex = 0;
 bool searchButtonPressed = false;
 NSString *query;
+bool typeExpanded = false;
+bool categoryExpanded = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self setupUI];
+    
     _results = [[NSMutableArray alloc] init];
+    
+    //custom status bar background
+    UIView *statusBarView =  [[UIView alloc] initWithFrame:statusBarViewFrame];
+    statusBarView.backgroundColor  =  statusBarColor;
+    [self.view addSubview:statusBarView];
+    self.view.userInteractionEnabled = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -477,11 +487,13 @@ NSString *query;
     _attackLabel.text = NULL;
     _friendlyResultLabel.text = NULL;
     _civilianResultLabel.text = NULL;
-    _enemyLabel.text = NULL;
+    _enemyResultLabel.text = NULL;
     _currRec.text = NULL;
     _totalRec.text = NULL;
     _timeLabel.text = NULL;
     _properQueryImage.hidden = TRUE;
+    
+    [self resetIconTrayFrame];
 }//clearButtonPressed
 
 -(IBAction)nextButtonPressed:(id)sender{
@@ -501,5 +513,93 @@ NSString *query;
         [self formatResults];
     }//if
 }//prevButtonPressed
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"TOUCHINNNN");
+    CGPoint touch = [[touches anyObject] locationInView:self.view];
+    NSLog(@"touches: %@", touches);
+    if (CGRectContainsPoint(_typeIconTray.frame, touch)) {
+        _typeIconTray.layer.borderColor = selectedRed.CGColor;
+        _typeIconTrayLabel.textColor = selectedRed;
+    }
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"TOUCH ENDED");
+    CGPoint touch = [[touches anyObject] locationInView:self.view];
+    [self resetIconTrayColors];
+    CGRect newFrame;
+    if (CGRectContainsPoint(_typeIconTray.frame, touch)) {
+        newFrame = _typeIconTray.frame;
+        newFrame.size.width += (SCREEN_WIDTH * 0.4875);
+        
+        [UIView animateWithDuration:1.0
+                         animations:^{
+                             _typeIconTray.frame = newFrame;
+                             _attackOnIconTray.hidden = YES;
+                             _regionIconTray.hidden = YES;
+                             typeExpanded = true;
+                         }];
+    }
+    else if (CGRectContainsPoint(_categoryIconTray.frame, touch)){
+        newFrame = _categoryIconTray.frame;
+        newFrame.size.width += (SCREEN_WIDTH * 0.4875);
+        
+        [UIView animateWithDuration:1.0 animations:^{
+            _categoryIconTray.frame = newFrame;
+            _woundedLabel.hidden = YES;
+            _enemyLabel.hidden = YES;
+            _killedLabel.hidden = YES;
+            _civilianLabel.hidden = YES;
+            _friendlyLabel.hidden = YES;
+            _fkiaIconTray.hidden = YES;
+            _fwiaIconTray.hidden = YES;
+            _cwiaIconTray.hidden = YES;
+            _ckiaIconTray.hidden = YES;
+            _ewiaIconTray.hidden = YES;
+            _ekiaIconTray.hidden = YES;
+            categoryExpanded = true;}];
+    }
+}
+
+-(void)resetIconTrayColors{
+    _typeIconTray.layer.borderColor = iconTrayBorderColor;
+    _typeIconTrayLabel.textColor = iconTrayLabelColor;
+}
+
+-(void)resetIconTrayFrame{
+    CGRect newFrame;
+    if(typeExpanded){
+        newFrame = _typeIconTray.frame;
+        newFrame.size.width -= (SCREEN_WIDTH * 0.4875);
+        
+        [UIView animateWithDuration:0.0
+                         animations:^{
+                             _typeIconTray.frame = newFrame;
+                             _attackOnIconTray.hidden = NO;
+                             _regionIconTray.hidden = NO;
+                             typeExpanded = false;
+                         }];
+    }
+    else if (categoryExpanded){
+        newFrame = _categoryIconTray.frame;
+        newFrame.size.width -= (SCREEN_WIDTH * 0.4875);
+        
+        [UIView animateWithDuration:0.0 animations:^{
+            _categoryIconTray.frame = newFrame;
+            _woundedLabel.hidden = NO;
+            _enemyLabel.hidden = NO;
+            _killedLabel.hidden = NO;
+            _civilianLabel.hidden = NO;
+            _friendlyLabel.hidden = NO;
+            _fkiaIconTray.hidden = NO;
+            _fwiaIconTray.hidden = NO;
+            _cwiaIconTray.hidden = NO;
+            _ckiaIconTray.hidden = NO;
+            _ewiaIconTray.hidden = NO;
+            _ekiaIconTray.hidden = NO;
+            categoryExpanded = false;}];
+    }
+}
 
 @end

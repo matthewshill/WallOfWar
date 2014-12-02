@@ -14,6 +14,11 @@
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define iconTrayBorderWidth 1
+#define statusBarViewFrame CGRectMake(0, 0, SCREEN_WIDTH, statusBarHeight)
+#define statusBarColor [UIColor colorWithRed:(56/255.0) green:(91/255.0) blue:(151/255.0) alpha:1.0]
+#define selectedRed [UIColor colorWithRed:(191/255.0) green:(38/255.0) blue:(69/255.0) alpha:1.0]
+
+#define stdFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10.8]
 
 #define iconTrayBorderColor [UIColor colorWithRed:(153/255.0) green:(153/255.0) blue:(153/255.0) alpha:1.0].CGColor
 
@@ -82,7 +87,7 @@
 
 #define enemyTextFrame CGRectMake(SCREEN_WIDTH * 0.6195, (SCREEN_HEIGHT * 0.811) + statusBarHeight, SCREEN_WIDTH * 0.0688, SCREEN_HEIGHT * 0.01818)
 
-#define stdFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10.8]
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #endif

@@ -18,7 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     //UITabBarController
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
     //self.databaseName = @"wallofwar.sqlite3";
     //NSString *toPath = [self getFilePath:@"wallofwar.sqlite3"];
