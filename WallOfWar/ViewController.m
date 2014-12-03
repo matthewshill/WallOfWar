@@ -9,15 +9,18 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
 @end
 
 @implementation ViewController
+
 int currIndex = 0;
 bool searchButtonPressed = false;
 NSString *query;
 bool typeExpanded = false;
 bool categoryExpanded = false;
+bool regionExpanded = false;
+bool typeIconSelected = false;
+NSMutableArray *typeIconArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +28,7 @@ bool categoryExpanded = false;
     [self setupUI];
     
     _results = [[NSMutableArray alloc] init];
-    
+   
     //custom status bar background
     UIView *statusBarView =  [[UIView alloc] initWithFrame:statusBarViewFrame];
     statusBarView.backgroundColor  =  statusBarColor;
@@ -44,17 +47,19 @@ bool categoryExpanded = false;
     [self setUpIconTrays];
     [self setUpButtons];
     [self setUpResultsBox];
-    
 }
+
 -(void)setUpIconTrays{
     _typeIconTray = [[UIView alloc] initWithFrame:typeTrayFrame];
-    _typeIconTray.layer.borderColor = iconTrayBorderColor;
+    //_typeIconTray.layer.borderColor = iconTrayBorderColor;
     _typeIconTray.layer.borderWidth = iconTrayBorderWidth;
+    _typeIconTray.layer.borderColor = selectedRed.CGColor;
     [self.view addSubview:_typeIconTray];
     
     _typeIconTrayLabel = [[UILabel alloc] initWithFrame:iconTrayLabelFrame];
     [_typeIconTrayLabel setFont:stdFont];
-    _typeIconTrayLabel.textColor = iconTrayLabelColor;
+    //_typeIconTrayLabel.textColor = iconTrayLabelColor;
+    _typeIconTrayLabel.textColor = selectedRed;
     [_typeIconTrayLabel setText:@"TYPE"];
     [_typeIconTray addSubview:_typeIconTrayLabel];
     
@@ -124,31 +129,31 @@ bool categoryExpanded = false;
     _woundedLabel = [[UILabel alloc] initWithFrame:woundedLabelFrame];
     [_woundedLabel setFont:stdFont];
     _woundedLabel.textColor = iconTrayLabelColor;
-    [_woundedLabel setText:@"WOUNDED"];
+    [_woundedLabel setText:@"Wounded"];
     [self.view addSubview:_woundedLabel];
     
     _killedLabel = [[UILabel alloc] initWithFrame:killedLabelFrame];
     [_killedLabel setFont:stdFont];
     _killedLabel.textColor = iconTrayLabelColor;
-    [_killedLabel setText:@"KILLED"];
+    [_killedLabel setText:@"Killed"];
     [self.view addSubview:_killedLabel];
     
     _enemyLabel = [[UILabel alloc] initWithFrame:enemyLabelFrame];
     [_enemyLabel setFont:stdFont];
     _enemyLabel.textColor = iconTrayLabelColor;
-    [_enemyLabel setText:@"ENEMY"];
+    [_enemyLabel setText:@"Enemy"];
     [self.view addSubview:_enemyLabel];
     
     _civilianLabel = [[UILabel alloc] initWithFrame:civilianLabelFrame];
     [_civilianLabel setFont:stdFont];
     _civilianLabel.textColor = iconTrayLabelColor;
-    [_civilianLabel setText:@"CIVILIAN"];
+    [_civilianLabel setText:@"Civilian"];
     [self.view addSubview:_civilianLabel];
     
     _friendlyLabel = [[UILabel alloc] initWithFrame:friendlyLabelFrame];
     [_friendlyLabel setFont:stdFont];
     _friendlyLabel.textColor = iconTrayLabelColor;
-    [_friendlyLabel setText:@"FRIENDLY"];
+    [_friendlyLabel setText:@"Friendly"];
     [self.view addSubview:_friendlyLabel];
     
     
@@ -492,8 +497,13 @@ bool categoryExpanded = false;
     _totalRec.text = NULL;
     _timeLabel.text = NULL;
     _properQueryImage.hidden = TRUE;
-    
+    NSLog(@"TypeExpanded Before: %d",typeExpanded);
+    NSLog(@"TypeIconSelected Before: %d", typeIconSelected);
+    typeIconSelected = false;
     [self resetIconTrayFrame];
+    [self resetIconTrayColors];
+    NSLog(@"TypeExpanded After: %d",typeExpanded);
+    NSLog(@"TypeIconSelected After: %d", typeIconSelected);
 }//clearButtonPressed
 
 -(IBAction)nextButtonPressed:(id)sender{
@@ -518,32 +528,51 @@ bool categoryExpanded = false;
     NSLog(@"TOUCHINNNN");
     CGPoint touch = [[touches anyObject] locationInView:self.view];
     NSLog(@"touches: %@", touches);
-    if (CGRectContainsPoint(_typeIconTray.frame, touch)) {
+    /*if (CGRectContainsPoint(_typeIconTray.frame, touch)) {
         _typeIconTray.layer.borderColor = selectedRed.CGColor;
         _typeIconTrayLabel.textColor = selectedRed;
+    }*/
+    if (CGRectContainsPoint(_categoryIconTray.frame, touch)){
+        _categoryIconTray.layer.borderColor = selectedRed.CGColor;
+        _categoryIconTrayLabel.textColor = selectedRed;
+    }
+    if (CGRectContainsPoint(_regionIconTray.frame, touch)) {
+        _regionIconTray.layer.borderColor = selectedRed.CGColor;
+        _regionIconTrayLabel.textColor = selectedRed;
     }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
     NSLog(@"TOUCH ENDED");
     CGPoint touch = [[touches anyObject] locationInView:self.view];
-    [self resetIconTrayColors];
+    //[self resetIconTrayColors];
     CGRect newFrame;
-    if (CGRectContainsPoint(_typeIconTray.frame, touch)) {
-        newFrame = _typeIconTray.frame;
-        newFrame.size.width += (SCREEN_WIDTH * 0.4875);
-        
-        [UIView animateWithDuration:1.0
+    if (CGRectContainsPoint(_typeIconTray.frame, touch) && (!categoryExpanded && !regionExpanded && !typeExpanded && !typeIconSelected)) {
+        [self changeTypeIconTrayColors];
+        [UIView animateWithDuration:0.3
                          animations:^{
-                             _typeIconTray.frame = newFrame;
+                             _typeIconTray.frame = typeExtendedFrame;
                              _attackOnIconTray.hidden = YES;
                              _regionIconTray.hidden = YES;
                              typeExpanded = true;
                          }];
+        [self displayTypeIcons];
+        
     }
-    else if (CGRectContainsPoint(_categoryIconTray.frame, touch)){
+    else if (typeExpanded && !typeIconSelected) {
+        for (int i = 0; i<[typeIconArray count]; i++) {
+            UIImageView *icon = [typeIconArray objectAtIndex:i];
+            if (CGRectContainsPoint(icon.frame, touch)) {
+                [self selectedTypeIcon:icon];
+                [self resetIconTrayFrame];
+            }//if
+        }//for
+    }//if
+    else if (CGRectContainsPoint(_categoryIconTray.frame, touch) && !typeExpanded && !regionExpanded){
         newFrame = _categoryIconTray.frame;
-        newFrame.size.width += (SCREEN_WIDTH * 0.4875);
+        newFrame.origin.y = (SCREEN_HEIGHT * 0.015) + statusBarHeight;
+        newFrame.size.width += (SCREEN_WIDTH * 0.3627);
+        newFrame.size.height += (SCREEN_WIDTH * 0.3627);
         
         [UIView animateWithDuration:1.0 animations:^{
             _categoryIconTray.frame = newFrame;
@@ -558,32 +587,118 @@ bool categoryExpanded = false;
             _ckiaIconTray.hidden = YES;
             _ewiaIconTray.hidden = YES;
             _ekiaIconTray.hidden = YES;
+            _typeIconTray.hidden = YES;
+            _regionIconTray.hidden = YES;
+            _attackOnIconTray.hidden = YES;
             categoryExpanded = true;}];
     }
+    else if (CGRectContainsPoint(_regionIconTray.frame, touch) && !typeExpanded && !categoryExpanded) {
+        newFrame = _regionIconTray.frame;
+        newFrame.origin.y = (SCREEN_HEIGHT * 0.015) + statusBarHeight;
+        newFrame.size.height += (SCREEN_HEIGHT * 0.1375);
+        
+        [UIView animateWithDuration:1.0
+                         animations:^{
+                             _regionIconTray.frame = newFrame;
+                             _attackOnIconTray.hidden = YES;
+                             regionExpanded = true;
+                         }];
+    }
+    
 }
 
+-(void)displayTypeIcons{
+    typeIconArray = [[NSMutableArray alloc] init];
+    UIImageView *icon;
+    for (int i = 0; i<15; i++) {
+        if (i<8) {
+            CGRect iconFrame = CGRectMake(((SCREEN_WIDTH * 0.1658) + ((0.0862 * SCREEN_WIDTH) *i)), (SCREEN_HEIGHT* 0.06) + statusBarHeight, SCREEN_WIDTH * 0.0672, SCREEN_HEIGHT * 0.0504);
+            
+            icon = [[UIImageView alloc] initWithFrame:iconFrame];
+            [typeIconArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"type_%d.png", i + 1]]];
+            [icon setImage:[typeIconArray objectAtIndex:i]];
+            [self.view addSubview:icon];
+            icon.hidden = NO;
+            icon.alpha = 0.0;
+            [UIView animateWithDuration:0.3 delay:0.3 + (0.1 * i) options:UIViewAnimationOptionCurveEaseIn animations:^{
+                icon.alpha = 1.0;
+            } completion:^(BOOL finished) {
+            }];
+            icon.userInteractionEnabled = YES;
+            [typeIconArray replaceObjectAtIndex:i withObject:icon];
+        }
+        else{
+            int j = i - 8;
+            CGRect iconFrame = CGRectMake(((SCREEN_WIDTH * 0.1658) + ((0.0862 * SCREEN_WIDTH) *j)), (SCREEN_HEIGHT* 0.06) + (SCREEN_HEIGHT * 0.065) + statusBarHeight, SCREEN_WIDTH * 0.0672, SCREEN_HEIGHT * 0.0504);
+             icon = [[UIImageView alloc] initWithFrame:iconFrame];
+             [typeIconArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"type_%d.png", i + 1]]];
+             [icon setImage:[typeIconArray objectAtIndex:i]];
+             [self.view addSubview:icon];
+             icon.hidden = NO;
+             icon.alpha = 0.0;
+             [UIView animateWithDuration:0.3 delay:0.3 + (0.1 * i) options:UIViewAnimationOptionCurveEaseIn animations:^{
+             icon.alpha = 1.0;
+             } completion:^(BOOL finished) {
+             }];
+            icon.userInteractionEnabled = YES;
+             [typeIconArray replaceObjectAtIndex:i withObject:icon];
+        }//else
+        
+    }//for
+}
+-(void)selectedTypeIcon:(UIImageView *)icon{
+    //set selected icon within type icon tray frame
+    CGRect typeFrame = CGRectMake(SCREEN_WIDTH * 0.2268, SCREEN_HEIGHT * 0.075 + statusBarHeight, SCREEN_WIDTH * 0.18375, SCREEN_HEIGHT * 0.14);
+    UIImageView *selectedIcon = icon;
+    selectedIcon.frame = typeFrame;
+    //selectedIcon.hidden = NO;
+    [self.view addSubview:selectedIcon];
+    [self changeCatIconTrayColors];
+    typeIconSelected = TRUE;
+}
 -(void)resetIconTrayColors{
+    _typeIconTray.layer.borderColor = selectedRed.CGColor;
+    _typeIconTrayLabel.textColor = selectedRed;
+    _categoryIconTray.layer.borderColor = iconTrayBorderColor;
+    _categoryIconTrayLabel.textColor = iconTrayLabelColor;
+    _regionIconTray.layer.borderColor = iconTrayBorderColor;
+    _regionIconTrayLabel.textColor = iconTrayLabelColor;
+}
+-(void)changeTypeIconTrayColors{
     _typeIconTray.layer.borderColor = iconTrayBorderColor;
     _typeIconTrayLabel.textColor = iconTrayLabelColor;
 }
-
+-(void)changeCatIconTrayColors{
+    _categoryIconTray.layer.borderColor = selectedRed.CGColor;
+    _categoryIconTrayLabel.textColor = selectedRed;
+}
 -(void)resetIconTrayFrame{
     CGRect newFrame;
     if(typeExpanded){
-        newFrame = _typeIconTray.frame;
-        newFrame.size.width -= (SCREEN_WIDTH * 0.4875);
+        //newFrame = _typeIconTray.frame;
+        //newFrame.size.width -= (SCREEN_WIDTH * 0.3627);
         
         [UIView animateWithDuration:0.0
                          animations:^{
-                             _typeIconTray.frame = newFrame;
+                             _typeIconTray.frame = typeTrayFrame;
                              _attackOnIconTray.hidden = NO;
                              _regionIconTray.hidden = NO;
                              typeExpanded = false;
+                             //typeIconSelected = false;
                          }];
+        
+        for (int i = 0; i<[typeIconArray count]; i++) {
+            UIImageView *icon = [typeIconArray objectAtIndex:i];
+            icon.alpha = 0.0;
+            [typeIconArray replaceObjectAtIndex:i withObject:icon];
+        }
+
     }
-    else if (categoryExpanded){
+    if (categoryExpanded){
         newFrame = _categoryIconTray.frame;
-        newFrame.size.width -= (SCREEN_WIDTH * 0.4875);
+        newFrame.origin.y = (SCREEN_HEIGHT * 0.29) +statusBarHeight;
+        newFrame.size.width -= (SCREEN_WIDTH * 0.3627);
+        newFrame.size.height -= (SCREEN_WIDTH * 0.3627);
         
         [UIView animateWithDuration:0.0 animations:^{
             _categoryIconTray.frame = newFrame;
@@ -597,9 +712,25 @@ bool categoryExpanded = false;
             _cwiaIconTray.hidden = NO;
             _ckiaIconTray.hidden = NO;
             _ewiaIconTray.hidden = NO;
+            _typeIconTray.hidden = NO;
+            _regionIconTray.hidden = NO;
+            _attackOnIconTray.hidden = NO;
             _ekiaIconTray.hidden = NO;
             categoryExpanded = false;}];
     }
+    if (regionExpanded) {
+        newFrame = _regionIconTray.frame;
+        newFrame.origin.y = (SCREEN_HEIGHT * 0.1525) + statusBarHeight;
+        newFrame.size.height -= (SCREEN_HEIGHT * 0.1375);
+        
+        [UIView animateWithDuration:0.0
+                         animations:^{
+                             _regionIconTray.frame = newFrame;
+                             _attackOnIconTray.hidden = NO;
+                             regionExpanded = false;
+                         }];
+    }
+    
 }
 
 @end

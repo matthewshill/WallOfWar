@@ -35,6 +35,7 @@
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) UIImageView *resultImage;
 @property (strong, nonatomic) UIImageView *properQueryImage;
+@property (strong, nonatomic) UIImageView *typeIcon;
 
 @property (strong, nonatomic) UIView *typeIconTray;
 @property (strong, nonatomic) UIView *categoryIconTray;
