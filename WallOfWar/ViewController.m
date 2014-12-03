@@ -21,6 +21,7 @@ bool categoryExpanded = false;
 bool regionExpanded = false;
 bool typeIconSelected = false;
 NSMutableArray *typeIconArray;
+UIImageView *selectedIcon;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -504,6 +505,8 @@ NSMutableArray *typeIconArray;
     [self resetIconTrayColors];
     NSLog(@"TypeExpanded After: %d",typeExpanded);
     NSLog(@"TypeIconSelected After: %d", typeIconSelected);
+    selectedIcon.hidden = YES;
+    
 }//clearButtonPressed
 
 -(IBAction)nextButtonPressed:(id)sender{
@@ -560,10 +563,13 @@ NSMutableArray *typeIconArray;
         
     }
     else if (typeExpanded && !typeIconSelected) {
+        NSLog(@"in else if");
         for (int i = 0; i<[typeIconArray count]; i++) {
+            NSLog(@"in for loop");
             UIImageView *icon = [typeIconArray objectAtIndex:i];
             if (CGRectContainsPoint(icon.frame, touch)) {
-                [self selectedTypeIcon:icon];
+                NSLog(@"match!");
+                [self selectedTypeIcon:i];
                 [self resetIconTrayFrame];
             }//if
         }//for
@@ -646,12 +652,11 @@ NSMutableArray *typeIconArray;
         
     }//for
 }
--(void)selectedTypeIcon:(UIImageView *)icon{
+-(void)selectedTypeIcon:(int)i{
     //set selected icon within type icon tray frame
     CGRect typeFrame = CGRectMake(SCREEN_WIDTH * 0.2268, SCREEN_HEIGHT * 0.075 + statusBarHeight, SCREEN_WIDTH * 0.18375, SCREEN_HEIGHT * 0.14);
-    UIImageView *selectedIcon = icon;
-    selectedIcon.frame = typeFrame;
-    //selectedIcon.hidden = NO;
+    selectedIcon = [[UIImageView alloc] initWithFrame:typeFrame];
+    [selectedIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"type_%d.png", i+1]]];
     [self.view addSubview:selectedIcon];
     [self changeCatIconTrayColors];
     typeIconSelected = TRUE;
