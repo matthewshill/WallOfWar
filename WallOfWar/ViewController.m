@@ -386,19 +386,18 @@ UIImageView *selectedCatIcon;
         if (sqlite3_prepare_v2(db, [query UTF8String], -1, &statement, NULL) == SQLITE_OK) {
                 NSLog(@"in while..");
             while (sqlite3_step(statement) == SQLITE_ROW) {
-                NSString *date = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
-                NSString *type = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
-                NSString *category = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
-                NSString *region = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 3)];
-                NSString *attackon = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 4)];
-                NSString *friendlywia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)];
-                NSString *friendlykia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 6)];
-                NSString *civilianwia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 7)];
-                NSString *civiliankia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 8)];
-                NSString *enemywia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 9)];
-                NSString *enemykia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 10)];
-
+                
+                NSString *type = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
+                NSString *category = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
+                NSString *region = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
+                NSString *attackon = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 3)];
+                //check for duplicates
+                if (![categoryIconArray containsObject:category]) {
+                    [categoryIconArray addObject:category];
+                }
+                
             }//while
+            
         }//if
         /*if ([self isValidQuery]) {
             query = [NSString stringWithFormat:@"SELECT * FROM wow WHERE type = \"%@\" AND category = \"%@\" AND region = \"%@\" AND attackon =\"%@\"", _typeTextField.text,_categoryTextField.text, _regionTextField.text,_attackTextField.text];
@@ -695,16 +694,29 @@ UIImageView *selectedCatIcon;
     categoryIconArray = [[NSMutableArray alloc]init];
     UIImageView *icon;
     NSString *unfilteredType = [typeIconIndex objectAtIndex:selectedTypeIcon.tag];
-    NSArray *filteredType = [unfilteredType componentsSeparatedByString:@"_"];
-    NSString *type = [filteredType componentsJoinedByString:@" "];
-    query = [NSString stringWithFormat:@"SELECT * FROM wow WHERE type = \"%@\"", type];
+    //NSArray *filteredType = [unfilteredType componentsSeparatedByString:@"_"];
+    //NSString *type = [filteredType componentsJoinedByString:@""];
+    query = [NSString stringWithFormat:@"SELECT * FROM wowIndex WHERE type = \"%@\"", unfilteredType];
     [self performQuery];
-    /*for (int row = 0; row<8; row++) {
-        for (int i = 0; i<8; i++) {
+    
+    int j = 0;
+    int length = [categoryIconArray count];
+    if (length > 8) {
+        j = floor(length/8);
+    }
+    int bound2 = length - (8 * j);
+    int row = 0;
+    while (row <j+1) {
+        for (int i = 0; i<length; i++) {
+            if (i>0 && i%8==0) {
+                row++;
+            }
             CGFloat x = ((i * (SCREEN_WIDTH * 0.0862)) + (SCREEN_WIDTH * 0.1658));
             CGRect frame = CGRectMake(x, ((SCREEN_HEIGHT* 0.06) * (row + 1)) + statusBarHeight,SCREEN_WIDTH * 0.0672,SCREEN_HEIGHT * 0.0504);
             icon = [[UIImageView alloc]initWithFrame:frame];
-            [icon setImage:[UIImage imageNamed:[categoryIconArray objectAtIndex:(i  + (8 * row))]]];
+            NSString *fileName = [categoryIconArray objectAtIndex:(i)];
+            UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", fileName]];
+            [icon setImage:img];
             [self.view addSubview:icon];
             icon.alpha = 0.0;
             [UIView animateWithDuration:0.3 delay:0.3 + (0.1 * (i  + (8 * row))) options:UIViewAnimationOptionCurveEaseIn animations:^{
@@ -713,7 +725,7 @@ UIImageView *selectedCatIcon;
             }];
             icon.userInteractionEnabled = YES;
         }
-    }*/
+    }
 }
 -(void)selectedTypeIcon:(int)i{
     //set selected icon within type icon tray frame

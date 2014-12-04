@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C022F5D1A30EAC2009AC09A /* wallofwar.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5C022F5C1A30EAC2009AC09A /* wallofwar.sqlite */; };
 		5C6B9BF21A1BDCD00084D76F /* properQuery.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6B9BF11A1BDCD00084D76F /* properQuery.png */; };
 		5C784F6219FFEFD600F87E7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C784F6119FFEFD600F87E7E /* main.m */; };
 		5C784F6519FFEFD600F87E7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C784F6419FFEFD600F87E7E /* AppDelegate.m */; };
@@ -219,7 +220,6 @@
 		5CF4392C1A30305D00664EDB /* White_Blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF438781A30305D00664EDB /* White_Blue.png */; };
 		5CF4392D1A30305D00664EDB /* White_Green.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF438791A30305D00664EDB /* White_Green.png */; };
 		5CF4392E1A30305D00664EDB /* White_White.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF4387A1A30305D00664EDB /* White_White.png */; };
-		5CF6C4CE1A0AE0D000D608EF /* wallofwar.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5CF6C4CD1A0AE0D000D608EF /* wallofwar.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +233,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C022F5C1A30EAC2009AC09A /* wallofwar.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = wallofwar.sqlite; sourceTree = "<group>"; };
 		5C050C141A2C1D6C00861734 /* WallOfWar-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WallOfWar-Prefix.pch"; sourceTree = "<group>"; };
 		5C6B9BF11A1BDCD00084D76F /* properQuery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = properQuery.png; sourceTree = "<group>"; };
 		5C784F5C19FFEFD600F87E7E /* WallOfWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallOfWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -452,7 +453,6 @@
 		5CF438781A30305D00664EDB /* White_Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = White_Blue.png; sourceTree = "<group>"; };
 		5CF438791A30305D00664EDB /* White_Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = White_Green.png; sourceTree = "<group>"; };
 		5CF4387A1A30305D00664EDB /* White_White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = White_White.png; sourceTree = "<group>"; };
-		5CF6C4CD1A0AE0D000D608EF /* wallofwar.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = wallofwar.sqlite; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -522,9 +522,9 @@
 				5CA30BB31A1B05A400DA75B6 /* TextBox2.png */,
 				5CA30BB01A1AE73600DA75B6 /* TradeGothicLT-CondEighteen.otf */,
 				5CA30BAE1A1AE2F600DA75B6 /* TextBox.png */,
-				5CF6C4CD1A0AE0D000D608EF /* wallofwar.sqlite */,
 				5C784F6019FFEFD600F87E7E /* Info.plist */,
 				5C784F6119FFEFD600F87E7E /* main.m */,
+				5C022F5C1A30EAC2009AC09A /* wallofwar.sqlite */,
 				5C050C141A2C1D6C00861734 /* WallOfWar-Prefix.pch */,
 				5CF437451A30087B00664EDB /* TypeIcons.plist */,
 			);
@@ -842,7 +842,6 @@
 				5CF438BF1A30305D00664EDB /* Hard_Landing.png in Resources */,
 				5CF438FA1A30305D00664EDB /* Raid.png in Resources */,
 				5CF4391E1A30305D00664EDB /* Theft_Threat.png in Resources */,
-				5CF6C4CE1A0AE0D000D608EF /* wallofwar.sqlite in Resources */,
 				5CF438A71A30305D00664EDB /* Detainee_Release.png in Resources */,
 				5CF438EC1A30305D00664EDB /* Patrol.png in Resources */,
 				5CF4391F1A30305D00664EDB /* Theft.png in Resources */,
@@ -948,6 +947,7 @@
 				5CF438FE1A30305D00664EDB /* Recruitment_Willing.png in Resources */,
 				5CF438F51A30305D00664EDB /* Psyop_Tv_Radio.png in Resources */,
 				5CF438D71A30305D00664EDB /* Medcap.png in Resources */,
+				5C022F5D1A30EAC2009AC09A /* wallofwar.sqlite in Resources */,
 				5CF439041A30305D00664EDB /* Rock_Throwing.png in Resources */,
 				5CF438C31A30305D00664EDB /* Ied_Ambush.png in Resources */,
 				5CF438DF1A30305D00664EDB /* Mine_Found_Cleared.png in Resources */,
