@@ -20,11 +20,23 @@ bool typeExpanded = false;
 bool categoryExpanded = false;
 bool regionExpanded = false;
 bool typeIconSelected = false;
+bool catIconSelected = false;
+bool attackIconSelcted = false;
+bool regionIconSelected = false;
+NSString *attackOn;
+NSMutableArray *categoryNames;
+NSMutableArray *regionNames;
 NSMutableDictionary *typeIconDictionary;
 NSMutableArray *typeIconIndex;
 NSMutableArray *categoryIconArray;
+NSMutableArray *regionIconArray;
 UIImageView *selectedTypeIcon;
 UIImageView *selectedCatIcon;
+UIImageView *selectedAttackIcon;
+UIImageView *selectedRegionIcon;
+NSString *selectedType;
+NSString *selectedCategory;
+NSString *selectedRegion;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -281,7 +293,7 @@ UIImageView *selectedCatIcon;
     [self.view addSubview:_enemyResultLabel];
 }
 
--(void)setUpTextFields{
+/*-(void)setUpTextFields{
     _typeTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 55, 150, 40)];
     _typeTextField.backgroundColor = [UIColor blackColor];
     _typeTextField.textColor = [UIColor whiteColor];
@@ -371,7 +383,7 @@ UIImageView *selectedCatIcon;
     _friendlykiaTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     [self.view addSubview:_friendlykiaTextField];
     _friendlykiaTextField.delegate = self;
-}
+}*/
 
 -(void) performQuery {
     NSString *databasePath = [[NSBundle mainBundle] pathForResource:@"wallofwar" ofType:@"sqlite"];
@@ -392,8 +404,17 @@ UIImageView *selectedCatIcon;
                 NSString *region = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
                 NSString *attackon = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 3)];
                 //check for duplicates
-                if (![categoryIconArray containsObject:category]) {
+                //assign attackOn
+                //NOTE: it's overwritten because there should only ever be one result
+                attackOn = attackon;
+                
+                if (![categoryIconArray containsObject:category] && !catIconSelected) {
                     [categoryIconArray addObject:category];
+                    [categoryNames addObject:category];
+                }
+                if (![regionIconArray containsObject:region] && (!regionIconSelected && catIconSelected)) {
+                    [regionIconArray addObject:region];
+                    [regionNames addObject:region];
                 }
                 
             }//while
@@ -433,7 +454,7 @@ UIImageView *selectedCatIcon;
     }//if
 }//performQuery
 
--(BOOL)isValidQuery{
+/*-(BOOL)isValidQuery{
     if (([_categoryTextField.text length] > 0) && ([_typeTextField.text length] > 0) && ([_regionTextField.text length] > 0) && ([_attackTextField.text length] > 0)) {
         return TRUE;
     }//if
@@ -495,7 +516,7 @@ UIImageView *selectedCatIcon;
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
-}//textFieldShould
+}//textFieldShould*/
 
 -(IBAction)searchButtonPressed:(id)sender{
     if (!searchButtonPressed) {
@@ -532,20 +553,28 @@ UIImageView *selectedCatIcon;
     NSLog(@"TypeExpanded Before: %d",typeExpanded);
     NSLog(@"TypeIconSelected Before: %d", typeIconSelected);
     typeIconSelected = false;
+    catIconSelected = false;
+    attackIconSelcted = false;
+    regionIconSelected = false;
     [self resetIconTrayFrame];
     [self resetIconTrayColors];
     NSLog(@"TypeExpanded After: %d",typeExpanded);
     NSLog(@"TypeIconSelected After: %d", typeIconSelected);
     selectedTypeIcon.hidden = YES;
     selectedCatIcon.hidden = YES;
+    selectedAttackIcon.hidden = YES;
+    selectedRegionIcon.hidden = YES;
     [self setUpTypeIconArray];
+    typeExpanded = false;
+    categoryExpanded = false;
+    regionExpanded = false;
     
     
 }//clearButtonPressed
 
 -(IBAction)nextButtonPressed:(id)sender{
     if (currIndex < [_results count]){
-        [self formatResults];
+        //[self formatResults];
         [_currRec setText:[NSString stringWithFormat:@"%i", currIndex + 1 ]];
         if (currIndex != [_results count] -1) {
             currIndex = currIndex + 1;
@@ -557,26 +586,11 @@ UIImageView *selectedCatIcon;
     if (currIndex > 0) {
         [_currRec setText:[NSString stringWithFormat:@"%i", currIndex]];
         currIndex = currIndex - 1;
-        [self formatResults];
+        //[self formatResults];
     }//if
 }//prevButtonPressed
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-    NSLog(@"TOUCHINNNN");
-    CGPoint touch = [[touches anyObject] locationInView:self.view];
-    NSLog(@"touches: %@", touches);
-    /*if (CGRectContainsPoint(_typeIconTray.frame, touch)) {
-        _typeIconTray.layer.borderColor = selectedRed.CGColor;
-        _typeIconTrayLabel.textColor = selectedRed;
-    }*/
-    if (CGRectContainsPoint(_categoryIconTray.frame, touch)){
-        _categoryIconTray.layer.borderColor = selectedRed.CGColor;
-        _categoryIconTrayLabel.textColor = selectedRed;
-    }
-    if (CGRectContainsPoint(_regionIconTray.frame, touch)) {
-        _regionIconTray.layer.borderColor = selectedRed.CGColor;
-        _regionIconTrayLabel.textColor = selectedRed;
-    }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -603,15 +617,21 @@ UIImageView *selectedCatIcon;
             UIImageView *icon = [typeIconDictionary objectForKey:[typeIconIndex objectAtIndex:i]];
             if (CGRectContainsPoint(icon.frame, touch)) {
                 NSLog(@"match!");
-                [self selectedTypeIcon:i];
+                [self selectedIcon:i];
                 [self resetIconTrayFrame];
             }//if
         }//for
     }//if
-    /*else if (categoryExpanded && !selectedCatIcon){
-        [dis]
-    }*/
-    else if (CGRectContainsPoint(_categoryIconTray.frame, touch) && !typeExpanded && !regionExpanded){
+    else if (categoryExpanded && !catIconSelected){
+        for (int i = 0; i<[categoryIconArray count]; i++) {
+            UIImageView *icon = [categoryIconArray objectAtIndex:i];
+            if (CGRectContainsPoint(icon.frame, touch)) {
+                [self selectedIcon:i];
+                [self resetIconTrayFrame];
+            }
+        }
+    }
+    else if (CGRectContainsPoint(_categoryIconTray.frame, touch) && (!catIconSelected && !categoryExpanded && !typeExpanded && !regionExpanded && typeIconSelected)){
         newFrame = _categoryIconTray.frame;
         newFrame.origin.y = (SCREEN_HEIGHT * 0.015) + statusBarHeight;
         newFrame.size.width += (SCREEN_WIDTH * 0.3627);
@@ -637,17 +657,28 @@ UIImageView *selectedCatIcon;
             selectedTypeIcon.hidden = YES;}];
         [self displayCategoryIcons];
     }
-    else if (CGRectContainsPoint(_regionIconTray.frame, touch) && !typeExpanded && !categoryExpanded) {
+    else if (CGRectContainsPoint(_regionIconTray.frame, touch) && (!regionExpanded && !regionIconSelected && !typeExpanded && !categoryExpanded && attackIconSelcted)) {
         newFrame = _regionIconTray.frame;
         newFrame.origin.y = (SCREEN_HEIGHT * 0.015) + statusBarHeight;
         newFrame.size.height += (SCREEN_HEIGHT * 0.1375);
         
-        [UIView animateWithDuration:1.0
+        [UIView animateWithDuration:0.3
                          animations:^{
                              _regionIconTray.frame = newFrame;
                              _attackOnIconTray.hidden = YES;
+                             selectedAttackIcon.hidden = YES;
                              regionExpanded = true;
                          }];
+        [self displayRegionIcons];
+    }
+    else if (regionExpanded && !regionIconSelected){
+        for (int i = 0; i<[regionIconArray count]; i++) {
+            UIImageView *icon = [regionIconArray objectAtIndex:i];
+            if (CGRectContainsPoint(icon.frame, touch)) {
+                [self selectedIcon:i];
+                [self resetIconTrayFrame];
+            }
+        }
     }
     
 }
@@ -692,8 +723,10 @@ UIImageView *selectedCatIcon;
 }
 -(void)displayCategoryIcons{
     categoryIconArray = [[NSMutableArray alloc]init];
+    categoryNames = [[NSMutableArray alloc] init];
     UIImageView *icon;
     NSString *unfilteredType = [typeIconIndex objectAtIndex:selectedTypeIcon.tag];
+    selectedType = [typeIconIndex objectAtIndex:selectedTypeIcon.tag];
     //NSArray *filteredType = [unfilteredType componentsSeparatedByString:@"_"];
     //NSString *type = [filteredType componentsJoinedByString:@""];
     query = [NSString stringWithFormat:@"SELECT * FROM wowIndex WHERE type = \"%@\"", unfilteredType];
@@ -704,14 +737,14 @@ UIImageView *selectedCatIcon;
     if (length > 8) {
         j = floor(length/8);
     }
-    int bound2 = length - (8 * j);
+    //int bound2 = length - (8 * j);
     int row = 0;
     while (row <j+1) {
         for (int i = 0; i<length; i++) {
             if (i>0 && i%8==0) {
                 row++;
             }
-            CGFloat x = ((i * (SCREEN_WIDTH * 0.0862)) + (SCREEN_WIDTH * 0.1658));
+            CGFloat x = (((i -(8*row)) * (SCREEN_WIDTH * 0.0862)) + (SCREEN_WIDTH * 0.1658));
             CGRect frame = CGRectMake(x, ((SCREEN_HEIGHT* 0.06) * (row + 1)) + statusBarHeight,SCREEN_WIDTH * 0.0672,SCREEN_HEIGHT * 0.0504);
             icon = [[UIImageView alloc]initWithFrame:frame];
             NSString *fileName = [categoryIconArray objectAtIndex:(i)];
@@ -719,26 +752,94 @@ UIImageView *selectedCatIcon;
             [icon setImage:img];
             [self.view addSubview:icon];
             icon.alpha = 0.0;
-            [UIView animateWithDuration:0.3 delay:0.3 + (0.1 * (i  + (8 * row))) options:UIViewAnimationOptionCurveEaseIn animations:^{
+            [UIView animateWithDuration:0.3 delay:0.3 + (0.1 * (i  + (2 * row))) options:UIViewAnimationOptionCurveEaseIn animations:^{
             icon.alpha = 1.0; }
             completion:^(BOOL finished) {
             }];
             icon.userInteractionEnabled = YES;
+            [categoryIconArray replaceObjectAtIndex:i withObject:icon];
         }
+        break;
     }
 }
--(void)selectedTypeIcon:(int)i{
-    //set selected icon within type icon tray frame
-    CGRect typeFrame = CGRectMake(SCREEN_WIDTH * 0.2268, SCREEN_HEIGHT * 0.075 + statusBarHeight, SCREEN_WIDTH * 0.18375, SCREEN_HEIGHT * 0.14);
-    selectedTypeIcon = [[UIImageView alloc] initWithFrame:typeFrame];
-    [typeIconIndex objectAtIndex:i];
-    [selectedTypeIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [typeIconIndex objectAtIndex:i]]]];
-    selectedTypeIcon.tag = i;
-    [self.view addSubview:selectedTypeIcon];
-    //[self.view addSubview:img];
-    [self changeCatIconTrayColors];
-    typeIconSelected = TRUE;
-    
+-(void)displayRegionIcons{
+    regionIconArray = [[NSMutableArray alloc] init];
+    UIImageView *icon;
+    regionNames = [[NSMutableArray alloc] init];
+    query = [NSString stringWithFormat:@"%@ AND category =\"%@\"", query, selectedCategory];
+    [self performQuery];
+    int length = [regionIconArray count];
+    int j = 0;
+    if (length > 3) {
+        j = floor(length/3);
+    }
+    int row = 0;
+    while (row < j+1) {
+        for (int i = 0; i<length; i++) {
+            if (i>0 && i%3==0) {
+                row++;
+            }
+            CGFloat x = (((i -(3*row)) * (SCREEN_WIDTH * 0.115)) + (SCREEN_WIDTH * 0.5136));
+            CGRect frame = CGRectMake(x, ((SCREEN_HEIGHT* 0.04215) * (row + 1)) + statusBarHeight + (SCREEN_HEIGHT * 0.015), SCREEN_WIDTH * 0.1, SCREEN_HEIGHT * 0.0355);
+            icon = [[UIImageView alloc]initWithFrame:frame];
+            NSString *filename = [NSString stringWithFormat:@"%@.png", [regionIconArray objectAtIndex:i]];
+            UIImage *img = [UIImage imageNamed:filename];
+            [icon setImage:img];
+            icon.alpha = 0.0;
+            [self.view addSubview:icon];
+            [UIView animateWithDuration:0.3 delay:0.3 + (0.1 * (i  + (2 * row))) options:UIViewAnimationOptionCurveEaseIn animations:^{
+                icon.alpha = 1.0; }
+                completion:^(BOOL finished) {
+                             }];
+            
+            icon.userInteractionEnabled = YES;
+            [regionIconArray replaceObjectAtIndex:i withObject:icon];
+        }//for
+        break;
+    }
+}
+-(void)selectedIcon:(int)i{
+    if (typeExpanded) {
+        //set selected icon within type icon tray frame
+        CGRect typeFrame = CGRectMake(SCREEN_WIDTH * 0.2268, SCREEN_HEIGHT * 0.075 + statusBarHeight, SCREEN_WIDTH * 0.18375, SCREEN_HEIGHT * 0.14);
+        selectedTypeIcon = [[UIImageView alloc] initWithFrame:typeFrame];
+        //UIImageView *img = [typeIconIndex objectAtIndex:i];
+        [selectedTypeIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [typeIconIndex objectAtIndex:i]]]];
+        selectedTypeIcon.tag = i;
+        [self.view addSubview:selectedTypeIcon];
+        //[self.view addSubview:img];
+        [self changeCatIconTrayColors];
+        typeIconSelected = TRUE;
+    }
+    else if (categoryExpanded) {
+        //set selected icon within type icon tray frame
+        CGRect typeFrame = CGRectMake(SCREEN_WIDTH * 0.2268, SCREEN_HEIGHT * 0.3676 + statusBarHeight, SCREEN_WIDTH * 0.18375, SCREEN_HEIGHT * 0.14);
+        selectedCatIcon = [[UIImageView alloc] initWithFrame:typeFrame];
+        UIImageView *img = [categoryIconArray objectAtIndex:i];
+        selectedCategory = [categoryNames objectAtIndex:i];
+        [selectedCatIcon setImage:img.image];
+        [self.view addSubview:selectedCatIcon];
+        //[self.view addSubview:img];
+        [self changeRegionIconTrayColors];
+        catIconSelected = TRUE;
+    }
+    else{
+        CGRect frame = CGRectMake(SCREEN_WIDTH * 0.5572, SCREEN_HEIGHT * 0.216 + statusBarHeight, SCREEN_WIDTH * 0.18375, SCREEN_HEIGHT * 0.0657);
+        selectedRegionIcon = [[UIImageView alloc] initWithFrame:frame];
+        UIImageView *img = [regionIconArray objectAtIndex:i];
+        selectedRegion = [regionNames objectAtIndex:i];
+        [selectedRegionIcon setImage:img.image];
+        [self.view addSubview:selectedRegionIcon];
+        regionIconSelected = true;
+        selectedAttackIcon.hidden = NO;
+    }
+}
+-(void)setAttackIcon{
+    CGRect frame = CGRectMake(SCREEN_WIDTH * 0.5572, SCREEN_HEIGHT * 0.0768 + statusBarHeight, SCREEN_WIDTH * 0.18375, SCREEN_HEIGHT * 0.0657);
+    selectedAttackIcon = [[UIImageView alloc] initWithFrame:frame];
+    [selectedAttackIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"Attack_%@.png", attackOn]]];
+    [self.view addSubview:selectedAttackIcon];
+    attackIconSelcted = TRUE;
 }
 -(void)resetIconTrayColors{
     _typeIconTray.layer.borderColor = selectedRed.CGColor;
@@ -755,6 +856,10 @@ UIImageView *selectedCatIcon;
 -(void)changeCatIconTrayColors{
     _categoryIconTray.layer.borderColor = selectedRed.CGColor;
     _categoryIconTrayLabel.textColor = selectedRed;
+}
+-(void)changeRegionIconTrayColors{
+    _regionIconTray.layer.borderColor = selectedRed.CGColor;
+    _regionIconTrayLabel.textColor = selectedRed;
 }
 -(void)resetIconTrayFrame{
     CGRect newFrame;
@@ -801,7 +906,20 @@ UIImageView *selectedCatIcon;
             _regionIconTray.hidden = NO;
             _attackOnIconTray.hidden = NO;
             _ekiaIconTray.hidden = NO;
-            categoryExpanded = false;}];
+            selectedTypeIcon.hidden = NO;
+            categoryExpanded = false;
+            _categoryIconTray.layer.borderColor = iconTrayBorderColor;
+            _categoryIconTrayLabel.textColor = iconTrayLabelColor;
+        }];
+        
+        for (int i = 0; i<[categoryIconArray count]; i++) {
+            UIImageView *icon = [categoryIconArray objectAtIndex:i];
+            icon.alpha = 0.0;
+            icon.userInteractionEnabled = NO;
+            [categoryIconArray replaceObjectAtIndex:i withObject:icon];
+        }
+        
+        [self setAttackIcon];
     }
     if (regionExpanded) {
         newFrame = _regionIconTray.frame;
@@ -814,6 +932,12 @@ UIImageView *selectedCatIcon;
                              _attackOnIconTray.hidden = NO;
                              regionExpanded = false;
                          }];
+        for (int i = 0; i<[regionIconArray count]; i++) {
+            UIImageView *icon = [regionIconArray objectAtIndex:i];
+            icon.alpha = 0.0;
+            icon.userInteractionEnabled = NO;
+            [regionIconArray replaceObjectAtIndex:i withObject:icon];
+        }
     }
     
 }
