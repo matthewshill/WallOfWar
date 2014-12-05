@@ -23,6 +23,15 @@ bool typeIconSelected = false;
 bool catIconSelected = false;
 bool attackIconSelcted = false;
 bool regionIconSelected = false;
+bool wokViewSelected = false;
+bool ekiaExpanded = false;
+bool ewiaExpanded = false;
+bool ckiaExpanded = false;
+bool cwiaExpanded = false;
+bool fwiaExpanded = false;
+bool fkiaExpanded = false;
+bool wOkQuery = false;
+bool wOkEnabled = false;
 NSString *attackOn;
 NSMutableArray *categoryNames;
 NSMutableArray *regionNames;
@@ -30,13 +39,27 @@ NSMutableDictionary *typeIconDictionary;
 NSMutableArray *typeIconIndex;
 NSMutableArray *categoryIconArray;
 NSMutableArray *regionIconArray;
+NSMutableArray *currWokArray;
 UIImageView *selectedTypeIcon;
 UIImageView *selectedCatIcon;
 UIImageView *selectedAttackIcon;
 UIImageView *selectedRegionIcon;
+UIImageView *selectedFwiaIcon;
+UIImageView *selectedFkiaIcon;
+UIImageView *selectedCwiaIcon;
+UIImageView *selectedCkiaIcon;
+UIImageView *selectedEwiaIcon;
+UIImageView *selectedEkiaIcon;
+UIView *currWokView;
 NSString *selectedType;
 NSString *selectedCategory;
 NSString *selectedRegion;
+NSString *selectedFwia;
+NSString *selectedFkia;
+NSString *selectedCwia;
+NSString *selectedCkia;
+NSString *selectedEwia;
+NSString *selectedEkia;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -395,31 +418,78 @@ NSString *selectedRegion;
     
     if (sqlite3_open([databasePath UTF8String], &db) == SQLITE_OK) {
         NSLog(@"SUCCESSS");
-        if (sqlite3_prepare_v2(db, [query UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+        if (!searchButtonPressed) {
+            if (sqlite3_prepare_v2(db, [query UTF8String], -1, &statement, NULL) == SQLITE_OK) {
                 NSLog(@"in while..");
-            while (sqlite3_step(statement) == SQLITE_ROW) {
+                while (sqlite3_step(statement) == SQLITE_ROW) {
+                    
+                    NSString *type = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
+                    NSString *category = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
+                    NSString *region = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
+                    NSString *attackon = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 3)];
+                    //check for duplicates
+                    //assign attackOn
+                    //NOTE: it's overwritten because there should only ever be one result
+                    attackOn = attackon;
+                    
+                    if (![categoryIconArray containsObject:category] && !catIconSelected) {
+                        [categoryIconArray addObject:category];
+                        if ([category containsString:@"_"]) {
+                            category = [category stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                        }
+                        [categoryNames addObject:category];
+                    }
+                    if (![regionIconArray containsObject:region] && (!regionIconSelected && catIconSelected)) {
+                        [regionIconArray addObject:region];
+                        
+                        if ([region containsString:@"_"]) {
+                            region = [region stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+                        }
+                        [regionNames addObject:region];
+                    }
+                    
+                }//while
                 
-                NSString *type = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
-                NSString *category = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
-                NSString *region = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
-                NSString *attackon = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 3)];
-                //check for duplicates
-                //assign attackOn
-                //NOTE: it's overwritten because there should only ever be one result
-                attackOn = attackon;
-                
-                if (![categoryIconArray containsObject:category] && !catIconSelected) {
-                    [categoryIconArray addObject:category];
-                    [categoryNames addObject:category];
-                }
-                if (![regionIconArray containsObject:region] && (!regionIconSelected && catIconSelected)) {
-                    [regionIconArray addObject:region];
-                    [regionNames addObject:region];
-                }
-                
-            }//while
+            }//if
             
-        }//if
+        }
+        else{
+            query = [query stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+            query = [query stringByReplacingOccurrencesOfString:@"wowIndex" withString:@"wow"];
+            query = [NSString stringWithFormat:@"%@ AND region = \"%@\" AND attackon =\"%@\"", query, selectedRegion, attackOn];
+            [self checkForWoundedAndKilled];
+            
+            if (sqlite3_prepare_v2(db, [query UTF8String], -1, &statement, NULL) == SQLITE_OK) {
+                NSLog(@"SUCCESSS");
+                while (sqlite3_step(statement) == SQLITE_ROW) {
+                    NSLog(@"in while..");
+                    NSString *date = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
+                    NSString *type = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
+                    NSString *category = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
+                    NSString *region = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 3)];
+                    NSString *attackon = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 4)];
+                    NSString *friendlywia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)];
+                    NSString *friendlykia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 6)];
+                    NSString *civilianwia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 7)];
+                    NSString *civiliankia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 8)];
+                    NSString *enemywia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 9)];
+                    NSString *enemykia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 10)];
+                    
+                    NSString *text = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@",date, type, category, region, attackon, friendlywia, friendlykia, civilianwia, civiliankia, enemywia, enemykia];
+                    [_results addObject:text];
+                    
+                }
+                if ([_results count] > 0) {
+                    [self formatResults];
+                    currIndex = currIndex + 1;
+                    [_currRec setText:[NSString stringWithFormat:@"%i", currIndex]];
+                    [_totalRec setText:[NSString stringWithFormat:@"%lu", (unsigned long)[_results count]]];
+                }
+                else{
+                    NSLog(@"NO RESULTS");
+                }
+            }
+        }
         /*if ([self isValidQuery]) {
             query = [NSString stringWithFormat:@"SELECT * FROM wow WHERE type = \"%@\" AND category = \"%@\" AND region = \"%@\" AND attackon =\"%@\"", _typeTextField.text,_categoryTextField.text, _regionTextField.text,_attackTextField.text];
             
@@ -454,38 +524,68 @@ NSString *selectedRegion;
     }//if
 }//performQuery
 
-/*-(BOOL)isValidQuery{
-    if (([_categoryTextField.text length] > 0) && ([_typeTextField.text length] > 0) && ([_regionTextField.text length] > 0) && ([_attackTextField.text length] > 0)) {
+-(bool)isValidQuery{
+    if (selectedType && selectedCategory && selectedRegion && selectedAttackIcon) {
         return TRUE;
-    }//if
+    }
     else{
         _properQueryImage.hidden = FALSE;
         return FALSE;
-    }//else
-    
-}//validQuery
-
--(void)checkForWoundedAndKilled{
-    if ([_friendlywiaTextField.text length] > 0) {
-        query = [NSString stringWithFormat:@"%@ AND friendlywia=\"%@\"", query, _friendlywiaTextField.text];
-    }
-    if ([_friendlykiaTextField.text length] > 0) {
-        query = [NSString stringWithFormat:@"%@ AND friendlykia=\"%@\"", query, _friendlykiaTextField.text];
-    }
-    if ([_civilianwiaTextField.text length] > 0) {
-        query = [NSString stringWithFormat:@"%@ AND civilianwia=\"%@\"", query, _civilianwiaTextField.text];
-    }
-    if ([_civiliankiaTextField.text length] > 0) {
-        query = [NSString stringWithFormat:@"%@ AND civiliankia=\"%@\"", query, _civiliankiaTextField.text];
-    }
-    if ([_enemywiaTextField.text length] > 0) {
-        query = [NSString stringWithFormat:@"%@ AND enemywia=\"%@\"", query, _enemywiaTextField.text];
-    }
-    if ([_enemykiaTextField.text length] > 0) {
-        query = [NSString stringWithFormat:@"%@ AND enemykia=\"%@\"", query, _enemykiaTextField.text];
     }
 }
 
+-(void)checkForWoundedAndKilled{
+    if (selectedFwiaIcon.tag > 0) {
+        NSString *s = [self getValue:selectedFwiaIcon.tag forWok:@"friendlywia"];
+        query = [NSString stringWithFormat:@"%@ %@", query, s];
+        
+    }
+    if (selectedFkiaIcon.tag > 0) {
+        NSString *s = [self getValue:selectedFwiaIcon.tag forWok:@"friendlywia"];
+        query = [NSString stringWithFormat:@"%@ %@", query, s];
+    }
+    if (selectedCwiaIcon.tag > 0) {
+        NSString *s = [self getValue:selectedFwiaIcon.tag forWok:@"friendlywia"];
+        query = [NSString stringWithFormat:@"%@ %@", query, s];
+    }
+    if (selectedCkiaIcon.tag > 0) {
+        NSString *s = [self getValue:selectedFwiaIcon.tag forWok:@"friendlywia"];
+        query = [NSString stringWithFormat:@"%@ %@", query, s];
+    }
+    if (selectedEwiaIcon.tag > 0) {
+        NSString *s = [self getValue:selectedFwiaIcon.tag forWok:@"friendlywia"];
+        query = [NSString stringWithFormat:@"%@ %@", query, s];
+    }
+    if (selectedEkiaIcon.tag > 0) {
+        NSString *s = [self getValue:selectedFwiaIcon.tag forWok:@"friendlywia"];
+        query = [NSString stringWithFormat:@"%@ %@", query, s];
+    }
+}
+-(NSString *)getValue:(int)tag forWok:(NSString *)wok{
+    NSString *val;
+    
+    switch (tag) {
+        case 1:
+            val = [NSString stringWithFormat:@"AND %@ >=0 and %@ < 11", wok, wok];
+            break;
+        case 2:
+            val = [NSString stringWithFormat:@"AND %@ >10 and %@ < 21", wok, wok];
+            break;
+        case 3:
+            [NSString stringWithFormat:@"AND %@ >20 and %@ < 51", wok, wok];
+            break;
+        case 4:
+            val = [NSString stringWithFormat:@"AND %@ >50 and %@ < 101", wok, wok];
+            break;
+        case 5:
+            val = [NSString stringWithFormat:@"AND %@ >100 and %@ is not ''", wok, wok];
+            break;
+        default:
+            break;
+    }
+    
+    return val;
+}
 -(void)formatResults{
     NSArray *data = [[_results objectAtIndex:currIndex] componentsSeparatedByString:@","];
     NSArray *dateAndTime = [[data objectAtIndex:0] componentsSeparatedByString:@" "];
@@ -500,28 +600,15 @@ NSString *selectedRegion;
     [_enemyResultLabel setText:[NSString stringWithFormat:@"%@ %@", [data objectAtIndex:9], [data objectAtIndex:10]]];
 }//formatResults
 
--(void)getUserInput{
-    [_categoryTextField resignFirstResponder];
-    [_typeTextField resignFirstResponder];
-    [_regionTextField resignFirstResponder];
-    [_attackTextField resignFirstResponder];
-    [_enemykiaTextField resignFirstResponder];
-    [_enemywiaTextField resignFirstResponder];
-    [_civiliankiaTextField resignFirstResponder];
-    [_civilianwiaTextField resignFirstResponder];
-    [_friendlywiaTextField resignFirstResponder];
-    [_friendlykiaTextField resignFirstResponder];
-}//getUserInput
-
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
 }//textFieldShould*/
 
 -(IBAction)searchButtonPressed:(id)sender{
-    if (!searchButtonPressed) {
-        [self performQuery];
+    if (!searchButtonPressed && [self isValidQuery]) {
         searchButtonPressed = true;
+        [self performQuery];
     }//if
 }//searchButtonPressed
 
@@ -564,17 +651,29 @@ NSString *selectedRegion;
     selectedCatIcon.hidden = YES;
     selectedAttackIcon.hidden = YES;
     selectedRegionIcon.hidden = YES;
+    selectedEkiaIcon.hidden = YES;
+    selectedEwiaIcon.hidden = YES;
+    selectedFkiaIcon.hidden = YES;
+    selectedFwiaIcon.hidden = YES;
+    selectedCkiaIcon.hidden = YES;
+    selectedCwiaIcon.hidden = YES;
     [self setUpTypeIconArray];
     typeExpanded = false;
     categoryExpanded = false;
     regionExpanded = false;
-    
+    fwiaExpanded = false;
+    fkiaExpanded = false;
+    ckiaExpanded = false;
+    cwiaExpanded = false;
+    ewiaExpanded = false;
+    ekiaExpanded = false;
     
 }//clearButtonPressed
 
 -(IBAction)nextButtonPressed:(id)sender{
     if (currIndex < [_results count]){
-        //[self formatResults];
+        [self formatResults];
+        NSLog(@"here");
         [_currRec setText:[NSString stringWithFormat:@"%i", currIndex + 1 ]];
         if (currIndex != [_results count] -1) {
             currIndex = currIndex + 1;
@@ -586,7 +685,7 @@ NSString *selectedRegion;
     if (currIndex > 0) {
         [_currRec setText:[NSString stringWithFormat:@"%i", currIndex]];
         currIndex = currIndex - 1;
-        //[self formatResults];
+        [self formatResults];
     }//if
 }//prevButtonPressed
 
@@ -677,12 +776,117 @@ NSString *selectedRegion;
             if (CGRectContainsPoint(icon.frame, touch)) {
                 [self selectedIcon:i];
                 [self resetIconTrayFrame];
+            }//if
+        }//for
+    }//else if
+    else if (CGRectContainsPoint(currWokView.frame,touch)){
+        for (int i = 0; i<[currWokArray count]; i++) {
+            UIImageView *icon = [currWokArray objectAtIndex:i];
+            if (CGRectContainsPoint(icon.frame, touch)) {
+                [self selectedIcon:i];
+                [self resetIconTrayFrame];
             }
         }
     }
-    
-}
+    else if (CGRectContainsPoint(_fwiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+        newFrame = _fwiaIconTray.frame;
+        newFrame.size.height = SCREEN_HEIGHT * 0.219;
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             _fwiaIconTray.frame = newFrame;
+                             _cwiaIconTray.hidden = YES;
+                             _ewiaIconTray.hidden = YES;
+                         }];
+        [self displayWoKIcons:_fwiaIconTray];
+        wokViewSelected = true;
+        currWokView = _fwiaIconTray;
+        fwiaExpanded = true;
+    }
+    else if (CGRectContainsPoint(_fkiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+        newFrame = _fkiaIconTray.frame;
+        newFrame.size.height = SCREEN_HEIGHT * 0.219;
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             _fkiaIconTray.frame = newFrame;
+                             _ckiaIconTray.hidden = YES;
+                             _ekiaIconTray.hidden = YES;
+                         }];
+        [self displayWoKIcons:_fkiaIconTray];
+        wokViewSelected = true;
+        currWokView = _fkiaIconTray;
+        fkiaExpanded = true;
+    }
+    else if (CGRectContainsPoint(_cwiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+        newFrame = _cwiaIconTray.frame;
+        newFrame.size.height = SCREEN_HEIGHT * 0.219;
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             _cwiaIconTray.frame = newFrame;
+                             _ewiaIconTray.hidden = YES;
+                         }];
+        [self displayWoKIcons:_cwiaIconTray];
+        wokViewSelected = true;
+        currWokView = _cwiaIconTray;
+        cwiaExpanded = true;
+    }
+    else if (CGRectContainsPoint(_ckiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+        newFrame = _ckiaIconTray.frame;
+        newFrame.size.height = SCREEN_HEIGHT * 0.219;
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             _ckiaIconTray.frame = newFrame;
+                             _ekiaIconTray.hidden = YES;
+                         }];
+        [self displayWoKIcons:_ckiaIconTray];
+        wokViewSelected = true;
+        currWokView = _ckiaIconTray;
+        ckiaExpanded = true;
+    }
+    else if (CGRectContainsPoint(_ewiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+        newFrame = _ewiaIconTray.frame;
+        newFrame.size.height = SCREEN_HEIGHT * 0.219;
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             _ewiaIconTray.frame = newFrame;
+                             [self.view bringSubviewToFront:_ewiaIconTray];
+                         }];
+        [self displayWoKIcons:_ewiaIconTray];
+        wokViewSelected = true;
+        currWokView = _ewiaIconTray;
+        ewiaExpanded = true;
+    }
+    else if (CGRectContainsPoint(_ekiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+        newFrame = _ekiaIconTray.frame;
+        newFrame.size.height = SCREEN_HEIGHT * 0.219;
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             _ekiaIconTray.frame = newFrame;
+                             [self.view bringSubviewToFront:_ekiaIconTray];
+                         }];
+        [self displayWoKIcons:_ekiaIconTray];
+        wokViewSelected = true;
+        currWokView = _ekiaIconTray;
+        ekiaExpanded = true;
+    }
 
+}
+-(void)displayWoKIcons:(UIView *)wOkView{
+    currWokArray = [[NSMutableArray alloc] init];
+    UIImageView *icon;
+    for (int i=0; i<5; i++) {
+        CGRect iconFrame = CGRectMake(wOkView.frame.origin.x, (wOkView.frame.origin.y - (SCREEN_HEIGHT *0.02) + (SCREEN_HEIGHT * (0.0438 * i))) + statusBarHeight, SCREEN_WIDTH * 0.1316, SCREEN_HEIGHT * 0.0438);
+        icon = [[UIImageView alloc] initWithFrame:iconFrame];
+        [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"Wok%u", i+1]]];
+        [self.view addSubview:icon];
+        icon.alpha = 0.0;
+        [UIView animateWithDuration:0.3 delay:0.3 + (0.1 * i) options:UIViewAnimationOptionCurveEaseIn animations:^{
+            icon.alpha = 1.0;
+        } completion:^(BOOL finished) {
+        }];
+        icon.userInteractionEnabled = YES;
+        [currWokArray addObject:icon];
+    }
+}
 -(void)displayTypeIcons{
     UIImageView *icon;
     for (int i = 0; i<[typeIconIndex count]; i++) {
@@ -726,7 +930,11 @@ NSString *selectedRegion;
     categoryNames = [[NSMutableArray alloc] init];
     UIImageView *icon;
     NSString *unfilteredType = [typeIconIndex objectAtIndex:selectedTypeIcon.tag];
-    selectedType = [typeIconIndex objectAtIndex:selectedTypeIcon.tag];
+    NSString *type = [typeIconIndex objectAtIndex:selectedTypeIcon.tag];
+    if ([type containsString:@"_"]) {
+        type = [type stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+    }
+    selectedType = type;
     //NSArray *filteredType = [unfilteredType componentsSeparatedByString:@"_"];
     //NSString *type = [filteredType componentsJoinedByString:@""];
     query = [NSString stringWithFormat:@"SELECT * FROM wowIndex WHERE type = \"%@\"", unfilteredType];
@@ -823,7 +1031,7 @@ NSString *selectedRegion;
         [self changeRegionIconTrayColors];
         catIconSelected = TRUE;
     }
-    else{
+    else if(regionExpanded){
         CGRect frame = CGRectMake(SCREEN_WIDTH * 0.5572, SCREEN_HEIGHT * 0.216 + statusBarHeight, SCREEN_WIDTH * 0.18375, SCREEN_HEIGHT * 0.0657);
         selectedRegionIcon = [[UIImageView alloc] initWithFrame:frame];
         UIImageView *img = [regionIconArray objectAtIndex:i];
@@ -831,7 +1039,68 @@ NSString *selectedRegion;
         [selectedRegionIcon setImage:img.image];
         [self.view addSubview:selectedRegionIcon];
         regionIconSelected = true;
+        wOkEnabled = YES;
         selectedAttackIcon.hidden = NO;
+    }
+    else if(ekiaExpanded){
+        CGRect frame = ekiaTrayFrame;
+        selectedEkiaIcon = [[UIImageView alloc] initWithFrame:frame];
+        selectedEkiaIcon.tag = i + 1;
+        UIImageView *icon = [currWokArray objectAtIndex:i];
+        [selectedEkiaIcon setImage:icon.image];
+        [self.view addSubview:selectedEkiaIcon];
+        ekiaExpanded = false;
+        wOkQuery = true;
+    }
+    else if (ewiaExpanded){
+        CGRect frame = ewiaTrayFrame;
+        selectedEwiaIcon = [[UIImageView alloc] initWithFrame:frame];
+        selectedEwiaIcon.tag = i + 1;
+        UIImageView *icon = [currWokArray objectAtIndex:i];
+        [selectedEwiaIcon setImage:icon.image];
+        [self.view addSubview:selectedEwiaIcon];
+        ewiaExpanded = false;
+        wOkQuery = true;
+    }
+    else if (cwiaExpanded){
+        CGRect frame = cwiaTrayFrame;
+        selectedCwiaIcon = [[UIImageView alloc] initWithFrame:frame];
+        selectedCwiaIcon.tag = i + 1;
+        UIImageView *icon = [currWokArray objectAtIndex:i];
+        [selectedCwiaIcon setImage:icon.image];
+        [self.view addSubview:selectedCwiaIcon];
+        cwiaExpanded = false;
+        wOkQuery = true;
+    }
+    else if (ckiaExpanded){
+        CGRect frame = ckiaTrayFrame;
+        selectedCkiaIcon = [[UIImageView alloc] initWithFrame:frame];
+        selectedCkiaIcon.tag = i + 1;
+        UIImageView *icon = [currWokArray objectAtIndex:i];
+        [selectedCkiaIcon setImage:icon.image];
+        [self.view addSubview:selectedCkiaIcon];
+        ckiaExpanded = false;
+        wOkQuery = true;
+    }
+    else if (fwiaExpanded){
+        CGRect frame = fwiaTrayFrame;
+        selectedFwiaIcon = [[UIImageView alloc] initWithFrame:frame];
+        selectedFwiaIcon.tag = i + 1;
+        UIImageView *icon = [currWokArray objectAtIndex:i];
+        [selectedFwiaIcon setImage:icon.image];
+        [self.view addSubview:selectedFwiaIcon];
+        fwiaExpanded = false;
+        wOkQuery = true;
+    }
+    else{
+        CGRect frame = fkiaTrayFrame;
+        selectedFkiaIcon = [[UIImageView alloc] initWithFrame:frame];
+        selectedFkiaIcon.tag = i + 1;
+        UIImageView *icon = [currWokArray objectAtIndex:i];
+        [selectedFkiaIcon setImage:icon.image];
+        [self.view addSubview:selectedFkiaIcon];
+        fkiaExpanded = false;
+        wOkQuery = true;
     }
 }
 -(void)setAttackIcon{
@@ -931,12 +1200,36 @@ NSString *selectedRegion;
                              _regionIconTray.frame = newFrame;
                              _attackOnIconTray.hidden = NO;
                              regionExpanded = false;
+                             _regionIconTray.layer.borderColor = iconTrayBorderColor;
+                             _regionIconTrayLabel.textColor = iconTrayLabelColor;
                          }];
         for (int i = 0; i<[regionIconArray count]; i++) {
             UIImageView *icon = [regionIconArray objectAtIndex:i];
             icon.alpha = 0.0;
             icon.userInteractionEnabled = NO;
             [regionIconArray replaceObjectAtIndex:i withObject:icon];
+        }
+    }
+    if (wokViewSelected) {
+        newFrame = currWokView.frame;
+        newFrame.size.height = SCREEN_HEIGHT * 0.065;
+        [UIView animateWithDuration:0.0
+                         animations:^{
+                             currWokView.frame = newFrame;
+                             //[self.view bringSubviewToFront:_ekiaIconTray];
+                             wokViewSelected = false;
+                             currWokView = NULL;
+                             _cwiaIconTray.hidden = NO;
+                             _ckiaIconTray.hidden = NO;
+                             _ewiaIconTray.hidden = NO;
+                             _ekiaIconTray.hidden = NO;
+                         }];
+        
+        for (int i = 0; i<5; i++) {
+            UIImageView *icon = [currWokArray objectAtIndex:i];
+            icon.alpha = 0.0;
+            icon.userInteractionEnabled = NO;
+            [currWokArray replaceObjectAtIndex:i withObject:icon];
         }
     }
     

@@ -124,6 +124,8 @@
 #define enemyTextFrame CGRectMake(SCREEN_WIDTH * 0.5569, (SCREEN_HEIGHT * 0.811) + statusBarHeight, SCREEN_WIDTH * 0.0688, SCREEN_HEIGHT * 0.01818)
 
 #define stdFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:19]
+
+
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 #endif
