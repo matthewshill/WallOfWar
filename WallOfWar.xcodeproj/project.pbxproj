@@ -26,6 +26,12 @@
 		5C022F811A3147E4009AC09A /* Rc_South.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022F741A3147E4009AC09A /* Rc_South.png */; };
 		5C022F821A3147E4009AC09A /* Rc_West.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022F751A3147E4009AC09A /* Rc_West.png */; };
 		5C022F831A3147E4009AC09A /* Unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022F761A3147E4009AC09A /* Unknown.png */; };
+		5C022FC61A3176B3009AC09A /* Wok1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022FC11A3176B3009AC09A /* Wok1.png */; };
+		5C022FC71A3176B3009AC09A /* Wok2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022FC21A3176B3009AC09A /* Wok2.png */; };
+		5C022FC81A3176B3009AC09A /* Wok3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022FC31A3176B3009AC09A /* Wok3.png */; };
+		5C022FC91A3176B3009AC09A /* Wok4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022FC41A3176B3009AC09A /* Wok4.png */; };
+		5C022FCA1A3176B3009AC09A /* Wok5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022FC51A3176B3009AC09A /* Wok5.png */; };
+		5C022FCC1A325610009AC09A /* None_SelectedRegion.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022FCB1A325610009AC09A /* None_SelectedRegion.png */; };
 		5C6B9BF21A1BDCD00084D76F /* properQuery.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C6B9BF11A1BDCD00084D76F /* properQuery.png */; };
 		5C784F6219FFEFD600F87E7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C784F6119FFEFD600F87E7E /* main.m */; };
 		5C784F6519FFEFD600F87E7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C784F6419FFEFD600F87E7E /* AppDelegate.m */; };
@@ -269,6 +275,12 @@
 		5C022F741A3147E4009AC09A /* Rc_South.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rc_South.png; sourceTree = "<group>"; };
 		5C022F751A3147E4009AC09A /* Rc_West.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rc_West.png; sourceTree = "<group>"; };
 		5C022F761A3147E4009AC09A /* Unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unknown.png; sourceTree = "<group>"; };
+		5C022FC11A3176B3009AC09A /* Wok1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wok1.png; sourceTree = "<group>"; };
+		5C022FC21A3176B3009AC09A /* Wok2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wok2.png; sourceTree = "<group>"; };
+		5C022FC31A3176B3009AC09A /* Wok3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wok3.png; sourceTree = "<group>"; };
+		5C022FC41A3176B3009AC09A /* Wok4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wok4.png; sourceTree = "<group>"; };
+		5C022FC51A3176B3009AC09A /* Wok5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wok5.png; sourceTree = "<group>"; };
+		5C022FCB1A325610009AC09A /* None_SelectedRegion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = None_SelectedRegion.png; sourceTree = "<group>"; };
 		5C050C141A2C1D6C00861734 /* WallOfWar-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WallOfWar-Prefix.pch"; sourceTree = "<group>"; };
 		5C6B9BF11A1BDCD00084D76F /* properQuery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = properQuery.png; sourceTree = "<group>"; };
 		5C784F5C19FFEFD600F87E7E /* WallOfWar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallOfWar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -522,6 +534,7 @@
 		5C022F691A314720009AC09A /* RegionIcons */ = {
 			isa = PBXGroup;
 			children = (
+				5C022FCB1A325610009AC09A /* None_SelectedRegion.png */,
 				5C022F6A1A3147E4009AC09A /* Mnd_Baghdad.png */,
 				5C022F6B1A3147E4009AC09A /* Mnd_C.png */,
 				5C022F6C1A3147E4009AC09A /* Mnd_N.png */,
@@ -537,6 +550,18 @@
 				5C022F761A3147E4009AC09A /* Unknown.png */,
 			);
 			name = RegionIcons;
+			sourceTree = "<group>";
+		};
+		5C022F841A3171CF009AC09A /* WoKIcons */ = {
+			isa = PBXGroup;
+			children = (
+				5C022FC11A3176B3009AC09A /* Wok1.png */,
+				5C022FC21A3176B3009AC09A /* Wok2.png */,
+				5C022FC31A3176B3009AC09A /* Wok3.png */,
+				5C022FC41A3176B3009AC09A /* Wok4.png */,
+				5C022FC51A3176B3009AC09A /* Wok5.png */,
+			);
+			name = WoKIcons;
 			sourceTree = "<group>";
 		};
 		5C784F5319FFEFD600F87E7E = {
@@ -576,6 +601,7 @@
 		5C784F5F19FFEFD600F87E7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5C022F841A3171CF009AC09A /* WoKIcons */,
 				5C022F691A314720009AC09A /* RegionIcons */,
 				5C022F601A313D83009AC09A /* AttackOnIcons */,
 				5CF437871A302BC000664EDB /* CategoryIcons */,
@@ -954,6 +980,7 @@
 				5CF438B81A30305D00664EDB /* Finance.png in Resources */,
 				5CF438B31A30305D00664EDB /* Escalation_Of_Force.png in Resources */,
 				5CF438D01A30305D00664EDB /* Intimidation_Threat.png in Resources */,
+				5C022FC71A3176B3009AC09A /* Wok2.png in Resources */,
 				5CF4387D1A30305D00664EDB /* Air_Movement.png in Resources */,
 				5CF437461A30087B00664EDB /* TypeIcons.plist in Resources */,
 				5CF438F81A30305D00664EDB /* Qa_Qc_Project.png in Resources */,
@@ -978,6 +1005,7 @@
 				5CF438B91A30305D00664EDB /* Food_Distribution.png in Resources */,
 				5C022F771A3147E4009AC09A /* Mnd_Baghdad.png in Resources */,
 				5CF438E41A30305D00664EDB /* Murder.png in Resources */,
+				5C022FC61A3176B3009AC09A /* Wok1.png in Resources */,
 				5CF4390B1A30305D00664EDB /* Sectarian_Violence.png in Resources */,
 				5CF438A51A30305D00664EDB /* Detain.png in Resources */,
 				5C784F7019FFEFD600F87E7E /* LaunchScreen.xib in Resources */,
@@ -1078,6 +1106,7 @@
 				5CF438AA1A30305D00664EDB /* Direct_Fire_Threat.png in Resources */,
 				5CF438931A30305D00664EDB /* Carjacking.png in Resources */,
 				5CF438DD1A30305D00664EDB /* Meeting_Security.png in Resources */,
+				5C022FCA1A3176B3009AC09A /* Wok5.png in Resources */,
 				5CF438C51A30305D00664EDB /* Ied_False.png in Resources */,
 				5CF438991A30305D00664EDB /* Confiscation.png in Resources */,
 				5CF438D81A30305D00664EDB /* Medevac_Local_National.png in Resources */,
@@ -1095,6 +1124,7 @@
 				5CF438F01A30305D00664EDB /* Police_Internal.png in Resources */,
 				5C022F7B1A3147E4009AC09A /* Mnd_S.png in Resources */,
 				5CF4392C1A30305D00664EDB /* White_Blue.png in Resources */,
+				5C022FCC1A325610009AC09A /* None_SelectedRegion.png in Resources */,
 				5CF4388E1A30305D00664EDB /* Blue_White.png in Resources */,
 				5CF439281A30305D00664EDB /* Vandalism.png in Resources */,
 				5C022F811A3147E4009AC09A /* Rc_South.png in Resources */,
@@ -1110,6 +1140,7 @@
 				5CF439251A30305D00664EDB /* Uav.png in Resources */,
 				5CF438AE1A30305D00664EDB /* Drug_Vehicle.png in Resources */,
 				5CF437C01A30301E00664EDB /* Other.png in Resources */,
+				5C022FC91A3176B3009AC09A /* Wok4.png in Resources */,
 				5CF438D51A30305D00664EDB /* Looting_Threat.png in Resources */,
 				5C022F781A3147E4009AC09A /* Mnd_C.png in Resources */,
 				5CF438C81A30305D00664EDB /* Ied_Pre_Detonation.png in Resources */,
@@ -1120,6 +1151,7 @@
 				5CF438911A30305D00664EDB /* Cache_Found_Cleared.png in Resources */,
 				5CF438A91A30305D00664EDB /* Detention.png in Resources */,
 				5CF438821A30305D00664EDB /* Ana_On_Anp.png in Resources */,
+				5C022FC81A3176B3009AC09A /* Wok3.png in Resources */,
 				5CF437B61A30301E00664EDB /* Counter_Insurgency.png in Resources */,
 				5CF4389C1A30305D00664EDB /* Counter_Mortar_Fire.png in Resources */,
 				5CF438891A30305D00664EDB /* Attack_Threat.png in Resources */,
@@ -1223,7 +1255,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1259,7 +1291,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1274,8 +1306,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WallOfWar/WallOfWar-Prefix.pch";
 				INFOPLIST_FILE = WallOfWar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1286,6 +1320,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/WallOfWar/WallOfWar-Prefix.pch";
 				INFOPLIST_FILE = WallOfWar/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

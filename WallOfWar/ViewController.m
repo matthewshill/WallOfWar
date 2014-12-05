@@ -445,6 +445,7 @@ NSString *selectedEkia;
                         if ([region containsString:@"_"]) {
                             region = [region stringByReplacingOccurrencesOfString:@"_" withString:@" "];
                         }
+
                         [regionNames addObject:region];
                     }
                     
@@ -529,7 +530,7 @@ NSString *selectedEkia;
         return TRUE;
     }
     else{
-        _properQueryImage.hidden = FALSE;
+        _properQueryImage.hidden = NO;
         return FALSE;
     }
 }
@@ -541,23 +542,23 @@ NSString *selectedEkia;
         
     }
     if (selectedFkiaIcon.tag > 0) {
-        NSString *s = [self getValue:selectedFwiaIcon.tag forWok:@"friendlywia"];
+        NSString *s = [self getValue:selectedFkiaIcon.tag forWok:@"friendlykia"];
         query = [NSString stringWithFormat:@"%@ %@", query, s];
     }
     if (selectedCwiaIcon.tag > 0) {
-        NSString *s = [self getValue:selectedFwiaIcon.tag forWok:@"friendlywia"];
+        NSString *s = [self getValue:selectedCwiaIcon.tag forWok:@"civilianwia"];
         query = [NSString stringWithFormat:@"%@ %@", query, s];
     }
     if (selectedCkiaIcon.tag > 0) {
-        NSString *s = [self getValue:selectedFwiaIcon.tag forWok:@"friendlywia"];
+        NSString *s = [self getValue:selectedCkiaIcon.tag forWok:@"civiliankia"];
         query = [NSString stringWithFormat:@"%@ %@", query, s];
     }
     if (selectedEwiaIcon.tag > 0) {
-        NSString *s = [self getValue:selectedFwiaIcon.tag forWok:@"friendlywia"];
+        NSString *s = [self getValue:selectedEwiaIcon.tag forWok:@"enemywia"];
         query = [NSString stringWithFormat:@"%@ %@", query, s];
     }
     if (selectedEkiaIcon.tag > 0) {
-        NSString *s = [self getValue:selectedFwiaIcon.tag forWok:@"friendlywia"];
+        NSString *s = [self getValue:selectedEkiaIcon.tag forWok:@"enemykia"];
         query = [NSString stringWithFormat:@"%@ %@", query, s];
     }
 }
@@ -974,6 +975,7 @@ NSString *selectedEkia;
     regionIconArray = [[NSMutableArray alloc] init];
     UIImageView *icon;
     regionNames = [[NSMutableArray alloc] init];
+    selectedCategory = [selectedCategory stringByReplacingOccurrencesOfString:@" " withString:@"_"];
     query = [NSString stringWithFormat:@"%@ AND category =\"%@\"", query, selectedCategory];
     [self performQuery];
     int length = [regionIconArray count];
@@ -991,6 +993,9 @@ NSString *selectedEkia;
             CGRect frame = CGRectMake(x, ((SCREEN_HEIGHT* 0.04215) * (row + 1)) + statusBarHeight + (SCREEN_HEIGHT * 0.015), SCREEN_WIDTH * 0.1, SCREEN_HEIGHT * 0.0355);
             icon = [[UIImageView alloc]initWithFrame:frame];
             NSString *filename = [NSString stringWithFormat:@"%@.png", [regionIconArray objectAtIndex:i]];
+            if ([filename containsString:@"SELECTED"]) {
+                filename = [filename stringByReplacingOccurrencesOfString:@"SELECTED" withString:@"SELECTEDREGION"];
+            }
             UIImage *img = [UIImage imageNamed:filename];
             [icon setImage:img];
             icon.alpha = 0.0;
@@ -1104,7 +1109,7 @@ NSString *selectedEkia;
     }
 }
 -(void)setAttackIcon{
-    CGRect frame = CGRectMake(SCREEN_WIDTH * 0.5572, SCREEN_HEIGHT * 0.0768 + statusBarHeight, SCREEN_WIDTH * 0.18375, SCREEN_HEIGHT * 0.0657);
+    CGRect frame = CGRectMake(SCREEN_WIDTH * 0.5572, SCREEN_HEIGHT * 0.0708 + statusBarHeight, SCREEN_WIDTH * 0.18375, SCREEN_HEIGHT * 0.0657);
     selectedAttackIcon = [[UIImageView alloc] initWithFrame:frame];
     [selectedAttackIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"Attack_%@.png", attackOn]]];
     [self.view addSubview:selectedAttackIcon];
