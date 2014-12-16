@@ -8,7 +8,36 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController (){
+    NSString *attackOn;
+    NSMutableArray *categoryNames;
+    NSMutableArray *regionNames;
+    NSMutableDictionary *typeIconDictionary;
+    NSMutableArray *typeIconIndex;
+    NSMutableArray *categoryIconArray;
+    NSMutableArray *regionIconArray;
+    NSMutableArray *currWokArray;
+    UIImageView *selectedTypeIcon;
+    UIImageView *selectedCatIcon;
+    UIImageView *selectedAttackIcon;
+    UIImageView *selectedRegionIcon;
+    UIImageView *selectedFwiaIcon;
+    UIImageView *selectedFkiaIcon;
+    UIImageView *selectedCwiaIcon;
+    UIImageView *selectedCkiaIcon;
+    UIImageView *selectedEwiaIcon;
+    UIImageView *selectedEkiaIcon;
+    UIView *currWokView;
+    NSString *selectedType;
+    NSString *selectedCategory;
+    NSString *selectedRegion;
+    NSString *selectedFwia;
+    NSString *selectedFkia;
+    NSString *selectedCwia;
+    NSString *selectedCkia;
+    NSString *selectedEwia;
+    NSString *selectedEkia;
+}
 @end
 
 @implementation ViewController
@@ -32,34 +61,6 @@ bool fwiaExpanded = false;
 bool fkiaExpanded = false;
 bool wOkQuery = false;
 bool wOkEnabled = false;
-NSString *attackOn;
-NSMutableArray *categoryNames;
-NSMutableArray *regionNames;
-NSMutableDictionary *typeIconDictionary;
-NSMutableArray *typeIconIndex;
-NSMutableArray *categoryIconArray;
-NSMutableArray *regionIconArray;
-NSMutableArray *currWokArray;
-UIImageView *selectedTypeIcon;
-UIImageView *selectedCatIcon;
-UIImageView *selectedAttackIcon;
-UIImageView *selectedRegionIcon;
-UIImageView *selectedFwiaIcon;
-UIImageView *selectedFkiaIcon;
-UIImageView *selectedCwiaIcon;
-UIImageView *selectedCkiaIcon;
-UIImageView *selectedEwiaIcon;
-UIImageView *selectedEkiaIcon;
-UIView *currWokView;
-NSString *selectedType;
-NSString *selectedCategory;
-NSString *selectedRegion;
-NSString *selectedFwia;
-NSString *selectedFkia;
-NSString *selectedCwia;
-NSString *selectedCkia;
-NSString *selectedEwia;
-NSString *selectedEkia;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -71,6 +72,7 @@ NSString *selectedEkia;
     UIView *statusBarView =  [[UIView alloc] initWithFrame:statusBarViewFrame];
     statusBarView.backgroundColor  =  statusBarColor;
     [self.view addSubview:statusBarView];
+    
     self.view.userInteractionEnabled = YES;
     
 }
@@ -258,156 +260,63 @@ NSString *selectedEkia;
     _properQueryImage.hidden = TRUE;
     [self.view addSubview:_properQueryImage];
     
-    _currRec = [[UILabel alloc] initWithFrame:CGRectMake(125, 397, 100, 100)];
-    [_currRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10]];
+    _currRec = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.4655, (SCREEN_HEIGHT * 0.8216) + statusBarHeight, 100, 100)];
+    [_currRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _currRec.textColor = [UIColor blackColor];
     //_currRec.text = @"1";
     [self.view addSubview:_currRec];
     
-    _totalRec = [[UILabel alloc] initWithFrame:CGRectMake(138, 397, 100, 100)];
-    [_totalRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10]];
+    _totalRec = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.4925, (SCREEN_HEIGHT * 0.8216) + statusBarHeight, 100, 100)];
+    [_totalRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _totalRec.textColor = [UIColor blackColor];
     //_totalRec.text = @"2";
     [self.view addSubview:_totalRec];
     
     _dateLabel = [[UILabel alloc] initWithFrame:dateTextFrame];
-    [_dateLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10]];
+    [_dateLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _dateLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_dateLabel];
     
     _timeLabel = [[UILabel alloc] initWithFrame:timeTextFrame];
-    [_timeLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10]];
+    [_timeLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _timeLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_timeLabel];
     
     _typeLabel = [[UILabel alloc] initWithFrame:typeTextFrame];
-    [_typeLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10]];
+    [_typeLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _typeLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_typeLabel];
     
     _categoryLabel = [[UILabel alloc] initWithFrame:categoryTextFrame];
-    [_categoryLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10]];
+    [_categoryLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _categoryLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_categoryLabel];
     
-    _regionLabel = [[UILabel alloc] initWithFrame:attackOnTextFrame];
-    [_regionLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10]];
+    _regionLabel = [[UILabel alloc] initWithFrame:regionTextFrame];
+    [_regionLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _regionLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_regionLabel];
     
     _attackLabel = [[UILabel alloc] initWithFrame:attackOnTextFrame];
-    [_attackLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10]];
+    [_attackLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _attackLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_attackLabel];
     
     _friendlyResultLabel = [[UILabel alloc] initWithFrame:friendlyTextFrame];
-    [_friendlyResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10]];
+    [_friendlyResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _friendlyResultLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_friendlyResultLabel];
     
     _civilianResultLabel = [[UILabel alloc] initWithFrame:civilianTextFrame];
-    [_civilianResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10]];
+    [_civilianResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _civilianResultLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_civilianResultLabel];
     
     _enemyResultLabel = [[UILabel alloc] initWithFrame:enemyTextFrame];
-    [_enemyResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10]];
+    [_enemyResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _enemyResultLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_enemyResultLabel];
 }
-
-/*-(void)setUpTextFields{
-    _typeTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 55, 150, 40)];
-    _typeTextField.backgroundColor = [UIColor blackColor];
-    _typeTextField.textColor = [UIColor whiteColor];
-    _typeTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _typeTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Type" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    _typeTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [self.view addSubview:_typeTextField];
-    _typeTextField.delegate = self;
-    
-    _categoryTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 100,150, 40)];
-    _categoryTextField.backgroundColor = [UIColor blackColor];
-    _categoryTextField.textColor = [UIColor whiteColor];
-    _categoryTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _categoryTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Category" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    _categoryTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [self.view addSubview:_categoryTextField];
-    _categoryTextField.delegate = self;
-    
-    _regionTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 145, 150, 40)];
-    _regionTextField.backgroundColor = [UIColor blackColor];
-    _regionTextField.textColor = [UIColor whiteColor];
-    _regionTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _regionTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Region" attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    _regionTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [self.view addSubview:_regionTextField];
-    _regionTextField.delegate = self;
-    
-    _attackTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 190, 150, 40)];
-    _attackTextField.backgroundColor = [UIColor blackColor];
-    _attackTextField.textColor = [UIColor whiteColor];
-    _attackTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _attackTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"AttackOn" attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
-    _attackTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [self.view addSubview:_attackTextField];
-    _attackTextField.delegate = self;
-    
-    _enemywiaTextField = [[UITextField alloc] initWithFrame:CGRectMake(170, 55, 150, 40)];
-    _enemywiaTextField.backgroundColor = [UIColor blackColor];
-    _enemywiaTextField.textColor = [UIColor whiteColor];
-    _enemywiaTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _enemywiaTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Enemies Wounded" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    _enemywiaTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [self.view addSubview:_enemywiaTextField];
-    _enemywiaTextField.delegate = self;
-    
-    _enemykiaTextField = [[UITextField alloc] initWithFrame:CGRectMake(170, 100, 150, 40)];
-    _enemykiaTextField.backgroundColor = [UIColor blackColor];
-    _enemykiaTextField.textColor = [UIColor whiteColor];
-    _enemykiaTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _enemykiaTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Enemies Killed" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    _enemykiaTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [self.view addSubview:_enemykiaTextField];
-    _enemykiaTextField.delegate = self;
-    
-    _civilianwiaTextField = [[UITextField alloc] initWithFrame:CGRectMake(170, 145, 150, 40)];
-    _civilianwiaTextField.backgroundColor = [UIColor blackColor];
-    _civilianwiaTextField.textColor = [UIColor whiteColor];
-    _civilianwiaTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _civilianwiaTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Civilians Wounded" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    _civilianwiaTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [self.view addSubview:_civilianwiaTextField];
-    _civilianwiaTextField.delegate = self;
-    
-    _civiliankiaTextField = [[UITextField alloc] initWithFrame:CGRectMake(170, 190, 150, 40)];
-    _civiliankiaTextField.backgroundColor = [UIColor blackColor];
-    _civiliankiaTextField.textColor = [UIColor whiteColor];
-    _civiliankiaTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _civiliankiaTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Civilians Killed" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    _civiliankiaTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [self.view addSubview:_civiliankiaTextField];
-    _civiliankiaTextField.delegate = self;
-    
-    _friendlywiaTextField = [[UITextField alloc] initWithFrame:CGRectMake(170, 235, 150, 40)];
-    _friendlywiaTextField.backgroundColor = [UIColor blackColor];
-    _friendlywiaTextField.textColor = [UIColor whiteColor];
-    _friendlywiaTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _friendlywiaTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Friendly Wounded" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    _friendlywiaTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [self.view addSubview:_friendlywiaTextField];
-    _friendlywiaTextField.delegate = self;
-    
-    _friendlykiaTextField = [[UITextField alloc] initWithFrame:CGRectMake(170, 280, 150, 40)];
-    _friendlykiaTextField.backgroundColor = [UIColor blackColor];
-    _friendlykiaTextField.textColor = [UIColor whiteColor];
-    _friendlykiaTextField.borderStyle = UITextBorderStyleRoundedRect;
-    _friendlykiaTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Friendly Killed" attributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]}];
-    _friendlykiaTextField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-    [self.view addSubview:_friendlykiaTextField];
-    _friendlykiaTextField.delegate = self;
-}*/
-
 -(void) performQuery {
     NSString *databasePath = [[NSBundle mainBundle] pathForResource:@"wallofwar" ofType:@"sqlite"];
     
