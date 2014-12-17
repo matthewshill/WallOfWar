@@ -56,8 +56,11 @@
 @property (strong, nonatomic) UILabel *woundedLabel;
 @property (strong, nonatomic) UILabel *killedLabel;
 @property (strong, nonatomic) UILabel *enemyLabel;
+@property (strong, nonatomic) UILabel *enemyLabel2;
 @property (strong, nonatomic) UILabel *civilianLabel;
+@property (strong, nonatomic) UILabel *civilianLabel2;
 @property (strong, nonatomic) UILabel *friendlyLabel;
+@property (strong, nonatomic) UILabel *friendlyLabel2;
 
 @property (strong, nonatomic) UILabel *dateLabel;
 @property (strong, nonatomic) UILabel *categoryLabel;
@@ -65,8 +68,11 @@
 @property (strong, nonatomic) UILabel *regionLabel;
 @property (strong, nonatomic) UILabel *attackLabel;
 @property (strong, nonatomic) UILabel *friendlyResultLabel;
+@property (strong, nonatomic) UILabel *friendlyResultLabel2;
 @property (strong, nonatomic) UILabel *enemyResultLabel;
+@property (strong, nonatomic) UILabel *enemyResultLabel2;
 @property (strong, nonatomic) UILabel *civilianResultLabel;
+@property (strong, nonatomic) UILabel *civilianResultLabel2;
 @property (strong, nonatomic) UILabel *currRec;
 @property (strong, nonatomic) UILabel *totalRec;
 @property (strong, nonatomic) UILabel *timeLabel;

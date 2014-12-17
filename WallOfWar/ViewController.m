@@ -260,13 +260,12 @@ bool wOkEnabled = false;
     _properQueryImage.hidden = TRUE;
     [self.view addSubview:_properQueryImage];
     
-    _currRec = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.4655, (SCREEN_HEIGHT * 0.8216) + statusBarHeight, 100, 100)];
+    _currRec = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.4755, (SCREEN_HEIGHT * 0.8138) + statusBarHeight, 100, 100)];
     [_currRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _currRec.textColor = [UIColor blackColor];
-    //_currRec.text = @"1";
     [self.view addSubview:_currRec];
     
-    _totalRec = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.4925, (SCREEN_HEIGHT * 0.8216) + statusBarHeight, 100, 100)];
+    _totalRec = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.5025, ((SCREEN_HEIGHT * 0.8138) + statusBarHeight) - 0.008, 100, 100)];
     [_totalRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _totalRec.textColor = [UIColor blackColor];
     //_totalRec.text = @"2";
@@ -302,20 +301,35 @@ bool wOkEnabled = false;
     _attackLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_attackLabel];
     
-    _friendlyResultLabel = [[UILabel alloc] initWithFrame:friendlyTextFrame];
+    _friendlyResultLabel = [[UILabel alloc] initWithFrame:friendlyTextFrame1];
     [_friendlyResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _friendlyResultLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_friendlyResultLabel];
     
-    _civilianResultLabel = [[UILabel alloc] initWithFrame:civilianTextFrame];
+    _friendlyResultLabel2 = [[UILabel alloc] initWithFrame:friendlyTextFrame2];
+     [_friendlyResultLabel2 setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+     _friendlyResultLabel2.textColor = [UIColor blackColor];
+     [self.view addSubview:_friendlyResultLabel2];
+    
+    _civilianResultLabel = [[UILabel alloc] initWithFrame:civilianTextFrame1];
     [_civilianResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _civilianResultLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_civilianResultLabel];
     
-    _enemyResultLabel = [[UILabel alloc] initWithFrame:enemyTextFrame];
+    _civilianResultLabel2 = [[UILabel alloc] initWithFrame:civilianTextFrame2];
+     [_civilianResultLabel2 setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+     _civilianResultLabel2.textColor = [UIColor blackColor];
+     [self.view addSubview:_civilianResultLabel2];
+    
+    _enemyResultLabel = [[UILabel alloc] initWithFrame:enemyTextFrame1];
     [_enemyResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _enemyResultLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_enemyResultLabel];
+    
+    _enemyResultLabel2 = [[UILabel alloc] initWithFrame:enemyTextFrame2];
+     [_enemyResultLabel2 setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+     _enemyResultLabel2.textColor = [UIColor blackColor];
+     [self.view addSubview:_enemyResultLabel2];
 }
 -(void) performQuery {
     NSString *databasePath = [[NSBundle mainBundle] pathForResource:@"wallofwar" ofType:@"sqlite"];
@@ -400,37 +414,6 @@ bool wOkEnabled = false;
                 }
             }
         }
-        /*if ([self isValidQuery]) {
-            query = [NSString stringWithFormat:@"SELECT * FROM wow WHERE type = \"%@\" AND category = \"%@\" AND region = \"%@\" AND attackon =\"%@\"", _typeTextField.text,_categoryTextField.text, _regionTextField.text,_attackTextField.text];
-            
-            [self checkForWoundedAndKilled];
-            
-            if (sqlite3_prepare_v2(db, [query UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-                
-                while (sqlite3_step(statement) == SQLITE_ROW) {
-                    
-                    NSString *date = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
-                    NSString *type = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
-                    NSString *category = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
-                    NSString *region = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 3)];
-                    NSString *attackon = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 4)];
-                    NSString *friendlywia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)];
-                    NSString *friendlykia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 6)];
-                    NSString *civilianwia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 7)];
-                    NSString *civiliankia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 8)];
-                    NSString *enemywia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 9)];
-                    NSString *enemykia = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 10)];
-                    
-                    NSString *text = [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@",date, type, category, region, attackon, friendlywia, friendlykia, civilianwia, civiliankia, enemywia, enemykia];
-                    [_results addObject:text];
-                    
-                }
-                [self formatResults];
-                currIndex = currIndex + 1;
-                [_currRec setText:[NSString stringWithFormat:@"%i", currIndex]];
-                [_totalRec setText:[NSString stringWithFormat:@"%lu", (unsigned long)[_results count]]];
-            }
-        }//if*/
     }//if
 }//performQuery
 
@@ -505,9 +488,12 @@ bool wOkEnabled = false;
     [_categoryLabel setText:[data objectAtIndex:2]];
     [_regionLabel setText:[data objectAtIndex:3]];
     [_attackLabel setText:[data objectAtIndex:4]];
-    [_friendlyResultLabel setText:[NSString stringWithFormat:@"%@ %@", [data objectAtIndex:5], [data objectAtIndex:6]]];
-    [_civilianResultLabel setText:[NSString stringWithFormat:@"%@ %@", [data objectAtIndex:7], [data objectAtIndex:8]]];
-    [_enemyResultLabel setText:[NSString stringWithFormat:@"%@ %@", [data objectAtIndex:9], [data objectAtIndex:10]]];
+    [_friendlyResultLabel setText:[NSString stringWithFormat:@"%@", [data objectAtIndex:5]]];
+    [_friendlyResultLabel2 setText:[NSString stringWithFormat:@"%@", [data objectAtIndex:6]]];
+    [_civilianResultLabel setText:[NSString stringWithFormat:@"%@", [data objectAtIndex:7]]];
+    [_civilianResultLabel2 setText:[NSString stringWithFormat:@"%@", [data objectAtIndex:8]]];
+    [_enemyResultLabel setText:[NSString stringWithFormat:@"%@", [data objectAtIndex:9]]];
+    [_enemyResultLabel2 setText:[NSString stringWithFormat:@"%@", [data objectAtIndex:10]]];
 }//formatResults
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -541,8 +527,11 @@ bool wOkEnabled = false;
     _regionLabel.text = NULL;
     _attackLabel.text = NULL;
     _friendlyResultLabel.text = NULL;
+    _friendlyResultLabel2.text = NULL;
     _civilianResultLabel.text = NULL;
+    _civilianResultLabel2.text = NULL;
     _enemyResultLabel.text = NULL;
+    _enemyResultLabel2.text = NULL;
     _currRec.text = NULL;
     _totalRec.text = NULL;
     _timeLabel.text = NULL;

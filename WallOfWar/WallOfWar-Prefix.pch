@@ -97,31 +97,37 @@
 
 //infoBox query results
 //dateText
-#define dateTextFrame CGRectMake(SCREEN_WIDTH * 0.135908854, (SCREEN_HEIGHT * 0.693727689) + statusBarHeight, SCREEN_WIDTH * 0.084136719, SCREEN_HEIGHT * 0.013574701)
+#define dateTextFrame CGRectMake(SCREEN_WIDTH * 0.1655, (SCREEN_HEIGHT * 0.67) + statusBarHeight, SCREEN_WIDTH * 0.2, SCREEN_HEIGHT * 0.019)
 
 //CategoryText
-#define categoryTextFrame CGRectMake(SCREEN_WIDTH * 0.275158854, (SCREEN_HEIGHT * 0.720738048) + statusBarHeight, SCREEN_WIDTH * 0.444015625, SCREEN_HEIGHT * 0.018129482)
+#define categoryTextFrame CGRectMake(SCREEN_WIDTH * 0.3057, (SCREEN_HEIGHT * 0.7132) + statusBarHeight, SCREEN_WIDTH * 0.4, SCREEN_HEIGHT * 0.019)
 
 //TypeText
-#define typeTextFrame CGRectMake(SCREEN_WIDTH * 0.275717448, (SCREEN_HEIGHT * 0.673827689) + statusBarHeight, SCREEN_WIDTH * 0.205222656, SCREEN_HEIGHT * 0.01339243)
+#define typeTextFrame CGRectMake(SCREEN_WIDTH * 0.3057, (SCREEN_HEIGHT * 0.67) + statusBarHeight, SCREEN_WIDTH * 0.2, SCREEN_HEIGHT * 0.019)
 
 //RegionText
-#define regionTextFrame CGRectMake(SCREEN_WIDTH * 0.524867188, (SCREEN_HEIGHT * 0.693727689) + statusBarHeight, SCREEN_WIDTH * 0.166622396, SCREEN_HEIGHT * 0.016500996)
+#define regionTextFrame CGRectMake(SCREEN_WIDTH * 0.54, (SCREEN_HEIGHT * 0.67) + statusBarHeight, SCREEN_WIDTH * 0.2, SCREEN_HEIGHT * 0.019)
 
 //AttackOnText
-#define attackOnTextFrame CGRectMake(SCREEN_WIDTH * 0.704403646, (SCREEN_HEIGHT * 0.693727689) + statusBarHeight, SCREEN_WIDTH * 0.072417969, SCREEN_HEIGHT * 0.01339243)
+#define attackOnTextFrame CGRectMake(SCREEN_WIDTH * 0.7383, (SCREEN_HEIGHT * 0.67) + statusBarHeight, SCREEN_WIDTH * 0.2, SCREEN_HEIGHT * 0.019)
 
 //TimeText
-#define timeTextFrame CGRectMake(SCREEN_WIDTH * 0.154789063, (SCREEN_HEIGHT * 0.788971116) + statusBarHeight, SCREEN_WIDTH * 0.100697917, SCREEN_HEIGHT * 0.014913347)
+#define timeTextFrame CGRectMake(SCREEN_WIDTH * 0.1655, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.2, SCREEN_HEIGHT * 0.019)
 
-//friendlyText
-#define friendlyTextFrame CGRectMake(SCREEN_WIDTH * 0.295393229, (SCREEN_HEIGHT * 0.788971116) + statusBarHeight, SCREEN_WIDTH * 0.051440104, SCREEN_HEIGHT * 0.014913347)
+//friendlyText1
+#define friendlyTextFrame1 CGRectMake(SCREEN_WIDTH * 0.3067, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
+//friendlyText2
+#define friendlyTextFrame2 CGRectMake(SCREEN_WIDTH * 0.3522, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
 
-//civilianText
-#define civilianTextFrame CGRectMake(SCREEN_WIDTH * 0.436441406, (SCREEN_HEIGHT * 0.788971116) + statusBarHeight, SCREEN_WIDTH * 0.051440104, SCREEN_HEIGHT * 0.014913347)
+//civilianText1
+#define civilianTextFrame1 CGRectMake(SCREEN_WIDTH * 0.4477, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
+//civilianText2
+#define civilianTextFrame2 CGRectMake(SCREEN_WIDTH * 0.5023, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
 
-//enemyText
-#define enemyTextFrame CGRectMake(SCREEN_WIDTH * 0.576964844, (SCREEN_HEIGHT * 0.788971116) + statusBarHeight, SCREEN_WIDTH * 0.051441406, SCREEN_HEIGHT * 0.01493755)
+//enemyText1
+#define enemyTextFrame1 CGRectMake(SCREEN_WIDTH * 0.5883, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
+//enemyText2
+#define enemyTextFrame2 CGRectMake(SCREEN_WIDTH * 0.6338, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
 
 #define stdFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:19]
 
