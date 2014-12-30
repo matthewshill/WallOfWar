@@ -346,10 +346,10 @@ bool displayingRecords = false;
     //[self getUserInput];
     
     if (sqlite3_open([databasePath UTF8String], &db) == SQLITE_OK) {
-        NSLog(@"SUCCESSS");
+        //NSLog(@"SUCCESSS");
         if (!searchButtonPressed) {
             if (sqlite3_prepare_v2(db, [query UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-                NSLog(@"in while..");
+                //NSLog(@"in while..");
                 while (sqlite3_step(statement) == SQLITE_ROW) {
                     
                     NSString *type = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
@@ -385,13 +385,13 @@ bool displayingRecords = false;
         }
         else{
             [self formatFinalQuery];
-            [self checkForWoundedAndKilled];
             
+            //NSLog(@"query: %@", query);
             if (sqlite3_prepare_v2(db, [query UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-                NSLog(@"SUCCESSS");
-                NSLog(@"query: %@", query);
+                //NSLog(@"SUCCESSS");
+                
                 while (sqlite3_step(statement) == SQLITE_ROW) {
-                    NSLog(@"in while..");
+                    //NSLog(@"in while..");
                     NSString *date = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
                     NSString *type = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
                     NSString *category = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
@@ -423,7 +423,7 @@ bool displayingRecords = false;
 }//performQuery
 
 -(bool)isValidQuery{
-    if (selectedType && selectedCategory && selectedRegion && selectedAttackIcon) {
+    if (typeIconSelected && catIconSelected && regionIconSelected && attackIconSelcted) {
         return TRUE;
     }
     else{
@@ -529,6 +529,7 @@ bool displayingRecords = false;
     if (!searchButtonPressed && [self isValidQuery]) {
         searchButtonPressed = true;
         [self performQuery];
+        
     }//if
 }//searchButtonPressed
 
@@ -597,7 +598,9 @@ bool displayingRecords = false;
     ekiaSelected = false;
     ewiaSelected = false;
     displayingRecords = false;
+    wOkEnabled = false;
     [self resetWokTray];
+    [_results removeAllObjects];
     
     
 }//clearButtonPressed
@@ -701,6 +704,7 @@ bool displayingRecords = false;
                              regionExpanded = true;
                          }];
         [self displayRegionIcons];
+        wOkEnabled = TRUE;
     }
     else if (regionExpanded && !regionIconSelected){
         for (int i = 0; i<[regionIconArray count]; i++) {
@@ -720,7 +724,7 @@ bool displayingRecords = false;
             }
         }
     }
-    else if (CGRectContainsPoint(_fwiaIconTray.frame, touch) && (!fwiaSelected && !displayingRecords)){
+    else if (CGRectContainsPoint(_fwiaIconTray.frame, touch) && (!fwiaSelected && !displayingRecords && wOkEnabled)){
         newFrame = _fwiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -734,7 +738,7 @@ bool displayingRecords = false;
         fwiaExpanded = true;
         fwiaSelected = true;
     }
-    else if (CGRectContainsPoint(_fkiaIconTray.frame, touch) && (!fkiaSelected && !displayingRecords)){
+    else if (CGRectContainsPoint(_fkiaIconTray.frame, touch) && (!fkiaSelected && !displayingRecords &&wOkEnabled)){
         newFrame = _fkiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -748,7 +752,7 @@ bool displayingRecords = false;
         fkiaExpanded = true;
         fkiaSelected = true;
     }
-    else if (CGRectContainsPoint(_cwiaIconTray.frame, touch) && (!cwiaSelected && !displayingRecords)){
+    else if (CGRectContainsPoint(_cwiaIconTray.frame, touch) && (!cwiaSelected && !displayingRecords && wOkEnabled)){
         newFrame = _cwiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -761,7 +765,7 @@ bool displayingRecords = false;
         cwiaExpanded = true;
         cwiaSelected = true;
     }
-    else if (CGRectContainsPoint(_ckiaIconTray.frame, touch) && (!ckiaSelected && !displayingRecords)){
+    else if (CGRectContainsPoint(_ckiaIconTray.frame, touch) && (!ckiaSelected && !displayingRecords && wOkEnabled)){
         newFrame = _ckiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -774,7 +778,7 @@ bool displayingRecords = false;
         ckiaExpanded = true;
         ckiaSelected = true;
     }
-    else if (CGRectContainsPoint(_ewiaIconTray.frame, touch) && (!ewiaSelected && !displayingRecords)){
+    else if (CGRectContainsPoint(_ewiaIconTray.frame, touch) && (!ewiaSelected && !displayingRecords && wOkEnabled)){
         newFrame = _ewiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -787,7 +791,7 @@ bool displayingRecords = false;
         ewiaExpanded = true;
         ewiaSelected = true;
     }
-    else if (CGRectContainsPoint(_ekiaIconTray.frame, touch) && (!ekiaSelected && !displayingRecords)){
+    else if (CGRectContainsPoint(_ekiaIconTray.frame, touch) && (!ekiaSelected && !displayingRecords && wOkEnabled)){
         newFrame = _ekiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -1165,7 +1169,7 @@ bool displayingRecords = false;
                          animations:^{
                              currWokView.frame = newFrame;
                              //[self.view bringSubviewToFront:_ekiaIconTray];
-                             wOkEnabled = false;
+                             //wOkEnabled = false;
                              currWokView = NULL;
                              _cwiaIconTray.hidden = NO;
                              _ckiaIconTray.hidden = NO;
