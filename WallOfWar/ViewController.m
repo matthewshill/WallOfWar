@@ -381,10 +381,14 @@ bool wOkEnabled = false;
             query = [query stringByReplacingOccurrencesOfString:@"_" withString:@" "];
             query = [query stringByReplacingOccurrencesOfString:@"wowIndex" withString:@"wow"];
             query = [NSString stringWithFormat:@"%@ AND region = \"%@\" AND attackon =\"%@\"", query, selectedRegion, attackOn];
+            if ([query containsString:@"Ied"]){
+                query = [query stringByReplacingOccurrencesOfString:@"Ied" withString:@"IED"];
+            }
             [self checkForWoundedAndKilled];
             
             if (sqlite3_prepare_v2(db, [query UTF8String], -1, &statement, NULL) == SQLITE_OK) {
                 NSLog(@"SUCCESSS");
+                NSLog(@"query: %@", query);
                 while (sqlite3_step(statement) == SQLITE_ROW) {
                     NSLog(@"in while..");
                     NSString *date = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
