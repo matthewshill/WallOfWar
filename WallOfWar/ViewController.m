@@ -52,7 +52,12 @@ bool typeIconSelected = false;
 bool catIconSelected = false;
 bool attackIconSelcted = false;
 bool regionIconSelected = false;
-bool wokViewSelected = false;
+bool ewiaSelected = false;
+bool fwiaSelected = false;
+bool fkiaSelected = false;
+bool ekiaSelected = false;
+bool ckiaSelected = false;
+bool cwiaSelected = false;
 bool ekiaExpanded = false;
 bool ewiaExpanded = false;
 bool ckiaExpanded = false;
@@ -61,6 +66,7 @@ bool fwiaExpanded = false;
 bool fkiaExpanded = false;
 bool wOkQuery = false;
 bool wOkEnabled = false;
+bool displayingRecords = false;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -378,12 +384,7 @@ bool wOkEnabled = false;
             
         }
         else{
-            query = [query stringByReplacingOccurrencesOfString:@"_" withString:@" "];
-            query = [query stringByReplacingOccurrencesOfString:@"wowIndex" withString:@"wow"];
-            query = [NSString stringWithFormat:@"%@ AND region = \"%@\" AND attackon =\"%@\"", query, selectedRegion, attackOn];
-            if ([query containsString:@"Ied"]){
-                query = [query stringByReplacingOccurrencesOfString:@"Ied" withString:@"IED"];
-            }
+            [self formatFinalQuery];
             [self checkForWoundedAndKilled];
             
             if (sqlite3_prepare_v2(db, [query UTF8String], -1, &statement, NULL) == SQLITE_OK) {
@@ -498,8 +499,27 @@ bool wOkEnabled = false;
     [_civilianResultLabel2 setText:[NSString stringWithFormat:@"%@", [data objectAtIndex:8]]];
     [_enemyResultLabel setText:[NSString stringWithFormat:@"%@", [data objectAtIndex:9]]];
     [_enemyResultLabel2 setText:[NSString stringWithFormat:@"%@", [data objectAtIndex:10]]];
+    displayingRecords = true;
 }//formatResults
 
+-(void)formatFinalQuery{
+    //The two tables in the database have slight variations of casing (around 6?) so we need to
+    //reformat the query before we execute it
+    
+    query = [query stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+    query = [query stringByReplacingOccurrencesOfString:@"wowIndex" withString:@"wow"];
+    query = [NSString stringWithFormat:@"%@ AND region = \"%@\" AND attackon =\"%@\"", query, selectedRegion, attackOn];
+    if ([query containsString:@"Ied"]){
+        query = [query stringByReplacingOccurrencesOfString:@"Ied" withString:@"IED"];
+    }
+    if ([query containsString:@"Idf"]) {
+        query = [query stringByReplacingOccurrencesOfString:@"Idf" withString:@"IDF"];
+    }
+    if ([query containsString:@"Erw"]) {
+        query = [query stringByReplacingOccurrencesOfString:@"Erd" withString:@"ERW"];
+    }
+    
+}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
@@ -570,6 +590,15 @@ bool wOkEnabled = false;
     cwiaExpanded = false;
     ewiaExpanded = false;
     ekiaExpanded = false;
+    fkiaSelected = false;
+    fwiaSelected = false;
+    ckiaSelected = false;
+    cwiaSelected = false;
+    ekiaSelected = false;
+    ewiaSelected = false;
+    displayingRecords = false;
+    [self resetWokTray];
+    
     
 }//clearButtonPressed
 
@@ -691,7 +720,7 @@ bool wOkEnabled = false;
             }
         }
     }
-    else if (CGRectContainsPoint(_fwiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+    else if (CGRectContainsPoint(_fwiaIconTray.frame, touch) && (!fwiaSelected && !displayingRecords)){
         newFrame = _fwiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -701,11 +730,11 @@ bool wOkEnabled = false;
                              _ewiaIconTray.hidden = YES;
                          }];
         [self displayWoKIcons:_fwiaIconTray];
-        wokViewSelected = true;
         currWokView = _fwiaIconTray;
         fwiaExpanded = true;
+        fwiaSelected = true;
     }
-    else if (CGRectContainsPoint(_fkiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+    else if (CGRectContainsPoint(_fkiaIconTray.frame, touch) && (!fkiaSelected && !displayingRecords)){
         newFrame = _fkiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -715,11 +744,11 @@ bool wOkEnabled = false;
                              _ekiaIconTray.hidden = YES;
                          }];
         [self displayWoKIcons:_fkiaIconTray];
-        wokViewSelected = true;
         currWokView = _fkiaIconTray;
         fkiaExpanded = true;
+        fkiaSelected = true;
     }
-    else if (CGRectContainsPoint(_cwiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+    else if (CGRectContainsPoint(_cwiaIconTray.frame, touch) && (!cwiaSelected && !displayingRecords)){
         newFrame = _cwiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -728,11 +757,11 @@ bool wOkEnabled = false;
                              _ewiaIconTray.hidden = YES;
                          }];
         [self displayWoKIcons:_cwiaIconTray];
-        wokViewSelected = true;
         currWokView = _cwiaIconTray;
         cwiaExpanded = true;
+        cwiaSelected = true;
     }
-    else if (CGRectContainsPoint(_ckiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+    else if (CGRectContainsPoint(_ckiaIconTray.frame, touch) && (!ckiaSelected && !displayingRecords)){
         newFrame = _ckiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -741,11 +770,11 @@ bool wOkEnabled = false;
                              _ekiaIconTray.hidden = YES;
                          }];
         [self displayWoKIcons:_ckiaIconTray];
-        wokViewSelected = true;
         currWokView = _ckiaIconTray;
         ckiaExpanded = true;
+        ckiaSelected = true;
     }
-    else if (CGRectContainsPoint(_ewiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+    else if (CGRectContainsPoint(_ewiaIconTray.frame, touch) && (!ewiaSelected && !displayingRecords)){
         newFrame = _ewiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -754,11 +783,11 @@ bool wOkEnabled = false;
                              [self.view bringSubviewToFront:_ewiaIconTray];
                          }];
         [self displayWoKIcons:_ewiaIconTray];
-        wokViewSelected = true;
         currWokView = _ewiaIconTray;
         ewiaExpanded = true;
+        ewiaSelected = true;
     }
-    else if (CGRectContainsPoint(_ekiaIconTray.frame, touch) && (!wokViewSelected && wOkEnabled)){
+    else if (CGRectContainsPoint(_ekiaIconTray.frame, touch) && (!ekiaSelected && !displayingRecords)){
         newFrame = _ekiaIconTray.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.219;
         [UIView animateWithDuration:0.3
@@ -767,9 +796,9 @@ bool wOkEnabled = false;
                              [self.view bringSubviewToFront:_ekiaIconTray];
                          }];
         [self displayWoKIcons:_ekiaIconTray];
-        wokViewSelected = true;
         currWokView = _ekiaIconTray;
         ekiaExpanded = true;
+        ekiaSelected = true;
     }
 
 }
@@ -789,6 +818,7 @@ bool wOkEnabled = false;
         icon.userInteractionEnabled = YES;
         [currWokArray addObject:icon];
     }
+    wOkEnabled = true;
 }
 -(void)displayTypeIcons{
     UIImageView *icon;
@@ -958,6 +988,8 @@ bool wOkEnabled = false;
         [self.view addSubview:selectedEkiaIcon];
         ekiaExpanded = false;
         wOkQuery = true;
+        
+        [self resetWokTray];
     }
     else if (ewiaExpanded){
         CGRect frame = ewiaTrayFrame;
@@ -968,6 +1000,7 @@ bool wOkEnabled = false;
         [self.view addSubview:selectedEwiaIcon];
         ewiaExpanded = false;
         wOkQuery = true;
+        [self resetWokTray];
     }
     else if (cwiaExpanded){
         CGRect frame = cwiaTrayFrame;
@@ -978,6 +1011,7 @@ bool wOkEnabled = false;
         [self.view addSubview:selectedCwiaIcon];
         cwiaExpanded = false;
         wOkQuery = true;
+        [self resetWokTray];
     }
     else if (ckiaExpanded){
         CGRect frame = ckiaTrayFrame;
@@ -988,6 +1022,7 @@ bool wOkEnabled = false;
         [self.view addSubview:selectedCkiaIcon];
         ckiaExpanded = false;
         wOkQuery = true;
+        [self resetWokTray];
     }
     else if (fwiaExpanded){
         CGRect frame = fwiaTrayFrame;
@@ -998,6 +1033,7 @@ bool wOkEnabled = false;
         [self.view addSubview:selectedFwiaIcon];
         fwiaExpanded = false;
         wOkQuery = true;
+        [self resetWokTray];
     }
     else{
         CGRect frame = fkiaTrayFrame;
@@ -1008,6 +1044,7 @@ bool wOkEnabled = false;
         [self.view addSubview:selectedFkiaIcon];
         fkiaExpanded = false;
         wOkQuery = true;
+        [self resetWokTray];
     }
 }
 -(void)setAttackIcon{
@@ -1117,14 +1154,18 @@ bool wOkEnabled = false;
             [regionIconArray replaceObjectAtIndex:i withObject:icon];
         }
     }
-    if (wokViewSelected) {
+    
+}
+-(void)resetWokTray{
+    CGRect newFrame;
+    if (wOkEnabled) {
         newFrame = currWokView.frame;
         newFrame.size.height = SCREEN_HEIGHT * 0.065;
         [UIView animateWithDuration:0.0
                          animations:^{
                              currWokView.frame = newFrame;
                              //[self.view bringSubviewToFront:_ekiaIconTray];
-                             wokViewSelected = false;
+                             wOkEnabled = false;
                              currWokView = NULL;
                              _cwiaIconTray.hidden = NO;
                              _ckiaIconTray.hidden = NO;
@@ -1139,7 +1180,6 @@ bool wOkEnabled = false;
             [currWokArray replaceObjectAtIndex:i withObject:icon];
         }
     }
-    
 }
 
 @end
