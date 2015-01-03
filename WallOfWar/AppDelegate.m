@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "DecoderView.h"
 
-@interface AppDelegate ()
+@interface AppDelegate (){
+    UITabBarController *tabBarController;
+}
 
 @end
 
@@ -16,11 +19,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //UITabBarController
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
-    //self.databaseName = @"wallofwar.sqlite3";
-    //NSString *toPath = [self getFilePath:@"wallofwar.sqlite3"];
+    tabBarController = [[UITabBarController alloc] init];
+    //[[UITabBar appearance] set]
+    DecoderView *vc1 = [[DecoderView alloc] init];
+    NSArray *controllers = [NSArray arrayWithObjects:vc1, nil];
+    tabBarController.viewControllers = controllers;
+    //self.window.rootViewController = tabBarController;
     return YES;
 }
 

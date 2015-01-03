@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Matthew S. Hill. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "DecoderView.h"
 
-@interface ViewController (){
+@interface DecoderView (){
     NSString *attackOn;
     NSMutableArray *categoryNames;
     NSMutableArray *regionNames;
@@ -40,7 +40,7 @@
 }
 @end
 
-@implementation ViewController
+@implementation DecoderView
 
 int currIndex = 0;
 bool searchButtonPressed = false;
