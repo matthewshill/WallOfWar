@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "sqlite3.h"
 
-@interface DecoderView : UIViewController <UITextFieldDelegate>
+@interface DecoderViewController : UIViewController <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *dateTextField;
 @property (strong, nonatomic) IBOutlet UITextField *typeTextField;

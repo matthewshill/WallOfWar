@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "DecoderView.h"
+#import "DecoderViewController.h"
+#import "AboutViewController.h"
+#import "GalleryViewController.h"
 
 @interface AppDelegate (){
     UITabBarController *tabBarController;
@@ -22,11 +24,19 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
     tabBarController = [[UITabBarController alloc] init];
-    //[[UITabBar appearance] set]
-    DecoderView *vc1 = [[DecoderView alloc] init];
-    NSArray *controllers = [NSArray arrayWithObjects:vc1, nil];
+    UITabBar *tabBar = tabBarController.tabBar;
+    DecoderViewController *vc1 = [[DecoderViewController alloc] init];
+    vc1.title = @"Decoder";
+    GalleryViewController *vc2 = [[GalleryViewController alloc] init];
+    vc2.title = @"Gallery";
+    AboutViewController *vc3 = [[AboutViewController alloc] init];
+    vc3.title = @"About";
+    [tabBar setBackgroundColor:[UIColor blackColor]];
+    NSArray *controllers = [NSArray arrayWithObjects:vc1, vc2, vc3, nil];
     tabBarController.viewControllers = controllers;
-    //self.window.rootViewController = tabBarController;
+    
+    self.window.rootViewController = tabBarController;
+    self.window.backgroundColor = [UIColor whiteColor];
     return YES;
 }
 
