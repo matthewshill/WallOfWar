@@ -23,20 +23,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
-    tabBarController = [[UITabBarController alloc] init];
-    UITabBar *tabBar = tabBarController.tabBar;
-    DecoderViewController *vc1 = [[DecoderViewController alloc] init];
-    vc1.title = @"Decoder";
-    GalleryViewController *vc2 = [[GalleryViewController alloc] init];
-    vc2.title = @"Gallery";
-    AboutViewController *vc3 = [[AboutViewController alloc] init];
-    vc3.title = @"About";
-    [tabBar setBackgroundColor:[UIColor blackColor]];
-    NSArray *controllers = [NSArray arrayWithObjects:vc1, vc2, vc3, nil];
-    tabBarController.viewControllers = controllers;
-    
-    self.window.rootViewController = tabBarController;
+    [self setUpTabBar];
     self.window.backgroundColor = [UIColor whiteColor];
+    
     return YES;
 }
 
@@ -62,4 +51,28 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)setUpTabBar{
+    //set up tab bar
+    tabBarController = [[UITabBarController alloc] init];
+    
+    DecoderViewController *vc1 = [[DecoderViewController alloc] init];
+    vc1.title = @"Decoder";
+    UIImageView *i = [[UIImageView alloc] initWithImage:item1Image];
+    i.frame = CGRectMake(0, 0, 20, 9);
+    vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Decoder" image:i.image tag:0];
+    //vc1.tabBarItem.image = [i.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc1.tabBarItem.imageInsets = UIEdgeInsetsMake(166, 0, 155, 240);
+    GalleryViewController *vc2 = [[GalleryViewController alloc] init];
+    vc2.title = @"Gallery";
+    
+    AboutViewController *vc3 = [[AboutViewController alloc] init];
+    vc3.title = @"About";
+    
+    
+    NSArray *controllers = [NSArray arrayWithObjects:vc1, vc2, vc3, nil];
+    tabBarController.viewControllers = controllers;
+    [tabBarController.tabBar setBarTintColor:tabBarColor];
+    [tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
+    self.window.rootViewController = tabBarController;
+}
 @end

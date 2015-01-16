@@ -78,7 +78,7 @@ bool displayingRecords = false;
     UIView *statusBarView =  [[UIView alloc] initWithFrame:statusBarViewFrame];
     statusBarView.backgroundColor  =  statusBarColor;
     [self.view addSubview:statusBarView];
-    
+    //[self.tabBarController.tabBar setBackgroundColor:tabBarColor];
     self.view.userInteractionEnabled = YES;
     
 }

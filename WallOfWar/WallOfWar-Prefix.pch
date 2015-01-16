@@ -20,7 +20,8 @@
 #define iconTrayBorderColor [UIColor colorWithRed:(153/255.0) green:(153/255.0) blue:(153/255.0) alpha:1.0].CGColor
 #define resultFontSize 19
 #define iconTrayLabelColor [UIColor colorWithRed:(128/255.0) green:(128/255.0) blue:(128/255.0) alpha:1.0]
-
+#define tabBarColor [UIColor colorWithRed:(43/255.0) green:(37/255.0) blue:(36/255.0) alpha:1.0]
+#define item1Image [UIImage imageNamed:@"1.png"]
 //Icon Trays
 #define typeTrayFrame CGRectMake(SCREEN_WIDTH * 0.1468, (SCREEN_HEIGHT * 0.015) + statusBarHeight, SCREEN_WIDTH * 0.34375, SCREEN_HEIGHT * stdHeight)
 
