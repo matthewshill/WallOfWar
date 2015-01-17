@@ -26,6 +26,8 @@
     [self setUpTabBar];
     self.window.backgroundColor = [UIColor whiteColor];
     
+
+    
     return YES;
 }
 
@@ -57,11 +59,11 @@
     
     DecoderViewController *vc1 = [[DecoderViewController alloc] init];
     vc1.title = @"Decoder";
-    UIImageView *i = [[UIImageView alloc] initWithImage:item1Image];
-    i.frame = CGRectMake(0, 0, 20, 9);
+    UIImageView *i = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1.png"]];
+    i.frame = CGRectMake(SCREEN_WIDTH *0.14, SCREEN_HEIGHT * 0.925, 200, 90);
     vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Decoder" image:i.image tag:0];
     //vc1.tabBarItem.image = [i.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vc1.tabBarItem.imageInsets = UIEdgeInsetsMake(166, 0, 155, 240);
+    vc1.tabBarItem.imageInsets = UIEdgeInsetsMake(SCREEN_HEIGHT * 0.925, SCREEN_WIDTH * .14, 0, SCREEN_WIDTH * 0.85);
     GalleryViewController *vc2 = [[GalleryViewController alloc] init];
     vc2.title = @"Gallery";
     
