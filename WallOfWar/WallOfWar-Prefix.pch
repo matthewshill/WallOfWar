@@ -22,7 +22,6 @@
 #define resultFontSize 10
 #define iconTrayLabelColor [UIColor colorWithRed:(128/255.0) green:(128/255.0) blue:(128/255.0) alpha:1.0]
 #define tabBarColor [UIColor colorWithRed:(43/255.0) green:(37/255.0) blue:(36/255.0) alpha:1.0]
-#define item1Image [UIImage imageNamed:@"1.png"]
 
 
 //Icon Trays

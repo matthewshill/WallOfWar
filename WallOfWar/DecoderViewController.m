@@ -340,10 +340,10 @@ bool wOkEnabled = false;
     //[self getUserInput];
     
     if (sqlite3_open([databasePath UTF8String], &db) == SQLITE_OK) {
-        NSLog(@"SUCCESSS");
+        //NSLog(@"SUCCESSS");
         if (!searchButtonPressed) {
             if (sqlite3_prepare_v2(db, [query UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-                NSLog(@"in while..");
+                //NSLog(@"in while..");
                 while (sqlite3_step(statement) == SQLITE_ROW) {
                     
                     NSString *type = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
@@ -384,9 +384,9 @@ bool wOkEnabled = false;
             [self checkForWoundedAndKilled];
             
             if (sqlite3_prepare_v2(db, [query UTF8String], -1, &statement, NULL) == SQLITE_OK) {
-                NSLog(@"SUCCESSS");
+                //NSLog(@"SUCCESSS");
                 while (sqlite3_step(statement) == SQLITE_ROW) {
-                    NSLog(@"in while..");
+                    //NSLog(@"in while..");
                     NSString *date = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
                     NSString *type = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
                     NSString *category = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 2)];
@@ -410,7 +410,7 @@ bool wOkEnabled = false;
                     [_totalRec setText:[NSString stringWithFormat:@"%lu", (unsigned long)[_results count]]];
                 }
                 else{
-                    NSLog(@"NO RESULTS");
+                    //NSLog(@"NO RESULTS");
                 }
             }
         }
@@ -536,16 +536,16 @@ bool wOkEnabled = false;
     _totalRec.text = NULL;
     _timeLabel.text = NULL;
     _properQueryImage.hidden = TRUE;
-    NSLog(@"TypeExpanded Before: %d",typeExpanded);
-    NSLog(@"TypeIconSelected Before: %d", typeIconSelected);
+    //NSLog(@"TypeExpanded Before: %d",typeExpanded);
+    //NSLog(@"TypeIconSelected Before: %d", typeIconSelected);
     typeIconSelected = false;
     catIconSelected = false;
     attackIconSelcted = false;
     regionIconSelected = false;
     [self resetIconTrayFrame];
     [self resetIconTrayColors];
-    NSLog(@"TypeExpanded After: %d",typeExpanded);
-    NSLog(@"TypeIconSelected After: %d", typeIconSelected);
+    //NSLog(@"TypeExpanded After: %d",typeExpanded);
+    //NSLog(@"TypeIconSelected After: %d", typeIconSelected);
     selectedTypeIcon.hidden = YES;
     selectedCatIcon.hidden = YES;
     selectedAttackIcon.hidden = YES;
@@ -572,7 +572,7 @@ bool wOkEnabled = false;
 -(IBAction)nextButtonPressed:(id)sender{
     if (currIndex < [_results count]){
         [self formatResults];
-        NSLog(@"here");
+        //NSLog(@"here");
         [_currRec setText:[NSString stringWithFormat:@"%i", currIndex + 1 ]];
         if (currIndex != [_results count] -1) {
             currIndex = currIndex + 1;
@@ -592,7 +592,7 @@ bool wOkEnabled = false;
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    NSLog(@"TOUCH ENDED");
+    //NSLog(@"TOUCH ENDED");
     CGPoint touch = [[touches anyObject] locationInView:self.view];
     //[self resetIconTrayColors];
     CGRect newFrame;
@@ -609,12 +609,12 @@ bool wOkEnabled = false;
         
     }
     else if (typeExpanded && !typeIconSelected) {
-        NSLog(@"in else if");
+        //NSLog(@"in else if");
         for (int i = 0; i<[typeIconIndex count]; i++) {
-            NSLog(@"in for loop");
+           // NSLog(@"in for loop");
             UIImageView *icon = [typeIconDictionary objectForKey:[typeIconIndex objectAtIndex:i]];
             if (CGRectContainsPoint(icon.frame, touch)) {
-                NSLog(@"match!");
+                //NSLog(@"match!");
                 [self selectedIcon:i];
                 [self resetIconTrayFrame];
             }//if

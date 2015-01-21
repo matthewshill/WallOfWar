@@ -58,18 +58,16 @@
     tabBarController = [[UITabBarController alloc] init];
     
     DecoderViewController *vc1 = [[DecoderViewController alloc] init];
-    vc1.title = @"Decoder";
-    UIImageView *i = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1.png"]];
-    i.frame = CGRectMake(SCREEN_WIDTH *0.14, SCREEN_HEIGHT * 0.925, 200, 90);
+    UIImageView *i = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"decoder.png"]];
     vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Decoder" image:i.image tag:0];
-    //vc1.tabBarItem.image = [i.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vc1.tabBarItem.imageInsets = UIEdgeInsetsMake(SCREEN_HEIGHT * 0.925, SCREEN_WIDTH * .14, 0, SCREEN_WIDTH * 0.85);
+    
     GalleryViewController *vc2 = [[GalleryViewController alloc] init];
-    vc2.title = @"Gallery";
+    UIImageView *g = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"gallery.png"]];
+    vc2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Gallery" image:g.image tag:1];
     
     AboutViewController *vc3 = [[AboutViewController alloc] init];
-    vc3.title = @"About";
-    
+    UIImageView *a = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"about.png"]];
+    vc3.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"About" image:a.image tag:2];
     
     NSArray *controllers = [NSArray arrayWithObjects:vc1, vc2, vc3, nil];
     tabBarController.viewControllers = controllers;

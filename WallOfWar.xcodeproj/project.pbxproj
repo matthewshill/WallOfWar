@@ -13,6 +13,15 @@
 		5C022FC81A3176B3009AC09A /* Wok3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022FC31A3176B3009AC09A /* Wok3.png */; };
 		5C022FC91A3176B3009AC09A /* Wok4.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022FC41A3176B3009AC09A /* Wok4.png */; };
 		5C022FCA1A3176B3009AC09A /* Wok5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022FC51A3176B3009AC09A /* Wok5.png */; };
+		5C376AB61A706E4700843126 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AAD1A706E4700843126 /* about.png */; };
+		5C376AB71A706E4700843126 /* about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AAE1A706E4700843126 /* about@2x.png */; };
+		5C376AB81A706E4700843126 /* about@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AAF1A706E4700843126 /* about@3x.png */; };
+		5C376AB91A706E4700843126 /* decoder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AB01A706E4700843126 /* decoder.png */; };
+		5C376ABA1A706E4700843126 /* decoder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AB11A706E4700843126 /* decoder@2x.png */; };
+		5C376ABB1A706E4700843126 /* decoder@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AB21A706E4700843126 /* decoder@3x.png */; };
+		5C376ABC1A706E4700843126 /* gallery.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AB31A706E4700843126 /* gallery.png */; };
+		5C376ABD1A706E4700843126 /* gallery@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AB41A706E4700843126 /* gallery@2x.png */; };
+		5C376ABE1A706E4700843126 /* gallery@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AB51A706E4700843126 /* gallery@3x.png */; };
 		5C395D861A326F5D00F318FA /* MND_BAGHDAD.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C395D7A1A326F5D00F318FA /* MND_BAGHDAD.png */; };
 		5C395D871A326F5D00F318FA /* MND_BAGHDAD.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C395D7A1A326F5D00F318FA /* MND_BAGHDAD.png */; };
 		5C395D881A326F5D00F318FA /* MND_C.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C395D7B1A326F5D00F318FA /* MND_C.png */; };
@@ -108,9 +117,6 @@
 		5CA30BB51A1B05A400DA75B6 /* TextBox2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA30BB31A1B05A400DA75B6 /* TextBox2.png */; };
 		5CA90E9A1A5DCBF6002DF8CE /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA90E991A5DCBF6002DF8CE /* AboutViewController.m */; };
 		5CA90E9D1A5DCC0A002DF8CE /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA90E9C1A5DCC0A002DF8CE /* GalleryViewController.m */; };
-		5CDA910E1A5E292700EE987C /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDA910B1A5E292700EE987C /* 1.png */; };
-		5CDA910F1A5E292700EE987C /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDA910C1A5E292700EE987C /* 2.png */; };
-		5CDA91101A5E292700EE987C /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CDA910D1A5E292700EE987C /* 3.png */; };
 		5CF437461A30087B00664EDB /* TypeIcons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437451A30087B00664EDB /* TypeIcons.plist */; };
 		5CF437B51A30301E00664EDB /* Air_Mission.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437A61A30301E00664EDB /* Air_Mission.png */; };
 		5CF437B61A30301E00664EDB /* Counter_Insurgency.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437A71A30301E00664EDB /* Counter_Insurgency.png */; };
@@ -283,6 +289,15 @@
 		5C022FC41A3176B3009AC09A /* Wok4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wok4.png; sourceTree = "<group>"; };
 		5C022FC51A3176B3009AC09A /* Wok5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wok5.png; sourceTree = "<group>"; };
 		5C050C141A2C1D6C00861734 /* WallOfWar-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WallOfWar-Prefix.pch"; sourceTree = "<group>"; };
+		5C376AAD1A706E4700843126 /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
+		5C376AAE1A706E4700843126 /* about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about@2x.png"; sourceTree = "<group>"; };
+		5C376AAF1A706E4700843126 /* about@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about@3x.png"; sourceTree = "<group>"; };
+		5C376AB01A706E4700843126 /* decoder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = decoder.png; sourceTree = "<group>"; };
+		5C376AB11A706E4700843126 /* decoder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "decoder@2x.png"; sourceTree = "<group>"; };
+		5C376AB21A706E4700843126 /* decoder@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "decoder@3x.png"; sourceTree = "<group>"; };
+		5C376AB31A706E4700843126 /* gallery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallery.png; sourceTree = "<group>"; };
+		5C376AB41A706E4700843126 /* gallery@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gallery@2x.png"; sourceTree = "<group>"; };
+		5C376AB51A706E4700843126 /* gallery@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gallery@3x.png"; sourceTree = "<group>"; };
 		5C395D7A1A326F5D00F318FA /* MND_BAGHDAD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MND_BAGHDAD.png; sourceTree = "<group>"; };
 		5C395D7B1A326F5D00F318FA /* MND_C.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MND_C.png; sourceTree = "<group>"; };
 		5C395D7C1A326F5D00F318FA /* MND_N.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MND_N.png; sourceTree = "<group>"; };
@@ -369,9 +384,6 @@
 		5CA90E991A5DCBF6002DF8CE /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		5CA90E9B1A5DCC09002DF8CE /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
 		5CA90E9C1A5DCC0A002DF8CE /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
-		5CDA910B1A5E292700EE987C /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
-		5CDA910C1A5E292700EE987C /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		5CDA910D1A5E292700EE987C /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		5CF437451A30087B00664EDB /* TypeIcons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TypeIcons.plist; sourceTree = "<group>"; };
 		5CF437A61A30301E00664EDB /* Air_Mission.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Air_Mission.png; path = TypeIcons/Air_Mission.png; sourceTree = "<group>"; };
 		5CF437A71A30301E00664EDB /* Counter_Insurgency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Counter_Insurgency.png; path = TypeIcons/Counter_Insurgency.png; sourceTree = "<group>"; };
@@ -629,9 +641,15 @@
 		5C784F5F19FFEFD600F87E7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5CDA910B1A5E292700EE987C /* 1.png */,
-				5CDA910C1A5E292700EE987C /* 2.png */,
-				5CDA910D1A5E292700EE987C /* 3.png */,
+				5C376AAD1A706E4700843126 /* about.png */,
+				5C376AAE1A706E4700843126 /* about@2x.png */,
+				5C376AAF1A706E4700843126 /* about@3x.png */,
+				5C376AB01A706E4700843126 /* decoder.png */,
+				5C376AB11A706E4700843126 /* decoder@2x.png */,
+				5C376AB21A706E4700843126 /* decoder@3x.png */,
+				5C376AB31A706E4700843126 /* gallery.png */,
+				5C376AB41A706E4700843126 /* gallery@2x.png */,
+				5C376AB51A706E4700843126 /* gallery@3x.png */,
 				5C022F841A3171CF009AC09A /* WoKIcons */,
 				5C022F691A314720009AC09A /* RegionIcons */,
 				5C022F601A313D83009AC09A /* AttackOnIcons */,
@@ -967,11 +985,11 @@
 				5CF438FA1A30305D00664EDB /* Raid.png in Resources */,
 				5CF4391E1A30305D00664EDB /* Theft_Threat.png in Resources */,
 				5CF438A71A30305D00664EDB /* Detainee_Release.png in Resources */,
+				5C376ABD1A706E4700843126 /* gallery@2x.png in Resources */,
 				5CF438EC1A30305D00664EDB /* Patrol.png in Resources */,
 				5CF4391F1A30305D00664EDB /* Theft.png in Resources */,
 				5CF438DC1A30305D00664EDB /* Meeting_Development.png in Resources */,
 				5CF438801A30305D00664EDB /* Amf_On_Ana.png in Resources */,
-				5CDA91101A5E292700EE987C /* 3.png in Resources */,
 				5CF438AB1A30305D00664EDB /* Direct_Fire.png in Resources */,
 				5CF438E21A30305D00664EDB /* Mugging.png in Resources */,
 				5CF438981A30305D00664EDB /* Close_Air_Support.png in Resources */,
@@ -991,12 +1009,15 @@
 				5CF438BB1A30305D00664EDB /* Graffiti.png in Resources */,
 				5CF438F91A30305D00664EDB /* Raid_Threat.png in Resources */,
 				5C4E759D1A536E440017F4D5 /* SAFIRE.png in Resources */,
+				5C376ABC1A706E4700843126 /* gallery.png in Resources */,
+				5C376AB71A706E4700843126 /* about@2x.png in Resources */,
 				5CF439211A30305D00664EDB /* Transfer.png in Resources */,
 				5CF438CF1A30305D00664EDB /* Internal_Security_Forces.png in Resources */,
 				5CF438B71A30305D00664EDB /* Extortion.png in Resources */,
 				5CF4387E1A30305D00664EDB /* Ambush_Threat.png in Resources */,
 				5C4E75A71A536E620017F4D5 /* Reported_Location.png in Resources */,
 				5C4E759C1A536E440017F4D5 /* SAFIRE_Threat.png in Resources */,
+				5C376AB81A706E4700843126 /* about@3x.png in Resources */,
 				5C395D861A326F5D00F318FA /* MND_BAGHDAD.png in Resources */,
 				5C4E75A11A536E440017F4D5 /* TCP.png in Resources */,
 				5CF437C11A30301E00664EDB /* Suspicious_Incident.png in Resources */,
@@ -1050,7 +1071,6 @@
 				5CF438B01A30305D00664EDB /* Equipment_Failure.png in Resources */,
 				5C395D901A326F5D00F318FA /* MND_SE.png in Resources */,
 				5CF438F21A30305D00664EDB /* Project_Closeout.png in Resources */,
-				5CDA910E1A5E292700EE987C /* 1.png in Resources */,
 				5CF438E61A30305D00664EDB /* Natural_Disaster.png in Resources */,
 				5CF438921A30305D00664EDB /* Carjacking_Threat.png in Resources */,
 				5CF4389B1A30305D00664EDB /* Cordon_Search.png in Resources */,
@@ -1093,10 +1113,12 @@
 				5C4E75A31A536E440017F4D5 /* UAV.png in Resources */,
 				5CF438EA1A30305D00664EDB /* Other_Hostile_Action.png in Resources */,
 				5CF438FC1A30305D00664EDB /* Recon.png in Resources */,
+				5C376ABB1A706E4700843126 /* decoder@3x.png in Resources */,
 				5C4E758F1A536E440017F4D5 /* IDF_Counter_Fire.png in Resources */,
 				5CF438851A30305D00664EDB /* Arson.png in Resources */,
 				5CF4392D1A30305D00664EDB /* White_Green.png in Resources */,
 				5C022F5F1A31337B009AC09A /* Explosive_Remnants_Of_War_Erw_Found_Cleared.png in Resources */,
+				5C376ABA1A706E4700843126 /* decoder@2x.png in Resources */,
 				5C395D9A1A326F5D00F318FA /* RC_SOUTH.png in Resources */,
 				5CF438E11A30305D00664EDB /* Movement_To_Contact.png in Resources */,
 				5CF438DE1A30305D00664EDB /* Meeting.png in Resources */,
@@ -1127,6 +1149,7 @@
 				5CF437BA1A30301E00664EDB /* Enemy.png in Resources */,
 				5CF438FD1A30305D00664EDB /* Reconnaissance.png in Resources */,
 				5CA30BB11A1AE73600DA75B6 /* TradeGothicLT-CondEighteen.otf in Resources */,
+				5C376AB61A706E4700843126 /* about.png in Resources */,
 				5C395D961A326F5D00F318FA /* RC_EAST.png in Resources */,
 				5CF438AD1A30305D00664EDB /* Drug_Operation.png in Resources */,
 				5CF4388F1A30305D00664EDB /* Border_Ops.png in Resources */,
@@ -1134,6 +1157,7 @@
 				5CF439291A30305D00664EDB /* Vehicle_Interdiction.png in Resources */,
 				5C4E75A51A536E440017F4D5 /* VOGE.png in Resources */,
 				5CF438AA1A30305D00664EDB /* Direct_Fire_Threat.png in Resources */,
+				5C376AB91A706E4700843126 /* decoder.png in Resources */,
 				5C395D921A326F5D00F318FA /* MNF_W.png in Resources */,
 				5CF438931A30305D00664EDB /* Carjacking.png in Resources */,
 				5CF438DD1A30305D00664EDB /* Meeting_Security.png in Resources */,
@@ -1159,7 +1183,6 @@
 				5CF4392C1A30305D00664EDB /* White_Blue.png in Resources */,
 				5CF4388E1A30305D00664EDB /* Blue_White.png in Resources */,
 				5CF439281A30305D00664EDB /* Vandalism.png in Resources */,
-				5CDA910F1A5E292700EE987C /* 2.png in Resources */,
 				5C395DA81A32703A00F318FA /* Attack_UNKNOWN.png in Resources */,
 				5CF438881A30305D00664EDB /* Assassination.png in Resources */,
 				5CF438F11A30305D00664EDB /* Premature_Detonation.png in Resources */,
@@ -1183,6 +1206,7 @@
 				5CF438911A30305D00664EDB /* Cache_Found_Cleared.png in Resources */,
 				5CF438A91A30305D00664EDB /* Detention.png in Resources */,
 				5CF438821A30305D00664EDB /* Ana_On_Anp.png in Resources */,
+				5C376ABE1A706E4700843126 /* gallery@3x.png in Resources */,
 				5C4E75961A536E440017F4D5 /* NBC.png in Resources */,
 				5C022FC81A3176B3009AC09A /* Wok3.png in Resources */,
 				5CF437B61A30301E00664EDB /* Counter_Insurgency.png in Resources */,

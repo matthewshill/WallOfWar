@@ -10,6 +10,8 @@
 	<string>WallOfWar</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>3037D25BC9D90E17CC8785B4EE7437D4EA531EBF</key>
+		<string>https://github.com/matthewshill/SASJazz.git</string>
 		<key>D3FB015BE6C6DF7037A04ABC5508B3E1D1B47FA6</key>
 		<string>https://github.com/matthewshill/WallOfWar.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>WallOfWar.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>3037D25BC9D90E17CC8785B4EE7437D4EA531EBF</key>
+		<string>../../..</string>
 		<key>D3FB015BE6C6DF7037A04ABC5508B3E1D1B47FA6</key>
 		<string>../..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>D3FB015BE6C6DF7037A04ABC5508B3E1D1B47FA6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3037D25BC9D90E17CC8785B4EE7437D4EA531EBF</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
