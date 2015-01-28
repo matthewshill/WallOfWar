@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GalleryViewController : UIViewController
+@interface GalleryViewController : UICollectionViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @end

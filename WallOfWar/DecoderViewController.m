@@ -97,7 +97,7 @@ bool wOkEnabled = false;
     // Build the array from the plist
     NSMutableArray *array = [[NSMutableArray alloc] initWithContentsOfFile:path];
     for (NSString *s in array) {
-        UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", s]];
+        UIImage *img = [UIImage imageNamed:s];
         [typeIconDictionary setValue:img forKey:s];
         [typeIconIndex addObject:s];
     }

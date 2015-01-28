@@ -2,20 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>Air_Mission</string>
-	<string>Counter_Insurgency</string>
-	<string>Criminal_Event</string>
-	<string>Detainee_Operations</string>
-	<string>Enemy</string>
-	<string>Enemy_Action</string>
-	<string>Explosive_Hazard</string>
-	<string>Friendly_Action</string>
-	<string>Friendly_Fire</string>
-	<string>Non_Combat_Event</string>
-	<string>None_Selected</string>
-	<string>Other</string>
-	<string>Suspicious_Incident</string>
-	<string>Threat_Report</string>
-	<string>Unknown_Initiated_Action</string>
+	<string>Air_Mission.png</string>
+	<string>Counter_Insurgency.png</string>
+	<string>Criminal_Event.png</string>
+	<string>Detainee_Operations.png</string>
+	<string>Enemy.png</string>
+	<string>Enemy_Action.png</string>
+	<string>Explosive_Hazard.png</string>
+	<string>Friendly_Action.png</string>
+	<string>Friendly_Fire.png</string>
+	<string>Non_Combat_Event.png</string>
+	<string>None_Selected.png</string>
+	<string>Other.png</string>
+	<string>Suspicious_Incident.png</string>
+	<string>Threat_Report.png</string>
+	<string>Unknown_Initiated_Action.png</string>
 </array>
 </plist>
