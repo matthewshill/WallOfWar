@@ -98,8 +98,11 @@ bool wOkEnabled = false;
     NSMutableArray *array = [[NSMutableArray alloc] initWithContentsOfFile:path];
     for (NSString *s in array) {
         UIImage *img = [UIImage imageNamed:s];
-        [typeIconDictionary setValue:img forKey:s];
-        [typeIconIndex addObject:s];
+        if ([s containsString:@".png"]) {
+            NSString *s2 = [s stringByReplacingOccurrencesOfString:@".png" withString:@""];
+            [typeIconDictionary setValue:img forKey:s2];
+            [typeIconIndex addObject:s2];
+        }
     }
 
 }
