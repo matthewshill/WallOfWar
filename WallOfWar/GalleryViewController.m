@@ -9,8 +9,7 @@
 #import "GalleryViewController.h"
 
 @interface GalleryViewController (){
-    NSMutableArray *typeIcons;
-    NSMutableArray *catIcons;
+    NSMutableArray *icons;
 }
 @end
 
@@ -50,29 +49,23 @@
    
     // Build the array from the plist
     NSString *path = [[NSBundle mainBundle] pathForResource:
-                      @"TypeIcons" ofType:@"plist"];
+                      @"Complete" ofType:@"plist"];
     NSArray *array = [[NSMutableArray alloc] initWithContentsOfFile:path];
-    typeIcons = [[NSMutableArray alloc] init];
+    icons = [[NSMutableArray alloc] init];
     for (NSString *s in array) {
         //UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", s]];
-        [typeIcons addObject:s];
+        [icons addObject:s];
     }
     
-    path = [[NSBundle mainBundle] pathForResource:@"CatIcons" ofType:@"plist"];
-    array = [[NSMutableArray alloc] initWithContentsOfFile:path];
-    catIcons = [[NSMutableArray alloc] init];
-    
-    for (NSString *s in array) {
-        [catIcons addObject:s];
-    }
+    int i;
     
 }
 #pragma mark - UICollectionViewDataSource protocols
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 4;
+    return 1;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return typeIcons.count;
+    return icons.count;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
@@ -81,18 +74,24 @@
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
     
-    UIImage *cellImage = [UIImage imageNamed:[typeIcons objectAtIndex:indexPath.row]];
-    UIImageView *typeImageView = [[UIImageView alloc] initWithImage:cellImage];
-    cell.backgroundView = typeImageView;
+    UIImage *cellImage = [UIImage imageNamed:[icons objectAtIndex:indexPath.row]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:cellImage];
+    cell.backgroundView = imageView;
     cell.backgroundColor = [UIColor whiteColor];
-    //label for cells
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH *.185, 0, SCREEN_WIDTH * .2, SCREEN_HEIGHT * 0.1)];
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-    label.numberOfLines = 2;
-    label.text = [self formatText:[typeIcons objectAtIndex:indexPath.row]];
-    label.font = [label.font fontWithSize:10.8];
+    //check for labels
+    for (UILabel *lbl in cell.contentView.subviews)
+    {
+        if ([lbl isKindOfClass:[UILabel class]])
+        {
+            [lbl removeFromSuperview];
+        }
+    }
     
-    [cell addSubview:label];
+    NSString *text = [self formatText:[icons objectAtIndex:indexPath.row]];
+    
+    if ([text length] != 0) {
+        [self getLabel:cell forText:text];
+    }
     
     return cell;
 }
@@ -124,8 +123,25 @@
     if ([text containsString:@".png"]) {
         text = [text stringByReplacingOccurrencesOfString:@".png" withString:@""];
     }
+    if ([text containsString:@"TITLE"]) {
+        text = @"";
+    }
     return text;
 }
+
+- (UICollectionViewCell *)getLabel:(UICollectionViewCell *)cell forText:(NSString *)text{
+    
+    //label for cells
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH *.185, 0, SCREEN_WIDTH * .2, SCREEN_HEIGHT * 0.1)];
+    label.lineBreakMode = NSLineBreakByWordWrapping;
+    label.numberOfLines = 2;
+    label.text = text;
+    label.font = [label.font fontWithSize:10.8];
+    [[cell contentView] addSubview:label];
+    
+    return cell;
+}
+
 /*
 #pragma mark - Navigation
 
