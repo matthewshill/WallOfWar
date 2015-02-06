@@ -20,6 +20,7 @@
     // Do any additional setup after loading the view.
     
     [self setup];
+    [self.view setBackgroundColor:[UIColor colorWithRed:(248.0/255.0) green:(250.0/255.0) blue:(219.0/255.0) alpha:1.0]];
     
 }
 
@@ -43,7 +44,7 @@
     [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     [_collectionView setDataSource:self];
     [_collectionView setDelegate:self];
-     _collectionView.backgroundColor = [UIColor whiteColor];
+     _collectionView.backgroundColor = [UIColor clearColor];
     [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView"];
     [self.view addSubview:_collectionView];
    
@@ -56,8 +57,6 @@
         //UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", s]];
         [icons addObject:s];
     }
-    
-    int i;
     
 }
 #pragma mark - UICollectionViewDataSource protocols
@@ -77,7 +76,7 @@
     UIImage *cellImage = [UIImage imageNamed:[icons objectAtIndex:indexPath.row]];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:cellImage];
     cell.backgroundView = imageView;
-    cell.backgroundColor = [UIColor whiteColor];
+    cell.backgroundColor = [UIColor clearColor];
     //check for labels
     for (UILabel *lbl in cell.contentView.subviews)
     {
@@ -96,7 +95,7 @@
     return cell;
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(SCREEN_HEIGHT * .025,SCREEN_WIDTH *0.025,0,SCREEN_WIDTH * 0.32);
+    return UIEdgeInsetsMake((SCREEN_HEIGHT * .025) + statusBarHeight,SCREEN_WIDTH *0.025,0,SCREEN_WIDTH * 0.32);
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     UICollectionReusableView *reusableView = nil;
@@ -108,7 +107,7 @@
         }
         
         UIImage *headerImage = [UIImage imageNamed:@"galleryheader.png"];
-        UIImageView *headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.0967)];
+        UIImageView *headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, statusBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT * 0.0967)];
         headerView.image = headerImage;
         [reusableView addSubview:headerView];
         return reusableView;

@@ -1,0 +1,10 @@
+Wall of War is a massive data visualization project by Dylan Halpern. Collaborators on the project include Lauren Thorson (faculty mentor), Tommy Petet (visualization programmer), and Matt Hill (app developer).
+
+The original exhibition contained a 10'x85' printed visualization containing 463,461 entries from the Iraq and Afghanistan Wikileaks War Logs. The data
+has been translated into a series of 220 graphic icons, each representing an kind of event.
+
+This app was created as a companion to the piece--a way to decode the cells of information--and as a new way to look at and interpret the data. By following the highlighted input, you can decipher the icons and examine the data in its full form.
+
+This project was made possible by a generous grant from the Robert D. Bielecki Foundation.
+
+Read more about the foundation at http://rdbf.org.

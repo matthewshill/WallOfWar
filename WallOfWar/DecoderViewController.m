@@ -68,10 +68,6 @@ bool wOkEnabled = false;
     [self setupUI];
     
     _results = [[NSMutableArray alloc] init];
-    //custom status bar background
-    UIView *statusBarView =  [[UIView alloc] initWithFrame:statusBarViewFrame];
-    statusBarView.backgroundColor  =  statusBarColor;
-    [self.view addSubview:statusBarView];
     
     self.view.userInteractionEnabled = YES;
     

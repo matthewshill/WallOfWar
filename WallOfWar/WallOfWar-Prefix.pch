@@ -201,6 +201,7 @@
 #define enemyTextFrame2 CGRectMake(SCREEN_WIDTH * 0.63, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.0688, SCREEN_HEIGHT * 0.01818)
 
 #define stdFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10.8]
+#define titleFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:24]
 
 
 // Include any system framework and library headers here that should be included in all compilation units.

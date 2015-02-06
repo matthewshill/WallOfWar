@@ -15,9 +15,27 @@
 		5C022FCA1A3176B3009AC09A /* Wok5.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C022FC51A3176B3009AC09A /* Wok5.png */; };
 		5C1764651A82D511008582EB /* Attack_On_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C1764601A82D510008582EB /* Attack_On_Icons.png */; };
 		5C1764661A82D511008582EB /* Category_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C1764611A82D510008582EB /* Category_Icons.png */; };
-		5C1764671A82D511008582EB /* Complete.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C1764621A82D511008582EB /* Complete.plist */; };
 		5C1764681A82D511008582EB /* Region_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C1764631A82D511008582EB /* Region_Icons.png */; };
 		5C1764691A82D511008582EB /* Type_Icons.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C1764641A82D511008582EB /* Type_Icons.png */; };
+		5C2E76221A853CA700BB754A /* wow.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76211A853CA700BB754A /* wow.txt */; };
+		5C2E76251A8541B600BB754A /* Complete.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76231A8541B600BB754A /* Complete.plist */; };
+		5C2E76381A8547C400BB754A /* Afghanistan_Central.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76271A8547C400BB754A /* Afghanistan_Central.png */; };
+		5C2E76391A8547C400BB754A /* Afghanistan_East.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76281A8547C400BB754A /* Afghanistan_East.png */; };
+		5C2E763A1A8547C400BB754A /* Afghanistan_North.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76291A8547C400BB754A /* Afghanistan_North.png */; };
+		5C2E763B1A8547C400BB754A /* Afghanistan_South.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E762A1A8547C400BB754A /* Afghanistan_South.png */; };
+		5C2E763C1A8547C400BB754A /* Afghanistan_West.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E762B1A8547C400BB754A /* Afghanistan_West.png */; };
+		5C2E763D1A8547C400BB754A /* Enemy_Target.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E762C1A8547C400BB754A /* Enemy_Target.png */; };
+		5C2E763E1A8547C400BB754A /* Friendly_Target.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E762D1A8547C400BB754A /* Friendly_Target.png */; };
+		5C2E763F1A8547C400BB754A /* Iraq_Baghdad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E762E1A8547C400BB754A /* Iraq_Baghdad.png */; };
+		5C2E76401A8547C400BB754A /* Iraq_North_East.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E762F1A8547C400BB754A /* Iraq_North_East.png */; };
+		5C2E76411A8547C400BB754A /* Iraq_North.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76301A8547C400BB754A /* Iraq_North.png */; };
+		5C2E76421A8547C400BB754A /* Iraq_South_East.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76311A8547C400BB754A /* Iraq_South_East.png */; };
+		5C2E76431A8547C400BB754A /* Iraq_South.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76321A8547C400BB754A /* Iraq_South.png */; };
+		5C2E76441A8547C400BB754A /* Iraq_West.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76331A8547C400BB754A /* Iraq_West.png */; };
+		5C2E76451A8547C400BB754A /* Neutral_Target.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76341A8547C400BB754A /* Neutral_Target.png */; };
+		5C2E76461A8547C400BB754A /* None_Selected_Region.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76351A8547C400BB754A /* None_Selected_Region.png */; };
+		5C2E76471A8547C400BB754A /* Unknown_Location.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76361A8547C400BB754A /* Unknown_Location.png */; };
+		5C2E76481A8547C400BB754A /* Unknown_Target.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C2E76371A8547C400BB754A /* Unknown_Target.png */; };
 		5C376AB61A706E4700843126 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AAD1A706E4700843126 /* about.png */; };
 		5C376AB71A706E4700843126 /* about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AAE1A706E4700843126 /* about@2x.png */; };
 		5C376AB81A706E4700843126 /* about@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C376AAF1A706E4700843126 /* about@3x.png */; };
@@ -298,9 +316,27 @@
 		5C050C141A2C1D6C00861734 /* WallOfWar-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WallOfWar-Prefix.pch"; sourceTree = "<group>"; };
 		5C1764601A82D510008582EB /* Attack_On_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Attack_On_Icons.png; sourceTree = "<group>"; };
 		5C1764611A82D510008582EB /* Category_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category_Icons.png; sourceTree = "<group>"; };
-		5C1764621A82D511008582EB /* Complete.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Complete.plist; sourceTree = "<group>"; };
 		5C1764631A82D511008582EB /* Region_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Region_Icons.png; sourceTree = "<group>"; };
 		5C1764641A82D511008582EB /* Type_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Type_Icons.png; sourceTree = "<group>"; };
+		5C2E76211A853CA700BB754A /* wow.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wow.txt; sourceTree = "<group>"; };
+		5C2E76231A8541B600BB754A /* Complete.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Complete.plist; sourceTree = "<group>"; };
+		5C2E76271A8547C400BB754A /* Afghanistan_Central.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Afghanistan_Central.png; sourceTree = "<group>"; };
+		5C2E76281A8547C400BB754A /* Afghanistan_East.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Afghanistan_East.png; sourceTree = "<group>"; };
+		5C2E76291A8547C400BB754A /* Afghanistan_North.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Afghanistan_North.png; sourceTree = "<group>"; };
+		5C2E762A1A8547C400BB754A /* Afghanistan_South.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Afghanistan_South.png; sourceTree = "<group>"; };
+		5C2E762B1A8547C400BB754A /* Afghanistan_West.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Afghanistan_West.png; sourceTree = "<group>"; };
+		5C2E762C1A8547C400BB754A /* Enemy_Target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Enemy_Target.png; sourceTree = "<group>"; };
+		5C2E762D1A8547C400BB754A /* Friendly_Target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Friendly_Target.png; sourceTree = "<group>"; };
+		5C2E762E1A8547C400BB754A /* Iraq_Baghdad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iraq_Baghdad.png; sourceTree = "<group>"; };
+		5C2E762F1A8547C400BB754A /* Iraq_North_East.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iraq_North_East.png; sourceTree = "<group>"; };
+		5C2E76301A8547C400BB754A /* Iraq_North.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iraq_North.png; sourceTree = "<group>"; };
+		5C2E76311A8547C400BB754A /* Iraq_South_East.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iraq_South_East.png; sourceTree = "<group>"; };
+		5C2E76321A8547C400BB754A /* Iraq_South.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iraq_South.png; sourceTree = "<group>"; };
+		5C2E76331A8547C400BB754A /* Iraq_West.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iraq_West.png; sourceTree = "<group>"; };
+		5C2E76341A8547C400BB754A /* Neutral_Target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Neutral_Target.png; sourceTree = "<group>"; };
+		5C2E76351A8547C400BB754A /* None_Selected_Region.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = None_Selected_Region.png; sourceTree = "<group>"; };
+		5C2E76361A8547C400BB754A /* Unknown_Location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unknown_Location.png; sourceTree = "<group>"; };
+		5C2E76371A8547C400BB754A /* Unknown_Target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unknown_Target.png; sourceTree = "<group>"; };
 		5C376AAD1A706E4700843126 /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
 		5C376AAE1A706E4700843126 /* about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about@2x.png"; sourceTree = "<group>"; };
 		5C376AAF1A706E4700843126 /* about@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about@3x.png"; sourceTree = "<group>"; };
@@ -655,9 +691,27 @@
 		5C784F5F19FFEFD600F87E7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5C2E76271A8547C400BB754A /* Afghanistan_Central.png */,
+				5C2E76281A8547C400BB754A /* Afghanistan_East.png */,
+				5C2E76291A8547C400BB754A /* Afghanistan_North.png */,
+				5C2E762A1A8547C400BB754A /* Afghanistan_South.png */,
+				5C2E762B1A8547C400BB754A /* Afghanistan_West.png */,
+				5C2E762C1A8547C400BB754A /* Enemy_Target.png */,
+				5C2E762D1A8547C400BB754A /* Friendly_Target.png */,
+				5C2E762E1A8547C400BB754A /* Iraq_Baghdad.png */,
+				5C2E762F1A8547C400BB754A /* Iraq_North_East.png */,
+				5C2E76301A8547C400BB754A /* Iraq_North.png */,
+				5C2E76311A8547C400BB754A /* Iraq_South_East.png */,
+				5C2E76321A8547C400BB754A /* Iraq_South.png */,
+				5C2E76331A8547C400BB754A /* Iraq_West.png */,
+				5C2E76341A8547C400BB754A /* Neutral_Target.png */,
+				5C2E76351A8547C400BB754A /* None_Selected_Region.png */,
+				5C2E76361A8547C400BB754A /* Unknown_Location.png */,
+				5C2E76371A8547C400BB754A /* Unknown_Target.png */,
+				5C2E76231A8541B600BB754A /* Complete.plist */,
+				5C2E76211A853CA700BB754A /* wow.txt */,
 				5C1764601A82D510008582EB /* Attack_On_Icons.png */,
 				5C1764611A82D510008582EB /* Category_Icons.png */,
-				5C1764621A82D511008582EB /* Complete.plist */,
 				5C1764631A82D511008582EB /* Region_Icons.png */,
 				5C1764641A82D511008582EB /* Type_Icons.png */,
 				5CE7E00D1A7C2DC200048A50 /* galleryheader.png */,
@@ -1005,6 +1059,7 @@
 				5CF438BF1A30305D00664EDB /* Hard_Landing.png in Resources */,
 				5CF438FA1A30305D00664EDB /* Raid.png in Resources */,
 				5CF4391E1A30305D00664EDB /* Theft_Threat.png in Resources */,
+				5C2E76451A8547C400BB754A /* Neutral_Target.png in Resources */,
 				5CF438A71A30305D00664EDB /* Detainee_Release.png in Resources */,
 				5C376ABD1A706E4700843126 /* gallery@2x.png in Resources */,
 				5CF438EC1A30305D00664EDB /* Patrol.png in Resources */,
@@ -1031,16 +1086,19 @@
 				5CF438F91A30305D00664EDB /* Raid_Threat.png in Resources */,
 				5C4E759D1A536E440017F4D5 /* SAFIRE.png in Resources */,
 				5C376ABC1A706E4700843126 /* gallery.png in Resources */,
+				5C2E763B1A8547C400BB754A /* Afghanistan_South.png in Resources */,
 				5C376AB71A706E4700843126 /* about@2x.png in Resources */,
 				5CF439211A30305D00664EDB /* Transfer.png in Resources */,
 				5CF438CF1A30305D00664EDB /* Internal_Security_Forces.png in Resources */,
 				5CF438B71A30305D00664EDB /* Extortion.png in Resources */,
+				5C2E76221A853CA700BB754A /* wow.txt in Resources */,
 				5CF4387E1A30305D00664EDB /* Ambush_Threat.png in Resources */,
 				5C4E75A71A536E620017F4D5 /* Reported_Location.png in Resources */,
 				5C4E759C1A536E440017F4D5 /* SAFIRE_Threat.png in Resources */,
 				5C376AB81A706E4700843126 /* about@3x.png in Resources */,
 				5C395D861A326F5D00F318FA /* MND_BAGHDAD.png in Resources */,
 				5C4E75A11A536E440017F4D5 /* TCP.png in Resources */,
+				5C2E76421A8547C400BB754A /* Iraq_South_East.png in Resources */,
 				5CF437C11A30301E00664EDB /* Suspicious_Incident.png in Resources */,
 				5C1764691A82D511008582EB /* Type_Icons.png in Resources */,
 				5CF437BF1A30301E00664EDB /* None_Selected.png in Resources */,
@@ -1048,6 +1106,7 @@
 				5CF4388B1A30305D00664EDB /* Black_List.png in Resources */,
 				5C784F6B19FFEFD600F87E7E /* Main.storyboard in Resources */,
 				5CF439241A30305D00664EDB /* Turn_In.png in Resources */,
+				5C2E76401A8547C400BB754A /* Iraq_North_East.png in Resources */,
 				5CF438A01A30305D00664EDB /* Criminal_Activity.png in Resources */,
 				5CF437C21A30301E00664EDB /* Threat_Report.png in Resources */,
 				5C1764681A82D511008582EB /* Region_Icons.png in Resources */,
@@ -1059,6 +1118,7 @@
 				5CF437461A30087B00664EDB /* TypeIcons.plist in Resources */,
 				5C4E75691A536D3A0017F4D5 /* ARTY.png in Resources */,
 				5C7378971A521F3300B49FA1 /* IED_Hoax.png in Resources */,
+				5C2E763E1A8547C400BB754A /* Friendly_Target.png in Resources */,
 				5C395D981A326F5D00F318FA /* RC_NORTH.png in Resources */,
 				5CF439141A30305D00664EDB /* Sniper_Ops_Threat.png in Resources */,
 				5CA0EA771A2D4C160040A22F /* Next.png in Resources */,
@@ -1105,6 +1165,7 @@
 				5CF4390E1A30305D00664EDB /* Shooting.png in Resources */,
 				5CF438CD1A30305D00664EDB /* Insurgent_Vehicle.png in Resources */,
 				5CF439011A30305D00664EDB /* Repetitive_Activities.png in Resources */,
+				5C2E763A1A8547C400BB754A /* Afghanistan_North.png in Resources */,
 				5C395D881A326F5D00F318FA /* MND_C.png in Resources */,
 				5CF438D21A30305D00664EDB /* Kidnapping_Threat.png in Resources */,
 				5CF438EF1A30305D00664EDB /* Police_Actions.png in Resources */,
@@ -1114,13 +1175,13 @@
 				5C4E756B1A536D4F0017F4D5 /* CASEVAC.png in Resources */,
 				5CF439201A30305D00664EDB /* Threat.png in Resources */,
 				5CF438CC1A30305D00664EDB /* Indirect_Fire.png in Resources */,
+				5C2E76411A8547C400BB754A /* Iraq_North.png in Resources */,
 				5CF4389E1A30305D00664EDB /* Counter_Narcotic.png in Resources */,
 				5C4E75921A536E440017F4D5 /* MEDEVAC_Local_National.png in Resources */,
 				5CF4387B1A30305D00664EDB /* Accident.png in Resources */,
 				5C4E758D1A536E440017F4D5 /* Explosive_Remnants_Of_War_Erw_Turn_In.png in Resources */,
 				5CF438E91A30305D00664EDB /* Other_Defensive.png in Resources */,
 				5C4E75981A536E440017F4D5 /* PSYOP_Written.png in Resources */,
-				5C1764671A82D511008582EB /* Complete.plist in Resources */,
 				5CF437B91A30301E00664EDB /* Enemy_Action.png in Resources */,
 				5C395D9C1A326F5D00F318FA /* RC_WEST.png in Resources */,
 				5CF438AC1A30305D00664EDB /* Downed_Aircraft.png in Resources */,
@@ -1164,6 +1225,7 @@
 				5CF438971A30305D00664EDB /* Checkpoint_Run.png in Resources */,
 				5CF438EB1A30305D00664EDB /* Other_Offensive.png in Resources */,
 				5C4E75A41A536E440017F4D5 /* VETCAP.png in Resources */,
+				5C2E763C1A8547C400BB754A /* Afghanistan_West.png in Resources */,
 				5CF438D11A30305D00664EDB /* Intimidation.png in Resources */,
 				5CF438901A30305D00664EDB /* Breaching.png in Resources */,
 				5CA0EA7A1A2D4C160040A22F /* Search.png in Resources */,
@@ -1178,9 +1240,11 @@
 				5CA30BB11A1AE73600DA75B6 /* TradeGothicLT-CondEighteen.otf in Resources */,
 				5C376AB61A706E4700843126 /* about.png in Resources */,
 				5C395D961A326F5D00F318FA /* RC_EAST.png in Resources */,
+				5C2E76251A8541B600BB754A /* Complete.plist in Resources */,
 				5CF438AD1A30305D00664EDB /* Drug_Operation.png in Resources */,
 				5CF4388F1A30305D00664EDB /* Border_Ops.png in Resources */,
 				5CF4387F1A30305D00664EDB /* Ambush.png in Resources */,
+				5C2E76391A8547C400BB754A /* Afghanistan_East.png in Resources */,
 				5CF439291A30305D00664EDB /* Vehicle_Interdiction.png in Resources */,
 				5C4E75A51A536E440017F4D5 /* VOGE.png in Resources */,
 				5CF438AA1A30305D00664EDB /* Direct_Fire_Threat.png in Resources */,
@@ -1188,8 +1252,10 @@
 				5C395D921A326F5D00F318FA /* MNF_W.png in Resources */,
 				5CF438931A30305D00664EDB /* Carjacking.png in Resources */,
 				5CF438DD1A30305D00664EDB /* Meeting_Security.png in Resources */,
+				5C2E76381A8547C400BB754A /* Afghanistan_Central.png in Resources */,
 				5C022FCA1A3176B3009AC09A /* Wok5.png in Resources */,
 				5CF438991A30305D00664EDB /* Confiscation.png in Resources */,
+				5C2E76461A8547C400BB754A /* None_Selected_Region.png in Resources */,
 				5CE7E0101A7C2DC200048A50 /* galleryheader@2x.png in Resources */,
 				5C6B9BF21A1BDCD00084D76F /* properQuery.png in Resources */,
 				5C4E758C1A536E440017F4D5 /* Escalation_of_Force.png in Resources */,
@@ -1211,6 +1277,7 @@
 				5CF4392C1A30305D00664EDB /* White_Blue.png in Resources */,
 				5CF4388E1A30305D00664EDB /* Blue_White.png in Resources */,
 				5CF439281A30305D00664EDB /* Vandalism.png in Resources */,
+				5C2E76431A8547C400BB754A /* Iraq_South.png in Resources */,
 				5C395DA81A32703A00F318FA /* Attack_UNKNOWN.png in Resources */,
 				5CF438881A30305D00664EDB /* Assassination.png in Resources */,
 				5CF438F11A30305D00664EDB /* Premature_Detonation.png in Resources */,
@@ -1220,16 +1287,21 @@
 				5C4E759E1A536E440017F4D5 /* Show_of_Force.png in Resources */,
 				5C4E75A01A536E440017F4D5 /* Supporting_CF.png in Resources */,
 				5CF437BC1A30301E00664EDB /* Friendly_Action.png in Resources */,
+				5C2E763D1A8547C400BB754A /* Enemy_Target.png in Resources */,
 				5CF4388D1A30305D00664EDB /* Blue_Green.png in Resources */,
 				5CF438E31A30305D00664EDB /* Murder_Threat.png in Resources */,
 				5CF438AE1A30305D00664EDB /* Drug_Vehicle.png in Resources */,
+				5C2E76441A8547C400BB754A /* Iraq_West.png in Resources */,
 				5CF437C01A30301E00664EDB /* Other.png in Resources */,
 				5C022FC91A3176B3009AC09A /* Wok4.png in Resources */,
+				5C2E763F1A8547C400BB754A /* Iraq_Baghdad.png in Resources */,
 				5CF438D51A30305D00664EDB /* Looting_Threat.png in Resources */,
 				5CF438841A30305D00664EDB /* Arrest.png in Resources */,
 				5CF438A31A30305D00664EDB /* Deliberate_Attack.png in Resources */,
+				5C2E76481A8547C400BB754A /* Unknown_Target.png in Resources */,
 				5CF439261A30305D00664EDB /* Unexploded_Ordnance.png in Resources */,
 				5CF4388A1A30305D00664EDB /* Attack.png in Resources */,
+				5C2E76471A8547C400BB754A /* Unknown_Location.png in Resources */,
 				5C395D8E1A326F5D00F318FA /* MND_S.png in Resources */,
 				5CF438911A30305D00664EDB /* Cache_Found_Cleared.png in Resources */,
 				5CF438A91A30305D00664EDB /* Detention.png in Resources */,

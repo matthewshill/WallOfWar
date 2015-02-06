@@ -25,8 +25,10 @@
     // Override point for customization after application launch.
     [self setUpTabBar];
     self.window.backgroundColor = [UIColor whiteColor];
-    
-
+    //custom status bar background
+    UIView *statusBarView =  [[UIView alloc] initWithFrame:statusBarViewFrame];
+    statusBarView.backgroundColor  =  statusBarColor;
+    [self.window.rootViewController.view addSubview:statusBarView];
     
     return YES;
 }
