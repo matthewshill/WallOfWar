@@ -21,7 +21,10 @@
     self.view.userInteractionEnabled = YES;
     
     _decoderView = [DecoderView new];
-    _decoderView.frame = CGRectMake(96, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+    
+    if (self.view.bounds.size.width > 415) {
+        _decoderView.frame = CGRectMake(96, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+    }
     [self.view addSubview:_decoderView];
     //NSLog(@"%@", self.view.subviews.firstObject);
     [self.view setBackgroundColor:[UIColor whiteColor]];

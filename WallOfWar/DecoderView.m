@@ -71,7 +71,8 @@ int width;
     return self;
 }
 -(void)setupUI{
-    if (self.bounds.size.width > 415) {
+    if ([UIScreen mainScreen].bounds.size.width > 415) {
+        NSLog(@"%f", self.bounds.size.width);
         width = 575;
         //self.center = CGPointMake(384, 512);
         //NSLog(@"%@", self.description);
@@ -79,6 +80,7 @@ int width;
     }
     else{
         width = SCREEN_WIDTH;
+        NSLog(@"%f", self.bounds.size.width);
     }
     //[self setUpTextFields];
     [self setUpIconTrays];
