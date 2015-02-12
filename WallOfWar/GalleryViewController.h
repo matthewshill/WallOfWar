@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GalleryView.h"
+@interface GalleryViewController : UIViewController
 
-@interface GalleryViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-@property (strong, nonatomic) UICollectionView *collectionView;
+@property (nonatomic) IBOutlet GalleryView *galleryView;
+
 @end

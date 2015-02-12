@@ -13,6 +13,7 @@
 
 @interface AppDelegate (){
     UITabBarController *tabBarController;
+    //NSDictionary *views;
 }
 
 @end
@@ -24,6 +25,7 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
     [self setUpTabBar];
+    //[self detectConstraints];
     self.window.backgroundColor = [UIColor whiteColor];
     //custom status bar background
     UIView *statusBarView =  [[UIView alloc] initWithFrame:statusBarViewFrame];
@@ -58,7 +60,7 @@
 -(void)setUpTabBar{
     //set up tab bar
     tabBarController = [[UITabBarController alloc] init];
-    
+
     DecoderViewController *vc1 = [[DecoderViewController alloc] init];
     UIImageView *i = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"decoder.png"]];
     vc1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Decoder" image:i.image tag:0];
@@ -76,5 +78,8 @@
     [tabBarController.tabBar setBarTintColor:tabBarColor];
     [tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
     self.window.rootViewController = tabBarController;
+    
+   // views = @{@"Decoder":vc1.view, @"Gallery":vc2.view, @"About":vc3.view};
 }
+
 @end

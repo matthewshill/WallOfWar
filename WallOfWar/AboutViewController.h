@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AboutView.h"
 
 @interface AboutViewController : UIViewController
 
-@property (nonatomic) UITextView *aboutTitle;
-@property (nonatomic) UITextView *body;
+@property (nonatomic) IBOutlet AboutView *aboutView;
 
 @end

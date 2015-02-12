@@ -142,6 +142,9 @@
 		5CA90E9D1A5DCC0A002DF8CE /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA90E9C1A5DCC0A002DF8CE /* GalleryViewController.m */; };
 		5CE7E00F1A7C2DC200048A50 /* galleryheader.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CE7E00D1A7C2DC200048A50 /* galleryheader.png */; };
 		5CE7E0101A7C2DC200048A50 /* galleryheader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CE7E00E1A7C2DC200048A50 /* galleryheader@2x.png */; };
+		5CEA8BB31A8D3AFD00FC90DE /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA8BB21A8D3AFD00FC90DE /* AboutView.m */; };
+		5CEA8BB61A8D3F0600FC90DE /* GalleryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA8BB51A8D3F0600FC90DE /* GalleryView.m */; };
+		5CEA8BB91A8D641700FC90DE /* DecoderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA8BB81A8D641700FC90DE /* DecoderView.m */; };
 		5CF437461A30087B00664EDB /* TypeIcons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437451A30087B00664EDB /* TypeIcons.plist */; };
 		5CF437B51A30301E00664EDB /* Air_Mission.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437A61A30301E00664EDB /* Air_Mission.png */; };
 		5CF437B61A30301E00664EDB /* Counter_Insurgency.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437A71A30301E00664EDB /* Counter_Insurgency.png */; };
@@ -434,6 +437,12 @@
 		5CA90E9C1A5DCC0A002DF8CE /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
 		5CE7E00D1A7C2DC200048A50 /* galleryheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = galleryheader.png; sourceTree = "<group>"; };
 		5CE7E00E1A7C2DC200048A50 /* galleryheader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "galleryheader@2x.png"; sourceTree = "<group>"; };
+		5CEA8BB11A8D3AFD00FC90DE /* AboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutView.h; sourceTree = "<group>"; };
+		5CEA8BB21A8D3AFD00FC90DE /* AboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutView.m; sourceTree = "<group>"; };
+		5CEA8BB41A8D3F0600FC90DE /* GalleryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryView.h; sourceTree = "<group>"; };
+		5CEA8BB51A8D3F0600FC90DE /* GalleryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryView.m; sourceTree = "<group>"; };
+		5CEA8BB71A8D641700FC90DE /* DecoderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecoderView.h; sourceTree = "<group>"; };
+		5CEA8BB81A8D641700FC90DE /* DecoderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecoderView.m; sourceTree = "<group>"; };
 		5CF437451A30087B00664EDB /* TypeIcons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TypeIcons.plist; sourceTree = "<group>"; };
 		5CF437A61A30301E00664EDB /* Air_Mission.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Air_Mission.png; path = TypeIcons/Air_Mission.png; sourceTree = "<group>"; };
 		5CF437A71A30301E00664EDB /* Counter_Insurgency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Counter_Insurgency.png; path = TypeIcons/Counter_Insurgency.png; sourceTree = "<group>"; };
@@ -672,12 +681,18 @@
 		5C784F5E19FFEFD600F87E7E /* WallOfWar */ = {
 			isa = PBXGroup;
 			children = (
+				5CEA8BB11A8D3AFD00FC90DE /* AboutView.h */,
+				5CEA8BB21A8D3AFD00FC90DE /* AboutView.m */,
 				5CA90E981A5DCBF6002DF8CE /* AboutViewController.h */,
 				5CA90E991A5DCBF6002DF8CE /* AboutViewController.m */,
 				5C784F6319FFEFD600F87E7E /* AppDelegate.h */,
 				5C784F6419FFEFD600F87E7E /* AppDelegate.m */,
+				5CEA8BB71A8D641700FC90DE /* DecoderView.h */,
+				5CEA8BB81A8D641700FC90DE /* DecoderView.m */,
 				5C784F6619FFEFD600F87E7E /* DecoderViewController.h */,
 				5C784F6719FFEFD600F87E7E /* DecoderViewController.m */,
+				5CEA8BB41A8D3F0600FC90DE /* GalleryView.h */,
+				5CEA8BB51A8D3F0600FC90DE /* GalleryView.m */,
 				5CA90E9B1A5DCC09002DF8CE /* GalleryViewController.h */,
 				5CA90E9C1A5DCC0A002DF8CE /* GalleryViewController.m */,
 				5C784F6919FFEFD600F87E7E /* Main.storyboard */,
@@ -1350,10 +1365,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CEA8BB61A8D3F0600FC90DE /* GalleryView.m in Sources */,
+				5CEA8BB91A8D641700FC90DE /* DecoderView.m in Sources */,
 				5C784F6819FFEFD600F87E7E /* DecoderViewController.m in Sources */,
 				5C784F6519FFEFD600F87E7E /* AppDelegate.m in Sources */,
 				5CA90E9A1A5DCBF6002DF8CE /* AboutViewController.m in Sources */,
 				5C784F6219FFEFD600F87E7E /* main.m in Sources */,
+				5CEA8BB31A8D3AFD00FC90DE /* AboutView.m in Sources */,
 				5CA90E9D1A5DCC0A002DF8CE /* GalleryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
