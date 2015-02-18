@@ -66,13 +66,13 @@ int width;
         _results = [[NSMutableArray alloc] init];
         
         self.userInteractionEnabled = YES;
-        
+        NSLog(@"HELLO WORLD");
     }
     return self;
 }
 -(void)setupUI{
-    if ([UIScreen mainScreen].bounds.size.width > 415) {
-        NSLog(@"%f", self.bounds.size.width);
+    if (SCREEN_WIDTH > 415) {
+        
         width = 575;
         //self.center = CGPointMake(384, 512);
         //NSLog(@"%@", self.description);
@@ -80,6 +80,7 @@ int width;
     }
     else{
         width = SCREEN_WIDTH;
+        NSLog(@"%f", [UIScreen mainScreen].bounds.size.width);
         NSLog(@"%f", self.bounds.size.width);
     }
     //[self setUpTextFields];
