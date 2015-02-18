@@ -66,29 +66,23 @@ int width;
         _results = [[NSMutableArray alloc] init];
         
         self.userInteractionEnabled = YES;
-        NSLog(@"HELLO WORLD");
     }
     return self;
 }
 -(void)setupUI{
-    if (SCREEN_WIDTH > 415) {
-        
+    if (IS_IPad) {
         width = 575;
-        //self.center = CGPointMake(384, 512);
-        //NSLog(@"%@", self.description);
-        //self.bounds.origin.x = 96.0f;
     }
-    else{
-        width = SCREEN_WIDTH;
-        NSLog(@"%f", [UIScreen mainScreen].bounds.size.width);
-        NSLog(@"%f", self.bounds.size.width);
+    if (IS_IPhone) {
+        width = 375;
     }
-    //[self setUpTextFields];
+    
     [self setUpIconTrays];
     [self setUpButtons];
     [self setUpResultsBox];
     [self setUpTypeIconArray];
 }
+
 -(void)setUpTypeIconArray{
     NSString *path = [[NSBundle mainBundle] pathForResource:
                       @"TypeIcons" ofType:@"plist"];
@@ -263,12 +257,12 @@ int width;
     _properQueryImage.hidden = TRUE;
     [self addSubview:_properQueryImage];
     
-    _currRec = [[UILabel alloc] initWithFrame:CGRectMake(width * 0.4755, (SCREEN_HEIGHT * 0.8138) + statusBarHeight, 100, 100)];
+    _currRec = [[UILabel alloc] initWithFrame:CGRectMake(kWidth * 0.4755, (SCREEN_HEIGHT * 0.8138) + statusBarHeight, 100, 100)];
     [_currRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _currRec.textColor = [UIColor blackColor];
     [self addSubview:_currRec];
     
-    _totalRec = [[UILabel alloc] initWithFrame:CGRectMake(width * 0.5025, ((SCREEN_HEIGHT * 0.8138) + statusBarHeight) - 0.008, 100, 100)];
+    _totalRec = [[UILabel alloc] initWithFrame:CGRectMake(kWidth * 0.5025, ((SCREEN_HEIGHT * 0.8138) + statusBarHeight) - 0.008, 100, 100)];
     [_totalRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
     _totalRec.textColor = [UIColor blackColor];
     //_totalRec.text = @"2";
@@ -592,10 +586,13 @@ int width;
 }//prevButtonPressed
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    NSLog(@"yup");
+    [[self.nextResponder nextResponder] touchesEnded:touches withEvent:event];
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event{
-    //NSLog(@"TOUCH ENDED");
+    NSLog(@"TOUCH ENDED");
+    [[self.nextResponder nextResponder] touchesEnded:touches withEvent:event];
     CGPoint touch = [[touches anyObject] locationInView:self];
     //[self resetIconTrayColors];
     CGRect newFrame;
@@ -795,11 +792,9 @@ int width;
     UIImageView *icon;
     for (int i = 0; i<[typeIconIndex count]; i++) {
         if (i<8) {
-            //CGRect iconFrame = CGRectMake(((width * 0.1658) + ((0.0862 * width) *i)), (SCREEN_HEIGHT* 0.06) + statusBarHeight, width * 0.0672, SCREEN_HEIGHT * 0.0504);
-            CGRect iconFrame = CGRectMake(((width * 0.05) + ((0.105 * width) *i)), (SCREEN_HEIGHT* 0.06) + statusBarHeight, width * 0.08, SCREEN_HEIGHT * 0.04587);
+            CGRect iconFrame = CGRectMake(((kWidth * 0.05) + ((0.105 * kWidth) *i)), (SCREEN_HEIGHT* 0.06) + statusBarHeight, kWidth * 0.08, SCREEN_HEIGHT * 0.04587);
             
             icon = [[UIImageView alloc] initWithFrame:iconFrame];
-            //UIImage *img = [typeIconDictionary objectForKey:[typeIconIndex objectAtIndex:i]];
             [icon setImage:[typeIconDictionary objectForKey:[typeIconIndex objectAtIndex:i]]];
             
             [self addSubview:icon];
@@ -814,8 +809,7 @@ int width;
         }
         else{
             int j = i - 8;
-            //CGRect iconFrame = CGRectMake(((width * 0.1658) + ((0.0862 * width) *j)), (SCREEN_HEIGHT* 0.06) + (SCREEN_HEIGHT * 0.065) + statusBarHeight, width * 0.0672, SCREEN_HEIGHT * 0.0504);
-            CGRect iconFrame = CGRectMake(((width * 0.05) + ((0.105 * width) *j)), (SCREEN_HEIGHT* 0.06) + (SCREEN_HEIGHT * 0.065) + statusBarHeight, width * 0.08, SCREEN_HEIGHT * 0.04587);
+            CGRect iconFrame = CGRectMake(((kWidth * 0.05) + ((0.105 * kWidth) *j)), (SCREEN_HEIGHT* 0.06) + (SCREEN_HEIGHT * 0.065) + statusBarHeight, kWidth * 0.08, SCREEN_HEIGHT * 0.04587);
             icon = [[UIImageView alloc] initWithFrame:iconFrame];
             [icon setImage:[typeIconDictionary objectForKey:[typeIconIndex objectAtIndex:i]]];
             [self addSubview:icon];
@@ -841,8 +835,6 @@ int width;
         type = [type stringByReplacingOccurrencesOfString:@"_" withString:@" "];
     }
     selectedType = type;
-    //NSArray *filteredType = [unfilteredType componentsSeparatedByString:@"_"];
-    //NSString *type = [filteredType componentsJoinedByString:@""];
     query = [NSString stringWithFormat:@"SELECT * FROM wowIndex WHERE type = \"%@\"", unfilteredType];
     [self performQuery];
     
@@ -859,9 +851,9 @@ int width;
                 row++;
             }
             //CGFloat x = (((i -(8*row)) * (width * 0.0862)) + (width * 0.1658));
-            CGFloat x = (((i -(8*row)) * (width * 0.105)) + (width * 0.05));
+            CGFloat x = (((i -(8*row)) * (kWidth * 0.105)) + (kWidth * 0.05));
             // CGRect frame = CGRectMake(x, ((SCREEN_HEIGHT* 0.06) * (row + 1)) + statusBarHeight,width * 0.0672,SCREEN_HEIGHT * 0.0504);
-            CGRect frame = CGRectMake(x, ((SCREEN_HEIGHT* 0.06) * (row + 1)) + statusBarHeight,width * 0.08,SCREEN_HEIGHT * 0.04587);
+            CGRect frame = CGRectMake(x, ((SCREEN_HEIGHT* 0.06) * (row + 1)) + statusBarHeight,kWidth * 0.08,SCREEN_HEIGHT * 0.04587);
             icon = [[UIImageView alloc]initWithFrame:frame];
             NSString *fileName = [categoryIconArray objectAtIndex:(i)];
             UIImage *img = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", fileName]];
@@ -898,8 +890,8 @@ int width;
             }
             //CGFloat x = (((i -(3*row)) * (width * 0.115)) + (width * 0.5136));
             // CGRect frame = CGRectMake(x, ((SCREEN_HEIGHT* 0.04215) * (row + 1)) + statusBarHeight + (SCREEN_HEIGHT * 0.015), width * 0.1, SCREEN_HEIGHT * 0.0355);
-            CGFloat x = (((i -(3*row)) * (width * 0.1569)) + (width * 0.5125));
-            CGRect frame = CGRectMake(x, ((SCREEN_HEIGHT* 0.04215) * (row + 1)) + statusBarHeight + (SCREEN_HEIGHT * 0.015), width * 0.1319, SCREEN_HEIGHT * 0.0355);
+            CGFloat x = (((i -(3*row)) * (kWidth * 0.1569)) + (kWidth * 0.5125));
+            CGRect frame = CGRectMake(x, ((SCREEN_HEIGHT* 0.04215) * (row + 1)) + statusBarHeight + (SCREEN_HEIGHT * 0.015), kWidth * 0.1319, SCREEN_HEIGHT * 0.0355);
             icon = [[UIImageView alloc]initWithFrame:frame];
             NSString *filename = [NSString stringWithFormat:@"%@.png", [regionIconArray objectAtIndex:i]];
             if ([filename containsString:@"SELECTED"]) {
@@ -924,7 +916,7 @@ int width;
     if (typeExpanded) {
         //set selected icon within type icon tray frame
         //CGRect typeFrame = CGRectMake(width * 0.2268, SCREEN_HEIGHT * 0.075 + statusBarHeight, width * 0.18375, SCREEN_HEIGHT * 0.14);
-        CGRect typeFrame = CGRectMake(width * 0.125, SCREEN_HEIGHT * 0.075 + statusBarHeight, width * 0.244, SCREEN_HEIGHT * 0.14);
+        CGRect typeFrame = CGRectMake(kWidth * 0.125, SCREEN_HEIGHT * 0.075 + statusBarHeight, kWidth * 0.244, SCREEN_HEIGHT * 0.14);
         selectedTypeIcon = [[UIImageView alloc] initWithFrame:typeFrame];
         //UIImageView *img = [typeIconIndex objectAtIndex:i];
         [selectedTypeIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [typeIconIndex objectAtIndex:i]]]];
@@ -936,8 +928,7 @@ int width;
     }
     else if (categoryExpanded) {
         //set selected icon within type icon tray frame
-        //CGRect typeFrame = CGRectMake(width * 0.2268, SCREEN_HEIGHT * 0.3676 + statusBarHeight, width * 0.18375, SCREEN_HEIGHT * 0.14);
-        CGRect typeFrame = CGRectMake(width * 0.125, SCREEN_HEIGHT * 0.3676 + statusBarHeight, width * 0.244, SCREEN_HEIGHT * 0.14);
+        CGRect typeFrame = CGRectMake(kWidth * 0.125, SCREEN_HEIGHT * 0.3676 + statusBarHeight, kWidth * 0.244, SCREEN_HEIGHT * 0.14);
         selectedCatIcon = [[UIImageView alloc] initWithFrame:typeFrame];
         UIImageView *img = [categoryIconArray objectAtIndex:i];
         selectedCategory = [categoryNames objectAtIndex:i];
@@ -949,7 +940,7 @@ int width;
     }
     else if(regionExpanded){
         //CGRect frame = CGRectMake(width * 0.5572, SCREEN_HEIGHT * 0.216 + statusBarHeight, width * 0.18375, SCREEN_HEIGHT * 0.0657);
-        CGRect frame = CGRectMake(width * 0.62175, SCREEN_HEIGHT * 0.20 + statusBarHeight, width * 0.244, SCREEN_HEIGHT * 0.0657);
+        CGRect frame = CGRectMake(kWidth * 0.62175, SCREEN_HEIGHT * 0.20 + statusBarHeight, kWidth * 0.244, SCREEN_HEIGHT * 0.0657);
         selectedRegionIcon = [[UIImageView alloc] initWithFrame:frame];
         UIImageView *img = [regionIconArray objectAtIndex:i];
         selectedRegion = [regionNames objectAtIndex:i];

@@ -64,6 +64,7 @@
     NSLog(@"collection");
     UIImage *cellImage = [UIImage imageNamed:[self.icons objectAtIndex:indexPath.row]];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:cellImage];
+    //[imageView setContentMode:UIViewContentModeScaleToFill];
     cell.backgroundView = imageView;
     cell.backgroundColor = [UIColor clearColor];
     //check for labels
