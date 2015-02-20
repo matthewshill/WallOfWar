@@ -14,7 +14,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         //initialization code
-        //[self setBackgroundColor:[UIColor colorWithRed:(248.0/255.0) green:(244.0/255.0) blue:(219.0/255.0) alpha:1.0]];
+        [self setBackgroundColor:[UIColor colorWithRed:(248.0/255.0) green:(244.0/255.0) blue:(219.0/255.0) alpha:1.0]];
         [self setUpText];
     }
     return self;

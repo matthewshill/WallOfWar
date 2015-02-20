@@ -124,7 +124,6 @@
 		5C73789A1A521F3300B49FA1 /* IED_Threat.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C7378921A521F3300B49FA1 /* IED_Threat.png */; };
 		5C784F6219FFEFD600F87E7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C784F6119FFEFD600F87E7E /* main.m */; };
 		5C784F6519FFEFD600F87E7E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C784F6419FFEFD600F87E7E /* AppDelegate.m */; };
-		5C784F6819FFEFD600F87E7E /* DecoderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C784F6719FFEFD600F87E7E /* DecoderViewController.m */; };
 		5C784F6B19FFEFD600F87E7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C784F6919FFEFD600F87E7E /* Main.storyboard */; };
 		5C784F6D19FFEFD600F87E7E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C784F6C19FFEFD600F87E7E /* Images.xcassets */; };
 		5C784F7019FFEFD600F87E7E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C784F6E19FFEFD600F87E7E /* LaunchScreen.xib */; };
@@ -139,12 +138,11 @@
 		5CA30BB41A1B05A400DA75B6 /* Result.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA30BB21A1B05A400DA75B6 /* Result.png */; };
 		5CA30BB51A1B05A400DA75B6 /* TextBox2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA30BB31A1B05A400DA75B6 /* TextBox2.png */; };
 		5CA90E9A1A5DCBF6002DF8CE /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA90E991A5DCBF6002DF8CE /* AboutViewController.m */; };
-		5CA90E9D1A5DCC0A002DF8CE /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA90E9C1A5DCC0A002DF8CE /* GalleryViewController.m */; };
+		5CE41DDE1A97BD8900581A1E /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE41DDC1A97BD8900581A1E /* GalleryViewController.m */; };
+		5CE41DE01A97C7EA00581A1E /* DecoderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE41DDF1A97C7EA00581A1E /* DecoderViewController.m */; };
 		5CE7E00F1A7C2DC200048A50 /* galleryheader.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CE7E00D1A7C2DC200048A50 /* galleryheader.png */; };
 		5CE7E0101A7C2DC200048A50 /* galleryheader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CE7E00E1A7C2DC200048A50 /* galleryheader@2x.png */; };
 		5CEA8BB31A8D3AFD00FC90DE /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA8BB21A8D3AFD00FC90DE /* AboutView.m */; };
-		5CEA8BB61A8D3F0600FC90DE /* GalleryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA8BB51A8D3F0600FC90DE /* GalleryView.m */; };
-		5CEA8BB91A8D641700FC90DE /* DecoderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA8BB81A8D641700FC90DE /* DecoderView.m */; };
 		5CF437461A30087B00664EDB /* TypeIcons.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437451A30087B00664EDB /* TypeIcons.plist */; };
 		5CF437B51A30301E00664EDB /* Air_Mission.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437A61A30301E00664EDB /* Air_Mission.png */; };
 		5CF437B61A30301E00664EDB /* Counter_Insurgency.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CF437A71A30301E00664EDB /* Counter_Insurgency.png */; };
@@ -316,7 +314,6 @@
 		5C022FC31A3176B3009AC09A /* Wok3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wok3.png; sourceTree = "<group>"; };
 		5C022FC41A3176B3009AC09A /* Wok4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wok4.png; sourceTree = "<group>"; };
 		5C022FC51A3176B3009AC09A /* Wok5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wok5.png; sourceTree = "<group>"; };
-		5C050C141A2C1D6C00861734 /* WallOfWar-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WallOfWar-Prefix.pch"; sourceTree = "<group>"; };
 		5C1764601A82D510008582EB /* Attack_On_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Attack_On_Icons.png; sourceTree = "<group>"; };
 		5C1764611A82D510008582EB /* Category_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category_Icons.png; sourceTree = "<group>"; };
 		5C1764631A82D511008582EB /* Region_Icons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Region_Icons.png; sourceTree = "<group>"; };
@@ -414,8 +411,6 @@
 		5C784F6119FFEFD600F87E7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5C784F6319FFEFD600F87E7E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5C784F6419FFEFD600F87E7E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5C784F6619FFEFD600F87E7E /* DecoderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DecoderViewController.h; sourceTree = "<group>"; };
-		5C784F6719FFEFD600F87E7E /* DecoderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DecoderViewController.m; sourceTree = "<group>"; };
 		5C784F6A19FFEFD600F87E7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C784F6C19FFEFD600F87E7E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5C784F6F19FFEFD600F87E7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -433,16 +428,15 @@
 		5CA30BB31A1B05A400DA75B6 /* TextBox2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextBox2.png; sourceTree = "<group>"; };
 		5CA90E981A5DCBF6002DF8CE /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		5CA90E991A5DCBF6002DF8CE /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
-		5CA90E9B1A5DCC09002DF8CE /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
-		5CA90E9C1A5DCC0A002DF8CE /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		5CE41DD71A97B1B200581A1E /* WallOfWar-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WallOfWar-Prefix.pch"; sourceTree = "<group>"; };
+		5CE41DD91A97BD8900581A1E /* DecoderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecoderViewController.h; sourceTree = "<group>"; };
+		5CE41DDB1A97BD8900581A1E /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		5CE41DDC1A97BD8900581A1E /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		5CE41DDF1A97C7EA00581A1E /* DecoderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecoderViewController.m; sourceTree = "<group>"; };
 		5CE7E00D1A7C2DC200048A50 /* galleryheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = galleryheader.png; sourceTree = "<group>"; };
 		5CE7E00E1A7C2DC200048A50 /* galleryheader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "galleryheader@2x.png"; sourceTree = "<group>"; };
 		5CEA8BB11A8D3AFD00FC90DE /* AboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutView.h; sourceTree = "<group>"; };
 		5CEA8BB21A8D3AFD00FC90DE /* AboutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutView.m; sourceTree = "<group>"; };
-		5CEA8BB41A8D3F0600FC90DE /* GalleryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryView.h; sourceTree = "<group>"; };
-		5CEA8BB51A8D3F0600FC90DE /* GalleryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryView.m; sourceTree = "<group>"; };
-		5CEA8BB71A8D641700FC90DE /* DecoderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecoderView.h; sourceTree = "<group>"; };
-		5CEA8BB81A8D641700FC90DE /* DecoderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecoderView.m; sourceTree = "<group>"; };
 		5CF437451A30087B00664EDB /* TypeIcons.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TypeIcons.plist; sourceTree = "<group>"; };
 		5CF437A61A30301E00664EDB /* Air_Mission.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Air_Mission.png; path = TypeIcons/Air_Mission.png; sourceTree = "<group>"; };
 		5CF437A71A30301E00664EDB /* Counter_Insurgency.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Counter_Insurgency.png; path = TypeIcons/Counter_Insurgency.png; sourceTree = "<group>"; };
@@ -681,20 +675,17 @@
 		5C784F5E19FFEFD600F87E7E /* WallOfWar */ = {
 			isa = PBXGroup;
 			children = (
+				5CE41DD71A97B1B200581A1E /* WallOfWar-Prefix.pch */,
 				5CEA8BB11A8D3AFD00FC90DE /* AboutView.h */,
 				5CEA8BB21A8D3AFD00FC90DE /* AboutView.m */,
 				5CA90E981A5DCBF6002DF8CE /* AboutViewController.h */,
 				5CA90E991A5DCBF6002DF8CE /* AboutViewController.m */,
 				5C784F6319FFEFD600F87E7E /* AppDelegate.h */,
 				5C784F6419FFEFD600F87E7E /* AppDelegate.m */,
-				5CEA8BB71A8D641700FC90DE /* DecoderView.h */,
-				5CEA8BB81A8D641700FC90DE /* DecoderView.m */,
-				5C784F6619FFEFD600F87E7E /* DecoderViewController.h */,
-				5C784F6719FFEFD600F87E7E /* DecoderViewController.m */,
-				5CEA8BB41A8D3F0600FC90DE /* GalleryView.h */,
-				5CEA8BB51A8D3F0600FC90DE /* GalleryView.m */,
-				5CA90E9B1A5DCC09002DF8CE /* GalleryViewController.h */,
-				5CA90E9C1A5DCC0A002DF8CE /* GalleryViewController.m */,
+				5CE41DD91A97BD8900581A1E /* DecoderViewController.h */,
+				5CE41DDF1A97C7EA00581A1E /* DecoderViewController.m */,
+				5CE41DDB1A97BD8900581A1E /* GalleryViewController.h */,
+				5CE41DDC1A97BD8900581A1E /* GalleryViewController.m */,
 				5C784F6919FFEFD600F87E7E /* Main.storyboard */,
 				5C784F6C19FFEFD600F87E7E /* Images.xcassets */,
 				5C784F6E19FFEFD600F87E7E /* LaunchScreen.xib */,
@@ -756,7 +747,6 @@
 				5CA30BAE1A1AE2F600DA75B6 /* TextBox.png */,
 				5C784F6019FFEFD600F87E7E /* Info.plist */,
 				5C784F6119FFEFD600F87E7E /* main.m */,
-				5C050C141A2C1D6C00861734 /* WallOfWar-Prefix.pch */,
 				5CF437451A30087B00664EDB /* TypeIcons.plist */,
 				5C4E75641A536A090017F4D5 /* wallofwar.sqlite */,
 			);
@@ -1365,14 +1355,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CEA8BB61A8D3F0600FC90DE /* GalleryView.m in Sources */,
-				5CEA8BB91A8D641700FC90DE /* DecoderView.m in Sources */,
-				5C784F6819FFEFD600F87E7E /* DecoderViewController.m in Sources */,
 				5C784F6519FFEFD600F87E7E /* AppDelegate.m in Sources */,
 				5CA90E9A1A5DCBF6002DF8CE /* AboutViewController.m in Sources */,
 				5C784F6219FFEFD600F87E7E /* main.m in Sources */,
+				5CE41DE01A97C7EA00581A1E /* DecoderViewController.m in Sources */,
 				5CEA8BB31A8D3AFD00FC90DE /* AboutView.m in Sources */,
-				5CA90E9D1A5DCC0A002DF8CE /* GalleryViewController.m in Sources */,
+				5CE41DDE1A97BD8900581A1E /* GalleryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

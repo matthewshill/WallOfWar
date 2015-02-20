@@ -26,181 +26,73 @@
 #define IS_IPhone (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
 
 
-//Icon Trays
-//#define typeTrayFrame CGRectMake(SCREEN_WIDTH * 0.1468, (SCREEN_HEIGHT * 0.015) + statusBarHeight, SCREEN_WIDTH * 0.34375, SCREEN_HEIGHT * stdHeight)
+//#define typeTrayFrame CGRectMake(width * 0.025, (SCREEN_HEIGHT * 0.015) + statusBarHeight, width * stdWidth, SCREEN_HEIGHT * stdHeight)
 
-//#define typeExtendedFrame CGRectMake(SCREEN_WIDTH * 0.1468, (SCREEN_HEIGHT * 0.015) + statusBarHeight, SCREEN_WIDTH * 0.7083, SCREEN_HEIGHT * stdHeight)
+//#define typeExtendedFrame CGRectMake(width * 0.025, (SCREEN_HEIGHT * 0.015) + statusBarHeight, width * 0.95, SCREEN_HEIGHT * stdHeight)
 
-//#define categoryTrayFrame CGRectMake(SCREEN_WIDTH * 0.1468, (SCREEN_HEIGHT * 0.29) + statusBarHeight, SCREEN_WIDTH * 0.34375, SCREEN_HEIGHT * stdHeight)
+//#define categoryTrayFrame CGRectMake(width * 0.025, (SCREEN_HEIGHT * 0.29) + statusBarHeight, width * stdWidth, SCREEN_HEIGHT * stdHeight)
 
-//#define attackOnTrayFrame CGRectMake(SCREEN_WIDTH * 0.5101, (SCREEN_HEIGHT * 0.015) + statusBarHeight, SCREEN_WIDTH * 0.34375, SCREEN_HEIGHT * 0.1225)
+//#define attackOnTrayFrame CGRectMake(width* 0.5125, (SCREEN_HEIGHT * 0.015) + statusBarHeight, width * stdWidth, SCREEN_HEIGHT * 0.1225)
 
-//#define regionTrayFrame CGRectMake(SCREEN_WIDTH * 0.5101, (SCREEN_HEIGHT * 0.1525) + statusBarHeight, SCREEN_WIDTH * 0.34375, SCREEN_HEIGHT * 0.1225)
+//#define regionTrayFrame CGRectMake(width * 0.5125, (SCREEN_HEIGHT * 0.1525) + statusBarHeight, width * stdWidth, SCREEN_HEIGHT * 0.1225)
 
-//Fwia
-//#define fwiaTrayFrame CGRectMake(SCREEN_WIDTH * 0.5101, (SCREEN_HEIGHT * 0.32) + statusBarHeight, SCREEN_WIDTH * 00.1316, SCREEN_HEIGHT * 0.065)
+//#define fwiaTrayFrame CGRectMake(width* 0.5125, (SCREEN_HEIGHT * 0.32) + statusBarHeight, width * 0.177, SCREEN_HEIGHT * 0.065)
 
+//#define cwiaTrayFrame CGRectMake(width * 0.5125, (SCREEN_HEIGHT * 0.397) + statusBarHeight, width * 0.177, SCREEN_HEIGHT * 0.065)
 
-//Cwia
-//#define cwiaTrayFrame CGRectMake(SCREEN_WIDTH * 0.5101, (SCREEN_HEIGHT * 0.397) + statusBarHeight, SCREEN_WIDTH * 00.1316, SCREEN_HEIGHT * 0.065)
+//#define ewiaTrayFrame CGRectMake(width* 0.5125, (SCREEN_HEIGHT * 0.474) + statusBarHeight, width * 0.177, SCREEN_HEIGHT * 0.065)
 
-//Ewia
+//#define fkiaTrayFrame CGRectMake(width * 0.7975, (SCREEN_HEIGHT * 0.32) + statusBarHeight, width * 0.177, SCREEN_HEIGHT * 0.065)
 
-//#define ewiaTrayFrame CGRectMake(SCREEN_WIDTH * 0.5101, (SCREEN_HEIGHT * 0.474) + statusBarHeight, SCREEN_WIDTH * 00.1316, SCREEN_HEIGHT * 0.065)
+//#define ckiaTrayFrame CGRectMake(width* 0.7975, (SCREEN_HEIGHT * 0.397) + statusBarHeight, width * 0.177, SCREEN_HEIGHT * 0.065)
 
-//Fkia
+//#define ekiaTrayFrame CGRectMake(width * 0.7975, (SCREEN_HEIGHT * 0.474) + statusBarHeight, width * 0.177, SCREEN_HEIGHT * 0.065)
 
-//#define fkiaTrayFrame CGRectMake(SCREEN_WIDTH * 0.7216, (SCREEN_HEIGHT * 0.32) + statusBarHeight, SCREEN_WIDTH * 00.1316, SCREEN_HEIGHT * 0.065)
+//#define iconTrayLabelFrame CGRectMake((width * 0.025), (SCREEN_HEIGHT * 0.015), 42, 18)
+//#define textBoxFrame CGRectMake(width* 0.025, (SCREEN_HEIGHT * 0.6325) + statusBarHeight, width * 0.95, SCREEN_HEIGHT * 0.1625)
 
+//#define resultImageFrame CGRectMake(width * 0.4626, (SCREEN_HEIGHT * 0.8316) + statusBarHeight, width * 0.076, SCREEN_HEIGHT * 0.03765)
 
-//Ckia
+//#define properQueryImageFrame CGRectMake(width* 0.025, (SCREEN_HEIGHT * 0.5650) + statusBarHeight, width * 0.95, SCREEN_HEIGHT * 0.0525)
 
-//#define ckiaTrayFrame CGRectMake(SCREEN_WIDTH * 0.7216, (SCREEN_HEIGHT * 0.397) + statusBarHeight, SCREEN_WIDTH * 00.1316, SCREEN_HEIGHT * 0.065)
+//#define prevRecordButtonFrame CGRectMake(width * 0.025, (SCREEN_HEIGHT * 0.81) + statusBarHeight, width * 0.1066, SCREEN_HEIGHT * 0.06)
 
-//Ekia
-//#define ekiaTrayFrame CGRectMake(SCREEN_WIDTH * 0.7216, (SCREEN_HEIGHT * 0.474) + statusBarHeight, SCREEN_WIDTH * 00.1316, SCREEN_HEIGHT * 0.065)
+//#define nextRecordButtonFrame CGRectMake(width* .1566, (SCREEN_HEIGHT * 0.81) + statusBarHeight, width * 0.1066, SCREEN_HEIGHT * 0.06)
 
-//iconTrayLabelFrame
-//#define iconTrayLabelFrame CGRectMake((SCREEN_WIDTH * 0.025), (SCREEN_HEIGHT * 0.015), 100, 23)
+//#define clearButtonFrame CGRectMake(width* 0.7298, (SCREEN_HEIGHT * 0.81) + statusBarHeight, width * 0.1066, SCREEN_HEIGHT * 0.06)
 
-//textBoxFrame
-//#define textBoxFrame CGRectMake(SCREEN_WIDTH * 0.1468, (SCREEN_HEIGHT * 0.6325) + statusBarHeight, SCREEN_WIDTH * 0.7083, SCREEN_HEIGHT * 0.1625)
+//#define submitButtonFrame CGRectMake(width * 0.8614, (SCREEN_HEIGHT * 0.81) + statusBarHeight, width * 0.1066, SCREEN_HEIGHT * 0.06)
 
-//resultImg
-//#define resultImageFrame CGRectMake(SCREEN_WIDTH * 0.4625, (SCREEN_HEIGHT * 0.8316) + statusBarHeight, SCREEN_WIDTH * 0.0569, SCREEN_HEIGHT * 0.03765)
+//#define woundedLabelFrame CGRectMake(width * 0.5502, (SCREEN_HEIGHT * 0.2975) + statusBarHeight, width * 0.1021, SCREEN_HEIGHT * 0.0139)
 
-//errorBox
-//#define properQueryImageFrame CGRectMake(SCREEN_WIDTH * 0.1468, (SCREEN_HEIGHT * 0.565) + statusBarHeight, SCREEN_WIDTH * 0.7083, SCREEN_HEIGHT * 0.0525)
+//#define killedLabelFrame CGRectMake((width * 0.8544), (SCREEN_HEIGHT * 0.2975) + statusBarHeight, width * 0.0605, SCREEN_HEIGHT * 0.0139)
 
-//button1 -- entry -> left
-//#define prevRecordButtonFrame CGRectMake(SCREEN_WIDTH * 0.1468, (SCREEN_HEIGHT * 0.81) + statusBarHeight, SCREEN_WIDTH * 0.07926, SCREEN_HEIGHT * 0.06)
+//#define friendlyLabelFrame CGRectMake((width * 0.7), (SCREEN_HEIGHT * 0.3438) + statusBarHeight, width * 0.0605, SCREEN_HEIGHT * 0.0175)
 
-//button2 -- entry -> right
-//#define nextRecordButtonFrame CGRectMake(SCREEN_WIDTH * 0.245, (SCREEN_HEIGHT * 0.81) + statusBarHeight, SCREEN_WIDTH * 0.07926, SCREEN_HEIGHT * 0.06)
+//#define civilianLabelFrame CGRectMake((width* 0.7), (SCREEN_HEIGHT * 0.4208) + statusBarHeight, width * 0.0846, SCREEN_HEIGHT * 0.0175)
 
-//button3 -- reet
-//#define clearButtonFrame CGRectMake(SCREEN_WIDTH * 0.6757, (SCREEN_HEIGHT * 0.81) + statusBarHeight, SCREEN_WIDTH * 0.07926, SCREEN_HEIGHT * 0.06)
+//#define enemyLabelFrame CGRectMake((width * 0.7077), (SCREEN_HEIGHT * 0.498) + statusBarHeight, width * 0.0734, SCREEN_HEIGHT * 0.01699)
 
-//button4 -- submit
-//#define submitButtonFrame CGRectMake(SCREEN_WIDTH * 0.7739, (SCREEN_HEIGHT * 0.81) + statusBarHeight, SCREEN_WIDTH * 0.07926, SCREEN_HEIGHT * 0.06)
+//#define dateTextFrame CGRectMake(width* 0.0562, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, width * 0.1125, SCREEN_HEIGHT * 0.01818)
 
-//WIA KIA drop down labels
-//woundedText
-//#define woundedLabelFrame CGRectMake((SCREEN_WIDTH * 0.5377), (SCREEN_HEIGHT * 0.2975) + statusBarHeight, 100, 25)
+//#define categoryTextFrame CGRectMake(width * 0.2432, (SCREEN_HEIGHT * 0.7126) + statusBarHeight, width * 0.5941, SCREEN_HEIGHT * 0.01818)
 
-//killedText
-//#define killedLabelFrame CGRectMake((SCREEN_WIDTH * 0.76335), (SCREEN_HEIGHT * 0.2975) + statusBarHeight, 100, 25)
+//#define typeTextFrame CGRectMake(width * 0.2432, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, width * 0.2746, SCREEN_HEIGHT * 0.01818)
 
-//FriendlyText
-//#define friendlyLabelFrame CGRectMake((SCREEN_WIDTH * 0.6476), (SCREEN_HEIGHT * 0.335) + statusBarHeight, SCREEN_WIDTH * 0.1, SCREEN_HEIGHT * 0.03)
+//#define regionTextFrame CGRectMake(width * 0.5538, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, width * 0.2229, SCREEN_HEIGHT * 0.025)
 
-//CivilianText
-//#define civilianLabelFrame CGRectMake((SCREEN_WIDTH * 0.6492), (SCREEN_HEIGHT * 0.412) + statusBarHeight, SCREEN_WIDTH * 0.1, SCREEN_HEIGHT * 0.03)
+//#define attackOnTextFrame CGRectMake(width * 0.8168, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, width * 0.15, SCREEN_HEIGHT * 0.025)
 
-//EnemyText
-//#define enemyLabelFrame CGRectMake((SCREEN_WIDTH * 0.653), (SCREEN_HEIGHT * 0.489) + statusBarHeight, SCREEN_WIDTH * 0.1, SCREEN_HEIGHT * 0.03)
+//#define timeTextFrame CGRectMake(width * 0.0562, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.1347, SCREEN_HEIGHT * 0.01818)
 
-//infoBox query results
-//dateText
-//#define dateTextFrame CGRectMake(SCREEN_WIDTH * 0.1655, (SCREEN_HEIGHT * 0.67) + statusBarHeight, SCREEN_WIDTH * 0.2, SCREEN_HEIGHT * 0.019)
+//#define friendlyTextFrame1 CGRectMake(width * 0.235, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)
+//#define friendlyTextFrame2 CGRectMake(width * 0.25, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)
 
-//CategoryText
-//#define categoryTextFrame CGRectMake(SCREEN_WIDTH * 0.3057, (SCREEN_HEIGHT * 0.7132) + statusBarHeight, SCREEN_WIDTH * 0.4, SCREEN_HEIGHT * 0.019)
+//#define civilianTextFrame1 CGRectMake(width * 0.42, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)
+//#define civilianTextFrame2 CGRectMake(width* 0.44, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)
 
-//TypeText
-//#define typeTextFrame CGRectMake(SCREEN_WIDTH * 0.3057, (SCREEN_HEIGHT * 0.67) + statusBarHeight, SCREEN_WIDTH * 0.2, SCREEN_HEIGHT * 0.019)
-
-//RegionText
-//#define regionTextFrame CGRectMake(SCREEN_WIDTH * 0.54, (SCREEN_HEIGHT * 0.67) + statusBarHeight, SCREEN_WIDTH * 0.2, SCREEN_HEIGHT * 0.019)
-
-//AttackOnText
-//#define attackOnTextFrame CGRectMake(SCREEN_WIDTH * 0.7383, (SCREEN_HEIGHT * 0.67) + statusBarHeight, SCREEN_WIDTH * 0.2, SCREEN_HEIGHT * 0.019)
-
-//TimeText
-//#define timeTextFrame CGRectMake(SCREEN_WIDTH * 0.1655, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.2, SCREEN_HEIGHT * 0.019)
-
-//friendlyText1
-//#define friendlyTextFrame1 CGRectMake(SCREEN_WIDTH * 0.3067, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
-//friendlyText2
-//#define friendlyTextFrame2 CGRectMake(SCREEN_WIDTH * 0.3522, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
-
-//civilianText1
-//#define civilianTextFrame1 CGRectMake(SCREEN_WIDTH * 0.4477, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
-//civilianText2
-//#define civilianTextFrame2 CGRectMake(SCREEN_WIDTH * 0.5023, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
-
-//enemyText1
-//#define enemyTextFrame1 CGRectMake(SCREEN_WIDTH * 0.5883, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
-//enemyText2
-//#define enemyTextFrame2 CGRectMake(SCREEN_WIDTH * 0.6338, (SCREEN_HEIGHT * 0.761) + statusBarHeight, SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.019)
-
-//#define stdFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:19]
-#define typeTrayFrame CGRectMake(kWidth * 0.025, (SCREEN_HEIGHT * 0.015) + statusBarHeight, kWidth * stdWidth, SCREEN_HEIGHT * stdHeight)
-#define typeExtendedFrame CGRectMake(kWidth * 0.025, (SCREEN_HEIGHT * 0.015) + statusBarHeight, kWidth * 0.95, SCREEN_HEIGHT * stdHeight)
-
-#define categoryTrayFrame CGRectMake(kWidth * 0.025, (SCREEN_HEIGHT * 0.29) + statusBarHeight, kWidth * stdWidth, SCREEN_HEIGHT * stdHeight)
-
-#define attackOnTrayFrame CGRectMake(kWidth* 0.5125, (SCREEN_HEIGHT * 0.015) + statusBarHeight, kWidth * stdWidth, SCREEN_HEIGHT * 0.1225)
-
-#define regionTrayFrame CGRectMake(kWidth * 0.5125, (SCREEN_HEIGHT * 0.1525) + statusBarHeight, kWidth * stdWidth, SCREEN_HEIGHT * 0.1225)
-
-#define fwiaTrayFrame CGRectMake(kWidth* 0.5125, (SCREEN_HEIGHT * 0.32) + statusBarHeight, kWidth * 0.177, SCREEN_HEIGHT * 0.065)
-
-#define cwiaTrayFrame CGRectMake(kWidth * 0.5125, (SCREEN_HEIGHT * 0.397) + statusBarHeight, kWidth * 0.177, SCREEN_HEIGHT * 0.065)
-
-#define ewiaTrayFrame CGRectMake(kWidth* 0.5125, (SCREEN_HEIGHT * 0.474) + statusBarHeight, kWidth * 0.177, SCREEN_HEIGHT * 0.065)
-
-#define fkiaTrayFrame CGRectMake(kWidth * 0.7975, (SCREEN_HEIGHT * 0.32) + statusBarHeight, kWidth * 0.177, SCREEN_HEIGHT * 0.065)
-
-#define ckiaTrayFrame CGRectMake(kWidth* 0.7975, (SCREEN_HEIGHT * 0.397) + statusBarHeight, kWidth * 0.177, SCREEN_HEIGHT * 0.065)
-
-#define ekiaTrayFrame CGRectMake(kWidth * 0.7975, (SCREEN_HEIGHT * 0.474) + statusBarHeight, kWidth * 0.177, SCREEN_HEIGHT * 0.065)
-
-#define iconTrayLabelFrame CGRectMake((kWidth * 0.025), (SCREEN_HEIGHT * 0.015), 42, 18)
-#define textBoxFrame CGRectMake(kWidth* 0.025, (SCREEN_HEIGHT * 0.6325) + statusBarHeight, kWidth * 0.95, SCREEN_HEIGHT * 0.1625)
-
-#define resultImageFrame CGRectMake(kWidth * 0.4626, (SCREEN_HEIGHT * 0.8316) + statusBarHeight, kWidth * 0.076, SCREEN_HEIGHT * 0.03765)
-
-#define properQueryImageFrame CGRectMake(kWidth* 0.025, (SCREEN_HEIGHT * 0.5650) + statusBarHeight, kWidth * 0.95, SCREEN_HEIGHT * 0.0525)
-
-#define prevRecordButtonFrame CGRectMake(kWidth * 0.025, (SCREEN_HEIGHT * 0.81) + statusBarHeight, kWidth * 0.1066, SCREEN_HEIGHT * 0.06)
-
-#define nextRecordButtonFrame CGRectMake(kWidth* .1566, (SCREEN_HEIGHT * 0.81) + statusBarHeight, kWidth * 0.1066, SCREEN_HEIGHT * 0.06)
-
-#define clearButtonFrame CGRectMake(kWidth* 0.7298, (SCREEN_HEIGHT * 0.81) + statusBarHeight, kWidth * 0.1066, SCREEN_HEIGHT * 0.06)
-
-#define submitButtonFrame CGRectMake(kWidth * 0.8614, (SCREEN_HEIGHT * 0.81) + statusBarHeight, kWidth * 0.1066, SCREEN_HEIGHT * 0.06)
-
-#define woundedLabelFrame CGRectMake(kWidth * 0.5502, (SCREEN_HEIGHT * 0.2975) + statusBarHeight, kWidth * 0.1021, SCREEN_HEIGHT * 0.0139)
-
-#define killedLabelFrame CGRectMake((kWidth * 0.8544), (SCREEN_HEIGHT * 0.2975) + statusBarHeight, kWidth * 0.0605, SCREEN_HEIGHT * 0.0139)
-
-#define friendlyLabelFrame CGRectMake((kWidth * 0.7), (SCREEN_HEIGHT * 0.3438) + statusBarHeight, kWidth * 0.0605, SCREEN_HEIGHT * 0.0175)
-
-#define civilianLabelFrame CGRectMake((kWidth* 0.7), (SCREEN_HEIGHT * 0.4208) + statusBarHeight, kWidth * 0.0846, SCREEN_HEIGHT * 0.0175)
-
-#define enemyLabelFrame CGRectMake((kWidth * 0.7077), (SCREEN_HEIGHT * 0.498) + statusBarHeight, kWidth * 0.0734, SCREEN_HEIGHT * 0.01699)
-
-#define dateTextFrame CGRectMake(kWidth* 0.0562, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, kWidth * 0.1125, SCREEN_HEIGHT * 0.01818)
-
-#define categoryTextFrame CGRectMake(kWidth * 0.2432, (SCREEN_HEIGHT * 0.7126) + statusBarHeight, kWidth * 0.5941, SCREEN_HEIGHT * 0.01818)
-
-#define typeTextFrame CGRectMake(kWidth * 0.2432, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, kWidth * 0.2746, SCREEN_HEIGHT * 0.01818)
-
-#define regionTextFrame CGRectMake(kWidth * 0.5538, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, kWidth * 0.2229, SCREEN_HEIGHT * 0.025)
-
-#define attackOnTextFrame CGRectMake(kWidth * 0.8168, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, kWidth * 0.15, SCREEN_HEIGHT * 0.025)
-
-#define timeTextFrame CGRectMake(kWidth * 0.0562, (SCREEN_HEIGHT * 0.761) + statusBarHeight, kWidth * 0.1347, SCREEN_HEIGHT * 0.01818)
-
-#define friendlyTextFrame1 CGRectMake(kWidth * 0.235, (SCREEN_HEIGHT * 0.761) + statusBarHeight, kWidth * 0.0688, SCREEN_HEIGHT * 0.01818)
-#define friendlyTextFrame2 CGRectMake(kWidth * 0.25, (SCREEN_HEIGHT * 0.761) + statusBarHeight, kWidth * 0.0688, SCREEN_HEIGHT * 0.01818)
-
-#define civilianTextFrame1 CGRectMake(kWidth * 0.42, (SCREEN_HEIGHT * 0.761) + statusBarHeight, kWidth * 0.0688, SCREEN_HEIGHT * 0.01818)
-#define civilianTextFrame2 CGRectMake(kWidth* 0.44, (SCREEN_HEIGHT * 0.761) + statusBarHeight, kWidth * 0.0688, SCREEN_HEIGHT * 0.01818)
-
-#define enemyTextFrame1 CGRectMake(kWidth * 0.61, (SCREEN_HEIGHT * 0.761) + statusBarHeight, kWidth * 0.0688, SCREEN_HEIGHT * 0.01818)
-#define enemyTextFrame2 CGRectMake(kWidth * 0.63, (SCREEN_HEIGHT * 0.761) + statusBarHeight, kWidth * 0.0688, SCREEN_HEIGHT * 0.01818)
+//#define enemyTextFrame1 CGRectMake(width * 0.61, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)
+//#define enemyTextFrame2 CGRectMake(width * 0.63, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)
 
 #define stdFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10.8]
 #define titleFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:24]

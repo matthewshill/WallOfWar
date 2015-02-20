@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //[self.view setBackgroundColor:[UIColor colorWithRed:(248.0/255.0) green:(244.0/255.0) blue:(219.0/255.0) alpha:1.0]];
+    [self.view setBackgroundColor:[UIColor colorWithRed:(248.0/255.0) green:(244.0/255.0) blue:(219.0/255.0) alpha:1.0]];
     self.aboutView = [AboutView new];
     if (self.view.bounds.size.width > 415) {
         self.aboutView.frame = CGRectMake(96.0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
