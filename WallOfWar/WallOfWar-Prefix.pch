@@ -96,7 +96,7 @@
 
 #define stdFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:10.8]
 #define titleFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:24]
-
+#define aboutFont [UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:21]
 
 
 // Include any system framework and library headers here that should be included in all compilation units.

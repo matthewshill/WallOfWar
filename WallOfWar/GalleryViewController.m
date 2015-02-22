@@ -10,7 +10,12 @@
 
 @interface GalleryViewController (){
     NSMutableArray *icons;
+    int width;
+    int typesize;
+    int leftmargin;
+    int textsmall;
 }
+
 @end
 
 @implementation GalleryViewController
@@ -30,10 +35,26 @@
 }
 
 -(void)setup{
-    
+
+        if (IS_IPad) {
+            width = 575;
+            typesize = 21;
+            leftmargin = 96;
+            textsmall = 5;
+            
+        }
+        if (IS_IPhone) {
+            width = SCREEN_WIDTH;
+            typesize = 10.8;
+            leftmargin = 0;
+            textsmall = 0;
+        
+            
+        }
+
     //setup flowlayout
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
-    [flow setItemSize:CGSizeMake(SCREEN_WIDTH * .16, SCREEN_HEIGHT * .09)];
+    [flow setItemSize:CGSizeMake(width * .16, SCREEN_HEIGHT * .09)];
     [flow setMinimumLineSpacing:10.0f];
     [flow setMinimumInteritemSpacing:SCREEN_WIDTH *0.32];
     [flow setScrollDirection:UICollectionViewScrollDirectionVertical];
@@ -97,7 +118,7 @@
     return cell;
 }
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(SCREEN_HEIGHT * .025,SCREEN_WIDTH *0.025,0,SCREEN_WIDTH * 0.32);
+    return UIEdgeInsetsMake(SCREEN_HEIGHT * .05,SCREEN_WIDTH *0.025,0,SCREEN_WIDTH * 0.32);
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
     UICollectionReusableView *reusableView = nil;
@@ -109,7 +130,7 @@
         }
         
         UIImage *headerImage = [UIImage imageNamed:@"galleryheader.png"];
-        UIImageView *headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.0967)];
+        UIImageView *headerView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 5, width, SCREEN_HEIGHT * 0.0967)];
         headerView.image = headerImage;
         [reusableView addSubview:headerView];
         return reusableView;
@@ -137,7 +158,7 @@
     label.lineBreakMode = NSLineBreakByWordWrapping;
     label.numberOfLines = 2;
     label.text = text;
-    label.font = [label.font fontWithSize:10.8];
+    label.font = [label.font fontWithSize:typesize];
     [[cell contentView] addSubview:label];
     
     return cell;

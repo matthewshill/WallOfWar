@@ -32,15 +32,21 @@
     //body
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"wow" ofType:@"txt"];
     NSError *error;
-    NSLog(@"file path: %@", filePath);
     NSString *fileContents = [NSString stringWithContentsOfFile:filePath encoding:NSASCIIStringEncoding error:&error];
-    NSAttributedString *text = [[NSAttributedString alloc] initWithString:fileContents
-                                                               attributes:@{NSFontAttributeName:stdFont}];
+    NSAttributedString *text;
+    if (IS_IPhone) {
+        text = [[NSAttributedString alloc] initWithString:fileContents
+                                                                   attributes:@{NSFontAttributeName:stdFont}];
+    }
+    else{
+        text = [[NSAttributedString alloc] initWithString:fileContents
+                                               attributes:@{NSFontAttributeName:aboutFont}];
+    }
     NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString:text];
     NSLayoutManager *textLayout = [[NSLayoutManager alloc] init];
     //add layout manager to text storage object
     [textStorage addLayoutManager:textLayout];
-    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:CGSizeMake(320, 640)];
+    NSTextContainer *textContainer = [[NSTextContainer alloc] initWithSize:CGSizeMake(320, 720)];
     //add text view container to layout
     [textLayout addTextContainer:textContainer];
     //UITextView object using text container

@@ -64,7 +64,7 @@ bool wOkEnabled = false;
 int width;
 int typesize;
 int leftmargin;
-
+int textsmall;
 
 
 - (void)viewDidLoad {
@@ -92,12 +92,14 @@ int leftmargin;
         width = 575;
         typesize = 21;
         leftmargin = 96;
+        textsmall = 5;
         
     }
     if (IS_IPhone) {
         width = SCREEN_WIDTH;
         typesize = 10.8;
         leftmargin = 0;
+        textsmall = 0;
         
         
     }
@@ -144,7 +146,7 @@ int leftmargin;
     _categoryIconTray.layer.borderWidth = iconTrayBorderWidth;
     [self.view addSubview:_categoryIconTray];
     
-    _categoryIconTrayLabel = [[UILabel alloc] initWithFrame:CGRectMake((width * 0.025), (SCREEN_HEIGHT * 0.015), 42, 18)];//iconTrayLabelFrame];
+    _categoryIconTrayLabel = [[UILabel alloc] initWithFrame:CGRectMake((width * 0.025), (SCREEN_HEIGHT * 0.015), 100, 18)];//iconTrayLabelFrame];
     [_categoryIconTrayLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];//stdFont];
     _categoryIconTrayLabel.textColor = iconTrayLabelColor;
     [_categoryIconTrayLabel setText:@"CATEGORY"];
@@ -155,7 +157,7 @@ int leftmargin;
     _attackOnIconTray.layer.borderWidth = iconTrayBorderWidth;
     [self.view addSubview:_attackOnIconTray];
     
-    _attackOnIconTrayLabel = [[UILabel alloc] initWithFrame:CGRectMake((width * 0.025), (SCREEN_HEIGHT * 0.015), 42, 18)];//iconTrayLabelFrame];
+    _attackOnIconTrayLabel = [[UILabel alloc] initWithFrame:CGRectMake((width * 0.025), (SCREEN_HEIGHT * 0.015), 100, 18)];//iconTrayLabelFrame];
     [_attackOnIconTrayLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];//stdFont];
     _attackOnIconTrayLabel.textColor = iconTrayLabelColor;
     [_attackOnIconTrayLabel setText:@"ATTACK ON"];
@@ -166,7 +168,7 @@ int leftmargin;
     _regionIconTray.layer.borderWidth = iconTrayBorderWidth;
     [self.view addSubview:_regionIconTray];
     
-    _regionIconTrayLabel = [[UILabel alloc] initWithFrame:CGRectMake((width * 0.025), (SCREEN_HEIGHT * 0.015), 42, 18)];//iconTrayLabelFrame];
+    _regionIconTrayLabel = [[UILabel alloc] initWithFrame:CGRectMake((width * 0.025), (SCREEN_HEIGHT * 0.015), 100, 18)];//iconTrayLabelFrame];
     [_regionIconTrayLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];//stdFont];
     _regionIconTrayLabel.textColor = iconTrayLabelColor;
     [_regionIconTrayLabel setText:@"REGION"];
@@ -202,32 +204,32 @@ int leftmargin;
     _ckiaIconTray.layer.borderColor = iconTrayBorderColor;
     [self.view addSubview:_ckiaIconTray];
     
-    _woundedLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.5502, (SCREEN_HEIGHT * 0.2975) + statusBarHeight, width * 0.1021, SCREEN_HEIGHT * 0.0139)];//woundedLabelFrame];
+    _woundedLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.5502, (SCREEN_HEIGHT * 0.2975) + statusBarHeight, width * 0.2, SCREEN_HEIGHT * 0.02)];//woundedLabelFrame];
     [_woundedLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];//stdFont];
     _woundedLabel.textColor = iconTrayLabelColor;
     [_woundedLabel setText:@"Wounded"];
     [self.view addSubview:_woundedLabel];
     
-    _killedLabel = [[UILabel alloc] initWithFrame:CGRectMake((width * 0.8544), (SCREEN_HEIGHT * 0.2975) + statusBarHeight, width * 0.0605, SCREEN_HEIGHT * 0.0139)];//killedLabelFrame];
+    _killedLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + (width * 0.8544), (SCREEN_HEIGHT * 0.2975) + statusBarHeight, width * 0.2, SCREEN_HEIGHT * 0.02)];//killedLabelFrame];
     [_killedLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];//stdFont];
     _killedLabel.textColor = iconTrayLabelColor;
     [_killedLabel setText:@"Killed"];
     [self.view addSubview:_killedLabel];
     
-    _enemyLabel = [[UILabel alloc] initWithFrame:CGRectMake((width * 0.7077), (SCREEN_HEIGHT * 0.498) + statusBarHeight, width * 0.0734, SCREEN_HEIGHT * 0.01699)];//enemyLabelFrame];
-    [_enemyLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];//stdFont];
+    _enemyLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + (width * 0.7077), (SCREEN_HEIGHT * 0.498) + statusBarHeight, width * 0.0734, SCREEN_HEIGHT * 0.01699)];//enemyLabelFrame];
+    [_enemyLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:(typesize - textsmall)]];//stdFont];
     _enemyLabel.textColor = iconTrayLabelColor;
     [_enemyLabel setText:@"Enemy"];
     [self.view addSubview:_enemyLabel];
     
-    _civilianLabel = [[UILabel alloc] initWithFrame:CGRectMake((width* 0.7), (SCREEN_HEIGHT * 0.4208) + statusBarHeight, width * 0.0846, SCREEN_HEIGHT * 0.0175)];//civilianLabelFrame];
-    [_civilianLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];//stdFont];
+    _civilianLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + (width* 0.7), (SCREEN_HEIGHT * 0.4208) + statusBarHeight, width * 0.0846, SCREEN_HEIGHT * 0.0175)];//civilianLabelFrame];
+    [_civilianLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize - textsmall]];//stdFont];
     _civilianLabel.textColor = iconTrayLabelColor;
     [_civilianLabel setText:@"Civilian"];
     [self.view addSubview:_civilianLabel];
     
-    _friendlyLabel = [[UILabel alloc] initWithFrame:CGRectMake((width * 0.7), (SCREEN_HEIGHT * 0.3438) + statusBarHeight, width * 0.0605, SCREEN_HEIGHT * 0.0175)];//friendlyLabelFrame];
-    [_friendlyLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];//stdFont];
+    _friendlyLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + (width * 0.7), (SCREEN_HEIGHT * 0.3438) + statusBarHeight, width * 0.1, SCREEN_HEIGHT * 0.025)];//friendlyLabelFrame];
+    [_friendlyLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:(typesize - textsmall)]];//stdFont];
     _friendlyLabel.textColor = iconTrayLabelColor;
     [_friendlyLabel setText:@"Friendly"];
     [self.view addSubview:_friendlyLabel];
@@ -282,74 +284,74 @@ int leftmargin;
     _properQueryImage.hidden = TRUE;
     [self.view addSubview:_properQueryImage];
     
-    _currRec = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.4755, (SCREEN_HEIGHT * 0.8138) + statusBarHeight, 100, 100)];
-    [_currRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    _currRec = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.4655, (SCREEN_HEIGHT * 0.851) + statusBarHeight, width * 0.1347, SCREEN_HEIGHT * 0.01818)];
+    [_currRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _currRec.textColor = [UIColor blackColor];
     [self.view addSubview:_currRec];
     
-    _totalRec = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.5025, ((SCREEN_HEIGHT * 0.8138) + statusBarHeight) - 0.008, 100, 100)];
-    [_totalRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    _totalRec = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.515, ((SCREEN_HEIGHT * 0.851) + statusBarHeight) - 0.008, width * 0.1347, SCREEN_HEIGHT * 0.01818)];
+    [_totalRec setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _totalRec.textColor = [UIColor blackColor];
     //_totalRec.text = @"2";
     [self.view addSubview:_totalRec];
     
-    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width* 0.0562, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, width * 0.1125, SCREEN_HEIGHT * 0.01818)];//dateTextFrame];
-    [_dateLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width* 0.0562, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, width * 0.2, SCREEN_HEIGHT * 0.01818)];//dateTextFrame];
+    [_dateLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _dateLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_dateLabel];
     
     _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.0562, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.1347, SCREEN_HEIGHT * 0.01818)];//timeTextFrame];
-    [_timeLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    [_timeLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _timeLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_timeLabel];
     
     _typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.2432, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, width * 0.2746, SCREEN_HEIGHT * 0.01818)];//typeTextFrame];
-    [_typeLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    [_typeLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _typeLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_typeLabel];
     
     _categoryLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.2432, (SCREEN_HEIGHT * 0.7126) + statusBarHeight, width * 0.5941, SCREEN_HEIGHT * 0.01818)];//categoryTextFrame];
-    [_categoryLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    [_categoryLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _categoryLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_categoryLabel];
     
     _regionLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.5538, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, width * 0.2229, SCREEN_HEIGHT * 0.025)];//regionTextFrame];
-    [_regionLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    [_regionLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _regionLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_regionLabel];
     
     _attackLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.8168, (SCREEN_HEIGHT * 0.6655) + statusBarHeight, width * 0.15, SCREEN_HEIGHT * 0.025)];//attackOnTextFrame];
-    [_attackLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    [_attackLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _attackLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_attackLabel];
     
-    _friendlyResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.235, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//friendlyTextFrame1];
-    [_friendlyResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    _friendlyResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.24, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//friendlyTextFrame1];
+    [_friendlyResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _friendlyResultLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_friendlyResultLabel];
     
-    _friendlyResultLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.25, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//friendlyTextFrame2];
-    [_friendlyResultLabel2 setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    _friendlyResultLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.30, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//friendlyTextFrame2];
+    [_friendlyResultLabel2 setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _friendlyResultLabel2.textColor = [UIColor blackColor];
     [self.view addSubview:_friendlyResultLabel2];
     
-    _civilianResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.42, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//civilianTextFrame1];
-    [_civilianResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    _civilianResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.43, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//civilianTextFrame1];
+    [_civilianResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _civilianResultLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_civilianResultLabel];
     
-    _civilianResultLabel2 = [[UILabel alloc] initWithFrame: CGRectMake(leftmargin + width* 0.44, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//civilianTextFrame2];
-    [_civilianResultLabel2 setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    _civilianResultLabel2 = [[UILabel alloc] initWithFrame: CGRectMake(leftmargin + width* 0.49, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//civilianTextFrame2];
+    [_civilianResultLabel2 setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _civilianResultLabel2.textColor = [UIColor blackColor];
     [self.view addSubview:_civilianResultLabel2];
     
-    _enemyResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.61, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//enemyTextFrame1];
-    [_enemyResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    _enemyResultLabel = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.615, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//enemyTextFrame1];
+    [_enemyResultLabel setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _enemyResultLabel.textColor = [UIColor blackColor];
     [self.view addSubview:_enemyResultLabel];
     
-    _enemyResultLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.61, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//enemyTextFrame2];
-    [_enemyResultLabel2 setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:resultFontSize]];
+    _enemyResultLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(leftmargin + width * 0.675, (SCREEN_HEIGHT * 0.761) + statusBarHeight, width * 0.0688, SCREEN_HEIGHT * 0.01818)];//enemyTextFrame2];
+    [_enemyResultLabel2 setFont:[UIFont fontWithName:@"TradeGothicLT-CondEighteen" size:typesize]];
     _enemyResultLabel2.textColor = [UIColor blackColor];
     [self.view addSubview:_enemyResultLabel2];
 
@@ -798,7 +800,7 @@ int leftmargin;
     currWokArray = [[NSMutableArray alloc] init];
     UIImageView *icon;
     for (int i=0; i<5; i++) {
-        CGRect iconFrame = CGRectMake(wOkView.frame.origin.x, (wOkView.frame.origin.y - (SCREEN_HEIGHT *0.02) + (SCREEN_HEIGHT * (0.0438 * i))) + statusBarHeight, SCREEN_WIDTH * 0.1316, SCREEN_HEIGHT * 0.0438);
+        CGRect iconFrame = CGRectMake(wOkView.frame.origin.x, (wOkView.frame.origin.y - (SCREEN_HEIGHT *0.03) + (SCREEN_HEIGHT * (0.042 * i))) + statusBarHeight, width * 0.173, SCREEN_HEIGHT * 0.042);
         icon = [[UIImageView alloc] initWithFrame:iconFrame];
         [icon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"Wok%u", i+1]]];
         [self.view addSubview:icon];
@@ -1040,7 +1042,7 @@ int leftmargin;
 }
 -(void)setAttackIcon{
     //CGRect frame = CGRectMake(leftmargin + width * 0.5572, SCREEN_HEIGHT * 0.0708 + statusBarHeight, width * 0.18375, SCREEN_HEIGHT * 0.0657);
-    CGRect frame = CGRectMake(leftmargin + width * 0.5125, SCREEN_HEIGHT * 0.0608 + statusBarHeight, width * 0.244, SCREEN_HEIGHT * 0.0657);
+    CGRect frame = CGRectMake(leftmargin + width * 0.68, SCREEN_HEIGHT * 0.0608 + statusBarHeight, width * 0.244, SCREEN_HEIGHT * 0.0657);
     
     selectedAttackIcon = [[UIImageView alloc] initWithFrame:frame];
     [selectedAttackIcon setImage:[UIImage imageNamed:[NSString stringWithFormat:@"Attack_%@.png", attackOn]]];

@@ -129,6 +129,7 @@
 		5C784F7019FFEFD600F87E7E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5C784F6E19FFEFD600F87E7E /* LaunchScreen.xib */; };
 		5C784F7C19FFEFD600F87E7E /* WallOfWarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C784F7B19FFEFD600F87E7E /* WallOfWarTests.m */; };
 		5C784F9819FFF74300F87E7E /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C784F9719FFF74300F87E7E /* libsqlite3.dylib */; };
+		5C84A6B01A9A8AEB007DBCBD /* DecoderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C84A6AF1A9A8AEB007DBCBD /* DecoderViewController.m */; };
 		5CA0EA771A2D4C160040A22F /* Next.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA0EA731A2D4C160040A22F /* Next.png */; };
 		5CA0EA781A2D4C160040A22F /* Previous.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA0EA741A2D4C160040A22F /* Previous.png */; };
 		5CA0EA791A2D4C160040A22F /* Reset.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA0EA751A2D4C160040A22F /* Reset.png */; };
@@ -139,7 +140,6 @@
 		5CA30BB51A1B05A400DA75B6 /* TextBox2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CA30BB31A1B05A400DA75B6 /* TextBox2.png */; };
 		5CA90E9A1A5DCBF6002DF8CE /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CA90E991A5DCBF6002DF8CE /* AboutViewController.m */; };
 		5CE41DDE1A97BD8900581A1E /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE41DDC1A97BD8900581A1E /* GalleryViewController.m */; };
-		5CE41DE01A97C7EA00581A1E /* DecoderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE41DDF1A97C7EA00581A1E /* DecoderViewController.m */; };
 		5CE7E00F1A7C2DC200048A50 /* galleryheader.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CE7E00D1A7C2DC200048A50 /* galleryheader.png */; };
 		5CE7E0101A7C2DC200048A50 /* galleryheader@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CE7E00E1A7C2DC200048A50 /* galleryheader@2x.png */; };
 		5CEA8BB31A8D3AFD00FC90DE /* AboutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CEA8BB21A8D3AFD00FC90DE /* AboutView.m */; };
@@ -418,6 +418,7 @@
 		5C784F7A19FFEFD600F87E7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C784F7B19FFEFD600F87E7E /* WallOfWarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WallOfWarTests.m; sourceTree = "<group>"; };
 		5C784F9719FFF74300F87E7E /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		5C84A6AF1A9A8AEB007DBCBD /* DecoderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecoderViewController.m; sourceTree = "<group>"; };
 		5CA0EA731A2D4C160040A22F /* Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next.png; sourceTree = "<group>"; };
 		5CA0EA741A2D4C160040A22F /* Previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Previous.png; sourceTree = "<group>"; };
 		5CA0EA751A2D4C160040A22F /* Reset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Reset.png; sourceTree = "<group>"; };
@@ -432,7 +433,6 @@
 		5CE41DD91A97BD8900581A1E /* DecoderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecoderViewController.h; sourceTree = "<group>"; };
 		5CE41DDB1A97BD8900581A1E /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
 		5CE41DDC1A97BD8900581A1E /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
-		5CE41DDF1A97C7EA00581A1E /* DecoderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecoderViewController.m; sourceTree = "<group>"; };
 		5CE7E00D1A7C2DC200048A50 /* galleryheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = galleryheader.png; sourceTree = "<group>"; };
 		5CE7E00E1A7C2DC200048A50 /* galleryheader@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "galleryheader@2x.png"; sourceTree = "<group>"; };
 		5CEA8BB11A8D3AFD00FC90DE /* AboutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutView.h; sourceTree = "<group>"; };
@@ -683,7 +683,7 @@
 				5C784F6319FFEFD600F87E7E /* AppDelegate.h */,
 				5C784F6419FFEFD600F87E7E /* AppDelegate.m */,
 				5CE41DD91A97BD8900581A1E /* DecoderViewController.h */,
-				5CE41DDF1A97C7EA00581A1E /* DecoderViewController.m */,
+				5C84A6AF1A9A8AEB007DBCBD /* DecoderViewController.m */,
 				5CE41DDB1A97BD8900581A1E /* GalleryViewController.h */,
 				5CE41DDC1A97BD8900581A1E /* GalleryViewController.m */,
 				5C784F6919FFEFD600F87E7E /* Main.storyboard */,
@@ -1358,7 +1358,7 @@
 				5C784F6519FFEFD600F87E7E /* AppDelegate.m in Sources */,
 				5CA90E9A1A5DCBF6002DF8CE /* AboutViewController.m in Sources */,
 				5C784F6219FFEFD600F87E7E /* main.m in Sources */,
-				5CE41DE01A97C7EA00581A1E /* DecoderViewController.m in Sources */,
+				5C84A6B01A9A8AEB007DBCBD /* DecoderViewController.m in Sources */,
 				5CEA8BB31A8D3AFD00FC90DE /* AboutView.m in Sources */,
 				5CE41DDE1A97BD8900581A1E /* GalleryViewController.m in Sources */,
 			);
